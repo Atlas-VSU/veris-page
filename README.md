@@ -1,36 +1,153 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# VERIS Campus Marketing & Informational Site
 
-## Getting Started
+The official campus-wide marketing and informational web application for **VERIS**, showcasing its core software ecosystem: **CORAL**, **USSC Connect**, **VERIS Student Portal**, and the **E-Passport** campus tour platform. Includes guest bug reporting via email/Firebase.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Tech Stack
+
+- **Framework**: Next.js 16 (App Router), TypeScript
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
+- **Backend / Services**: Firebase SDK (Guest Bug Report submission & future Firestore database)
+- **Architecture**: Feature-Based Architecture (`src/features/`)
+
+---
+
+## Repository Architecture
+
+```text
+src/
+├── app/                        # Next.js App Router (Routes & Layouts)
+│   ├── about/                  # About VERIS route
+│   ├── bug-report/             # Guest Bug Report route
+│   ├── contact/                # Contact route
+│   ├── faq/                    # Frequently Asked Questions route
+│   ├── pricing/                # Subscription Tiers & Pricing route
+│   ├── privacy/                # Privacy Policy route
+│   ├── services/               # Services overview route
+│   ├── terms/                  # Terms of Service route
+│   ├── layout.tsx              # Root layout with global navigation & footer
+│   └── page.tsx                # Home / Landing page route
+├── features/                   # Feature-Based Architecture (FBA)
+│   ├── landing/                # Hero, Call-to-Action, Testimonials, Key Benefits
+│   ├── services/               # Overview, CORAL, USSC Connect, VERIS Systems, E-Passport
+│   ├── pricing/                # Pricing Table, Tiers, Feature Comparison, FAQ
+│   ├── about/                  # Mission, Vision, Team Profiles, Press Mentions
+│   ├── faq/                    # General, Billing, Tech, Account, Security FAQ
+│   ├── contact/                # Contact Form, Department Info, Map Embed
+│   ├── bug-report/             # Guest Bug Reporting (Email / Firebase)
+│   ├── legal/                  # Terms of Service & Privacy Policy
+│   └── shared/                 # Shared UI (Navbar, Footer, Button, Input, Card)
+└── lib/                        # Core Infrastructure & Services
+    └── firebase/               # Firebase SDK client initialization & Firestore services
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Data Model (Firebase / Guest Bug Report)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **`bug_reports` collection**:
+  - `id`: unique submission identifier
+  - `guest_email`: guest contact email
+  - `subject`: brief summary of the issue
+  - `description`: detailed bug description
+  - `category`: `general` | `technical` | `ui_ux` | `billing`
+  - `status`: `pending` | `in_review` | `resolved`
+  - `created_at`: timestamp of submission
 
-## Learn More
+*Note: Guest bug reports operate without account creation for friction-free communication.*
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Core Task Checklist & Progress
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Contributors can claim tasks from the checklist below:
 
-## Deploy on Vercel
+### 1. Home / Landing Page
+- [ ] Hero Section
+- [ ] Navigation Bar
+- [ ] Call to Action Buttons
+- [ ] Footer
+- [ ] Social Links
+- [ ] Testimonials Section
+- [ ] Key Benefits Section
+- [ ] Responsive Design
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 2. Services / What VERIS Does
+- [ ] Service Overview
+- [ ] CORAL System Overview
+- [ ] USSC Connect Integration
+- [ ] VERIS Systems (CORAL Instance)
+- [ ] E-Passport Campus Tour Platform
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 3. Subscription Tiers / Pricing
+- [ ] Pricing Table
+- [ ] Basic Tier Details
+- [ ] Plus Tier Details
+- [ ] Premium Tier Details
+- [ ] Feature Comparison Matrix
+- [ ] Pricing FAQ Section
+
+### 4. About VERIS
+- [ ] Mission Statement
+- [ ] Vision Statement
+- [ ] Team Profiles
+- [ ] Press Mentions
+
+### 5. Frequently Asked Questions (FAQ)
+- [ ] General Questions
+- [ ] Billing Questions
+- [ ] Technical Questions
+- [ ] Account Management
+- [ ] Security Questions
+- [ ] Contact Support Link
+
+### 6. Contact Information
+- [ ] Contact Form
+- [ ] Department Address
+- [ ] Phone Number
+- [ ] Email Address
+- [ ] Google Maps Embed
+
+### 7. Guest Bug Reporting
+- [ ] Guest Bug Report Form (No login required)
+- [ ] Email & Firebase Firestore Sync
+- [ ] Submission Confirmation Feedback
+
+### 8. Legal Pages
+- [ ] **Terms of Service**: Introduction, User Responsibilities, Account Terms, Payment Terms, Cancellation Policy, Modifications, Copyright, General Conditions, Limitation of Liability, Governing Law, Contact Info.
+- [ ] **Privacy Policy**: Information Collection, Usage, Protection, Cookie Policy, Third-Party Disclosure, User Rights, Policy Changes, Contact Info.
+
+---
+
+## Run Locally
+
+### Prerequisites
+- Node.js (v18+ recommended)
+- npm or yarn
+
+### Setup Steps
+1. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+2. **Configure Environment Variables**:
+   Copy `.env.example` to `.env.local`:
+   ```bash
+   cp .env.example .env.local
+   ```
+   Fill in your Firebase project credentials in `.env.local` if testing guest bug report Firestore integration.
+
+3. **Run the Development Server**:
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+4. **Verify Code Quality**:
+   ```bash
+   npm run lint
+   npm run build
+   ```

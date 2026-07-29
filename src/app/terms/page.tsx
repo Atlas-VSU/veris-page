@@ -1,3 +1,9 @@
-export default function Page() {
-  return <p>service Page</p>;
+import { TermsContent } from "@/features/legal";
+
+export default function TermsPage() {
+  return (
+    <div className="py-8">
+      <TermsContent />
+    </div>
+  );
 }

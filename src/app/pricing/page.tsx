@@ -1,3 +1,9 @@
-export default function Page() {
-  return <p>pricing Page</p>;
+import { PricingTable } from "@/features/pricing";
+
+export default function PricingPage() {
+  return (
+    <div className="py-8">
+      <PricingTable />
+    </div>
+  );
 }
