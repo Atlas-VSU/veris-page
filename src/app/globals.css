@@ -1,26 +1,158 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  /* --- 1. Light Mode (Organic Theme) Core Colors --- */
+  --background: #FDFCF8;
+  --foreground: #2C2C24;
+  --card: #FEFEFA;
+  --card-foreground: #2C2C24;
+  --popover: #FEFEFA;
+  --popover-foreground: #2C2C24;
+  --primary: #5D7052;
+  --primary-foreground: #F3F4F1;
+  --secondary: #C18C5D;
+  --secondary-foreground: #FFFFFF;
+  --accent: #E6DCCD;
+  --accent-foreground: #4A4A40;
+  --muted: #F0EBE5;
+  --muted-foreground: #78786C;
+  --border: #DED8CF;
+  --input: #DED8CF;
+  --ring: #5D7052;
+  --destructive: #A85448;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* --- 2. Semantic Status Colors --- */
+  --success: #5D7052;
+  --success-foreground: #F3F4F1;
+  --success-muted: #F0EBE5;
+  --warning: #C18C5D;
+  --warning-foreground: #FFFFFF;
+  --warning-muted: #F0EBE5;
+
+  /* --- 3. Layout & Borders Base --- */
+  --radius: 1.5rem;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
+    /* Keep your existing dark mode variables here, or update when PM provides them */
     --background: #0a0a0a;
     --foreground: #ededed;
   }
 }
 
+@theme inline {
+  /* --- Map CSS Variables to Tailwind v4 Utilities --- */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
+
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-success-muted: var(--success-muted);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-warning-muted: var(--warning-muted);
+
+  /* --- Typography --- */
+  --font-sans: var(--font-nunito), system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), serif;
+
+  /* --- Dynamic Border Radii --- */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* --- Custom Brand Shadows --- */
+  --shadow-soft: 0 4px 20px -2px rgba(93, 112, 82, 0.15);
+  --shadow-float: 0 10px 40px -10px rgba(193, 140, 93, 0.2);
+  --shadow-3xl: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
+
+  /* --- Animations --- */
+  --animate-fade-in: fade-in 0.6s ease-out;
+  --animate-fade-in-up: fade-in-up 0.6s ease-out;
+  --animate-fade-in-left: fade-in-left 0.6s ease-out;
+  --animate-fade-in-right: fade-in-right 0.6s ease-out;
+  --animate-fade-in-slow: fade-in 0.8s ease-out;
+  --animate-page-enter: page-enter 0.3s ease-out;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-delayed: float 6s ease-in-out infinite 2s;
+  --animate-gentle-rotate: gentle-rotate 20s linear infinite;
+
+  /* --- Keyframes (Native to Tailwind v4 @theme block) --- */
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes fade-in-up {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  @keyframes fade-in-left {
+    from { transform: translateX(-8px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  @keyframes fade-in-right {
+    from { transform: translateX(8px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  @keyframes page-enter {
+    from { transform: translateY(6px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  @keyframes gentle-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+}
+
+/* --- Base Body Styling --- */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
 }
+
+/* --- Asymmetric Blob & Organic Shape Utilities --- */
+.blob-shape-1 { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+.blob-shape-2 { border-radius: 50% 50% 30% 70% / 50% 60% 40% 50%; }
+.blob-shape-3 { border-radius: 40% 60% 70% 30% / 40% 50% 50% 60%; }
+
+.organic-card-1 { border-radius: 2rem 4rem 2rem 3rem; }
+.organic-card-2 { border-radius: 3rem 2rem 4rem 2rem; }
+.organic-card-3 { border-radius: 2rem 3rem 2rem 4rem; }
+.organic-card-4 { border-radius: 4rem 2rem 3rem 2rem; }
+.organic-card-5 { border-radius: 3rem 4rem 2rem 2rem; }
+.organic-card-6 { border-radius: 2rem 2rem 4rem 3rem; }
+
+/* --- Staggered Animation Delays --- */
+.animation-delay-100 { animation-delay: 0.1s; }
+.animation-delay-200 { animation-delay: 0.15s; }
+.animation-delay-300 { animation-delay: 0.2s; }
+.animation-delay-400 { animation-delay: 0.25s; }
+.animation-delay-500 { animation-delay: 0.3s; }
+.animation-delay-600 { animation-delay: 0.35s; }
+.animation-delay-700 { animation-delay: 0.4s; }
+.animation-delay-800 { animation-delay: 0.45s; }
+.animation-delay-900 { animation-delay: 0.5s; }
+.animation-delay-1000 { animation-delay: 0.55s; }

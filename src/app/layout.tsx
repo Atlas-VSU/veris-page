@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Nunito, Fraunces } from "next/font/google";
 import "./globals.css";
 import { Navbar, Footer } from "@/features/shared";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Brand Sans-Serif Font
+const nunito = Nunito({
+  variable: "--font-nunito",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+// Brand Serif Font (for editorial/special headings)
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
 });
 
@@ -24,8 +26,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50">
+    <html lang="en" className={`${nunito.variable} ${fraunces.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col">
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
