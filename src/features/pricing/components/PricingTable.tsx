@@ -1,6 +1,4 @@
-import React from "react";
 import { SubscriptionTierCard, SubscriptionTier } from "./SubscriptionTierCard";
-import { Shield, CheckCircle2, HelpCircle } from "lucide-react";
 
 export function PricingTable() {
   const tiers: SubscriptionTier[] = [
