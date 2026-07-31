@@ -9,7 +9,7 @@ The official campus-wide marketing and informational web application for **VERIS
 - **Framework**: Next.js 16 (App Router), TypeScript
 - **Styling**: Tailwind CSS
 - **Icons**: Lucide React
-- **Backend / Services**: Firebase SDK (Guest Bug Report submission & future Firestore database)
+- **Backend / Services**: Supabase (Guest Bug Report submission & dynamic site content)
 - **Architecture**: Feature-Based Architecture (`src/features/`)
 
 ---
