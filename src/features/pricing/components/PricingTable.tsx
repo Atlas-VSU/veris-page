@@ -1,4 +1,5 @@
-import { SubscriptionTierCard, SubscriptionTier } from "./SubscriptionTierCard";
+import { SubscriptionTierCard } from "./SubscriptionTierCard";
+import { SubscriptionTier } from "../types";
 
 export function PricingTable() {
   const tiers: SubscriptionTier[] = [
