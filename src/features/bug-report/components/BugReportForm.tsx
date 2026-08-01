@@ -18,12 +18,22 @@ export function BugReportForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Honeypot check - if filled, it's a bot
     if (honeypot) {
       setFeedback({ type: "success", text: "Bug report submitted successfully! Our team will follow up via email." });
       setFormData({ email: "", subject: "", description: "", category: "general" });
       setHoneypot("");
       return;
+    }
+
+    const lastSubmitTime = localStorage.getItem("lastBugReportTime");
+    if (lastSubmitTime) {
+      const timeSinceLastSubmit = Date.now() - parseInt(lastSubmitTime, 10);
+      const COOLDOWN_MS = 5 * 60 * 1000;
+      if (timeSinceLastSubmit < COOLDOWN_MS) {
+        const minutesLeft = Math.ceil((COOLDOWN_MS - timeSinceLastSubmit) / 60000);
+        setFeedback({ type: "error", text: `Please wait ${minutesLeft} minute(s) before submitting another report.` });
+        return;
+      }
     }
 
     setLoading(true);
@@ -33,6 +43,7 @@ export function BugReportForm() {
     setLoading(false);
 
     if (res.success) {
+      localStorage.setItem("lastBugReportTime", Date.now().toString());
       setFeedback({ type: "success", text: res.message });
       setFormData({ email: "", subject: "", description: "", category: "general" });
     } else {
@@ -47,7 +58,6 @@ export function BugReportForm() {
         <p className="text-xs text-zinc-500 mt-1">No account required. Enter your email so our team can follow up.</p>
       </div>
 
-      {/* Honeypot Field - visually hidden off-screen */}
       <div className="absolute -left-[9999px] opacity-0" aria-hidden="true">
         <label htmlFor="website-url">Website</label>
         <input
