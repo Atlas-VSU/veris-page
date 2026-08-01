@@ -1,20 +1,27 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Nunito, Fraunces, Figtree } from "next/font/google";
 import "./globals.css";
 import { Navbar, Footer } from "@/features/shared";
+import { cn } from "@/lib/utils";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const figtree = Figtree({subsets:['latin'],variable:'--font-sans'});
+
+
+// Brand Sans-Serif Font
+const nunito = Nunito({
+  variable: "--font-nunito",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "VERIS - Campus Ecosystem & Platform",
+  title: "VERIS - Subscription Tiers & Pricing",
   description: "Official marketing and informational site for VERIS campus platforms, CORAL, USSC Connect, and E-Passport.",
 };
 
@@ -24,8 +31,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50">
+    <html lang="en" className={cn("h-full", "antialiased", nunito.variable, fraunces.variable, "font-sans", figtree.variable)}>
+      <body className="min-h-full flex flex-col">
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
