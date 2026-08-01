@@ -13,9 +13,19 @@ export function BugReportForm() {
   });
   const [loading, setLoading] = useState(false);
   const [feedback, setFeedback] = useState<{ type: "success" | "error"; text: string } | null>(null);
+  const [honeypot, setHoneypot] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Honeypot check - if filled, it's a bot
+    if (honeypot) {
+      setFeedback({ type: "success", text: "Bug report submitted successfully! Our team will follow up via email." });
+      setFormData({ email: "", subject: "", description: "", category: "general" });
+      setHoneypot("");
+      return;
+    }
+
     setLoading(true);
     setFeedback(null);
 
@@ -35,6 +45,20 @@ export function BugReportForm() {
       <div>
         <h2 className="text-xl font-bold text-zinc-900 dark:text-white">File a Guest Bug Report</h2>
         <p className="text-xs text-zinc-500 mt-1">No account required. Enter your email so our team can follow up.</p>
+      </div>
+
+      {/* Honeypot Field - visually hidden off-screen */}
+      <div className="absolute -left-[9999px] opacity-0" aria-hidden="true">
+        <label htmlFor="website-url">Website</label>
+        <input
+          type="text"
+          id="website-url"
+          name="website-url"
+          tabIndex={-1}
+          autoComplete="off"
+          value={honeypot}
+          onChange={(e) => setHoneypot(e.target.value)}
+        />
       </div>
 
       {feedback && (
