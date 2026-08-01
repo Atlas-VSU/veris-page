@@ -7,7 +7,7 @@ import { submitGuestBugReport } from "../services/bugReportService";
 export function BugReportForm() {
   const [formData, setFormData] = useState<BugReportInput>({
     email: "",
-    subject: "",
+    title: "",
     description: "",
     category: "general",
   });
@@ -24,7 +24,7 @@ export function BugReportForm() {
 
     if (res.success) {
       setFeedback({ type: "success", text: res.message });
-      setFormData({ email: "", subject: "", description: "", category: "general" });
+      setFormData({ email: "", title: "", description: "", category: "general" });
     } else {
       setFeedback({ type: "error", text: res.message });
     }
@@ -75,8 +75,8 @@ export function BugReportForm() {
           type="text"
           required
           placeholder="Brief summary of the issue..."
-          value={formData.subject}
-          onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+          value={formData.title}
+          onChange={(e) => setFormData({ ...formData, title: e.target.value })}
           className="w-full px-3 py-2 text-sm border rounded-lg bg-zinc-50 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-700 focus:outline-none focus:ring-2 focus:ring-emerald-500"
         />
       </div>
