@@ -1,7 +1,32 @@
 Deno.serve(async (req) => {
-  const { record } = await req.json();
+  let record;
+  try {
+    const body = await req.json();
+    record = body.record;
+  } catch (err) {
+    console.error("Failed to parse request body:", err);
+    return new Response(JSON.stringify({ error: "Invalid request body" }), {
+      status: 400,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+
+  if (!record) {
+    return new Response(JSON.stringify({ error: "Missing record in request" }), {
+      status: 400,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
 
   const { org_name, org_email, requester_name, student_id, tier } = record;
+
+  if (!org_name || !org_email || !requester_name || !student_id || !tier) {
+    console.error("Missing required fields:", record);
+    return new Response(JSON.stringify({ error: "Missing required subscription fields" }), {
+      status: 400,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
 
   const tierColors: Record<string, string> = {
     basic: "#6b7280",
