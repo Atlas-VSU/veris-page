@@ -22,12 +22,7 @@ import {
 } from "@/components/ui/drawer";
 import { cn } from "@/lib/utils";
 import { Layer } from "@hugeicons/core-free-icons";
-
-interface NavLink {
-  name: string;
-  href: string;
-  icon: any;
-}
+import { NavLink } from "../types";
 
 function IconRenderer({ icon, className }: { icon: any; className?: string }) {
   if (!icon) return null;
