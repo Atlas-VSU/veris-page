@@ -13,3 +13,7 @@ export interface SubscriptionTier {
     orgLimit: string;
     organicClass: string;
 }
+
+export interface SubscriptionTierCardProps {
+    tier: SubscriptionTier;
+}

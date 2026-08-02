@@ -1,10 +1,5 @@
-import React from "react";
 import { Check } from "lucide-react";
-import { SubscriptionTier } from "../types";
-
-interface SubscriptionTierCardProps {
-  tier: SubscriptionTier;
-}
+import type { SubscriptionTier, SubscriptionTierCardProps } from "../types";
 
 export function SubscriptionTierCard({ tier }: SubscriptionTierCardProps) {
   const isPlus = tier.id === "plus";
@@ -23,10 +18,10 @@ export function SubscriptionTierCard({ tier }: SubscriptionTierCardProps) {
       {/* Background Accent Blob for visual depth */}
       <div
         className={`absolute -top-10 -right-10 w-36 h-36 rounded-full blur-2xl pointer-events-none opacity-20 transition-opacity group-hover:opacity-40 ${isPremium
-            ? "bg-[#5D7052]"
-            : isPlus
-              ? "bg-[#C18C5D]"
-              : "bg-[#E6DCCD]"
+          ? "bg-[#5D7052]"
+          : isPlus
+            ? "bg-[#C18C5D]"
+            : "bg-[#E6DCCD]"
           }`}
       />
 
@@ -83,10 +78,10 @@ export function SubscriptionTierCard({ tier }: SubscriptionTierCardProps) {
         {tier.subtitle ? (
           <div
             className={`mt-6 pb-2 border-b text-xs font-bold uppercase tracking-wider ${isPremium
-                ? "text-[#C18C5D] border-[#5D7052]/40"
-                : isPlus
-                  ? "text-[#5D7052] border-[#C18C5D]/30"
-                  : "text-[#78786C] border-[#DED8CF]"
+              ? "text-[#C18C5D] border-[#5D7052]/40"
+              : isPlus
+                ? "text-[#5D7052] border-[#C18C5D]/30"
+                : "text-[#78786C] border-[#DED8CF]"
               }`}
           >
             {tier.subtitle}
@@ -103,10 +98,10 @@ export function SubscriptionTierCard({ tier }: SubscriptionTierCardProps) {
             <li key={idx} className="flex items-start gap-2.5 text-xs leading-snug">
               <span
                 className={`flex items-center justify-center w-4.5 h-4.5 rounded-full shrink-0 mt-0.5 ${isPremium
-                    ? "bg-[#5D7052] text-[#F3F4F1]"
-                    : isPlus
-                      ? "bg-[#C18C5D] text-white"
-                      : "bg-[#5D7052]/15 text-[#5D7052]"
+                  ? "bg-[#5D7052] text-[#F3F4F1]"
+                  : isPlus
+                    ? "bg-[#C18C5D] text-white"
+                    : "bg-[#5D7052]/15 text-[#5D7052]"
                   }`}
               >
                 <Check className="w-3 h-3 stroke-[3]" />
