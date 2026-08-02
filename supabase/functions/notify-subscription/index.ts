@@ -1,46 +1,67 @@
-// Follow this setup guide to integrate the Deno language server with your editor:
-// https://deno.land/manual/getting_started/setup_your_environment
-// This enables autocomplete, go to definition, etc.
+Deno.serve(async (req) => {
+  const { record } = await req.json();
 
-// Setup type definitions for built-in Supabase Runtime APIs
-import "@supabase/functions-js/edge-runtime.d.ts";
-import { withSupabase } from "@supabase/server";
+  const { org_name, org_email, requester_name, student_id, tier } = record;
 
-console.log("Hello from Functions!");
+  const tierColors: Record<string, string> = {
+    basic: "#6b7280",
+    plus: "#2563eb",
+    premium: "#7c3aed",
+  };
+  const tierColor = tierColors[tier] || "#6b7280";
 
-// This endpoint uses 'publishable' | 'secret' access, apiKey is required.
-// Use publishable for Client-facing, key-validated endpoints
-// Use secret for Server-to-server, internal calls
-export default {
-  fetch: withSupabase({ auth: ["publishable", "secret"] }, async (req, ctx) => {
-    // Called by another service with a secret key
-    // ctx.supabaseAdmin bypasses RLS — use for privileged operations
-    /*
-    if (ctx.authMode === "secret") {
-      const { user_id } = await req.json();
-      const { data } = await ctx.supabaseAdmin.auth.admin.getUserById(user_id);
+  const emailHtml = `
+    <div style="font-family: Arial, sans-serif; max-width: 480px; margin: 0 auto; padding: 24px; border: 1px solid #e5e7eb; border-radius: 8px;">
+      <h2 style="color: #111827; margin-top: 0;">New Subscription Request</h2>
+      <p style="color: #6b7280; margin-bottom: 24px;">A client has submitted a new subscription form.</p>
 
-      return Response.json({
-        email: data?.user?.email,
-      });
-    }
-    */
+      <table style="width: 100%; border-collapse: collapse;">
+        <tr>
+          <td style="padding: 8px 0; color: #6b7280;">Organization</td>
+          <td style="padding: 8px 0; font-weight: bold; color: #111827;">${org_name}</td>
+        </tr>
+        <tr>
+          <td style="padding: 8px 0; color: #6b7280;">Org Email</td>
+          <td style="padding: 8px 0; color: #111827;">${org_email}</td>
+        </tr>
+        <tr>
+          <td style="padding: 8px 0; color: #6b7280;">Requester</td>
+          <td style="padding: 8px 0; color: #111827;">${requester_name}</td>
+        </tr>
+        <tr>
+          <td style="padding: 8px 0; color: #6b7280;">Student ID</td>
+          <td style="padding: 8px 0; color: #111827;">${student_id}</td>
+        </tr>
+        <tr>
+          <td style="padding: 8px 0; color: #6b7280;">Tier</td>
+          <td style="padding: 8px 0;">
+            <span style="background: ${tierColor}; color: white; padding: 4px 10px; border-radius: 12px; font-size: 13px; font-weight: bold; text-transform: uppercase;">${tier}</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  `;
 
-    const { name } = await req.json();
+  const res = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      "Authorization": `Bearer ${Deno.env.get("RESEND_API_KEY")}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      from: "onboarding@resend.dev",
+      to: "veris-dev@vsu.edu.ph",
+      subject: `New Subscription Request: ${org_name} (${tier})`,
+      html: emailHtml,
+    }),
+  });
 
-    return Response.json({
-      message: `Hello ${name}!`,
-    });
-  }),
-};
+  const data = await res.json();
+  console.log("Resend response status:", res.status);
+  console.log("Resend response body:", JSON.stringify(data));
 
-/* To invoke locally:
-
-  1. Run `supabase start` (see: https://supabase.com/docs/reference/cli/supabase-start)
-  2. Make an HTTP request:
-
-  curl -i --location --request POST 'http://127.0.0.1:54321/functions/v1/notify-subscription' \
-    --header 'apiKey: sb_publishable_ACJWlzQHlZjBrEguHvfOxg_3BJgxAaH' \
-    --data '{"name":"Functions"}'
-
-*/
+  return new Response(JSON.stringify(data), {
+    status: res.status,
+    headers: { "Content-Type": "application/json" },
+  });
+});
