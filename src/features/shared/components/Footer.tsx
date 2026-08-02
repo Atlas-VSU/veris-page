@@ -20,19 +20,19 @@ export function Footer() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="animate-fade-in-up">
-            <h3 className="font-fraunces text-2xl text-[#2C2C24] mb-3 tracking-tight">
+            <h3 className="font-serif text-2xl text-[#2C2C24] mb-3 tracking-tight">
               VERIS
             </h3>
-            <p className="font-nunito text-sm leading-relaxed text-[#78786C] max-w-xs">
+            <p className="font-sans text-sm leading-relaxed text-[#78786C] max-w-xs">
               Empowering campus tech ecosystems, digital campus tours, and student connectivity.
             </p>
           </div>
 
           <div className="animate-fade-in-up animation-delay-100">
-            <h4 className="font-nunito font-semibold text-sm uppercase tracking-wide text-[#2C2C24] mb-4">
+            <h4 className="font-sans font-semibold text-sm uppercase tracking-wide text-[#2C2C24] mb-4">
               Ecosystem
             </h4>
-            <ul className="space-y-2.5 font-nunito text-sm">
+            <ul className="space-y-2.5 font-sans text-sm">
               <li>
                 <Link href="/services" className="text-[#78786C] hover:text-primary transition-colors">
                   CORAL System
@@ -52,10 +52,10 @@ export function Footer() {
           </div>
 
           <div className="animate-fade-in-up animation-delay-200">
-            <h4 className="font-nunito font-semibold text-sm uppercase tracking-wide text-[#2C2C24] mb-4">
+            <h4 className="font-sans font-semibold text-sm uppercase tracking-wide text-[#2C2C24] mb-4">
               Organization
             </h4>
-            <ul className="space-y-2.5 font-nunito text-sm">
+            <ul className="space-y-2.5 font-sans text-sm">
               <li>
                 <Link href="/about" className="text-[#78786C] hover:text-primary transition-colors">
                   About Us
@@ -84,10 +84,10 @@ export function Footer() {
           </div>
 
           <div className="animate-fade-in-up animation-delay-300">
-            <h4 className="font-nunito font-semibold text-sm uppercase tracking-wide text-[#2C2C24] mb-4">
+            <h4 className="font-sans font-semibold text-sm uppercase tracking-wide text-[#2C2C24] mb-4">
               Legal
             </h4>
-            <ul className="space-y-2.5 font-nunito text-sm">
+            <ul className="space-y-2.5 font-sans text-sm">
               <li>
                 <Link href="/terms" className="text-[#78786C] hover:text-primary transition-colors">
                   Terms of Service
@@ -103,10 +103,10 @@ export function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-[#DED8CF] flex flex-col sm:flex-row items-center justify-between gap-3 animate-fade-in-slow">
-          <p className="font-nunito text-xs text-[#78786C]">
+          <p className="font-sans text-xs text-[#78786C]">
             © {new Date().getFullYear()} VERIS Systems. All rights reserved.
           </p>
-          <div className="flex items-center gap-2 font-nunito text-xs text-[#78786C]">
+          <div className="flex items-center gap-2 font-sans text-xs text-[#78786C]">
             <span className="w-2 h-2 rounded-full bg-primary animate-gentle-rotate" />
             Crafted for campus communities
           </div>
