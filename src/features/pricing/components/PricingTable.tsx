@@ -1,103 +1,58 @@
-import { SubscriptionTierCard } from "./SubscriptionTierCard";
-import { SubscriptionTier } from "../types";
+import { Check } from "lucide-react";
 
 export function PricingTable() {
-  const tiers: SubscriptionTier[] = [
+  const tiers = [
     {
-      id: "basic",
       name: "Basic",
-      tagline: "Attendance Management",
-      rate: "₱2",
-      rateUnit: "/ student / year",
-      minimumNote: "Minimum 100 students · ₱200/yr floor",
-      minStudents: 100,
-      floorPrice: 200,
-      perStudentRate: 2,
-      orgLimit: "1 Org Account",
-      organicClass: "organic-card-1",
-      features: [
-        "Secure login",
-        "Dashboard with real-time attendance trends",
-        "Create & manage unlimited events",
-        "Real-time attendee tracking & timestamps",
-        "Quick check-in via student ID or name",
-        "Member directory with bulk import",
-        "Unlimited members and events",
-        "Limited to 1 Org Account",
-      ],
+      price: "Free / Starter",
+      description: "Essential access for basic student organization features.",
+      features: ["Standard CORAL Access", "Basic USSC Connect", "Standard Support"],
     },
     {
-      id: "plus",
       name: "Plus",
-      tagline: "Basic + Financial Management",
-      rate: "₱3",
-      rateUnit: "/ student / year",
-      minimumNote: "Minimum 75 students · ₱225/yr floor",
-      minStudents: 75,
-      floorPrice: 225,
-      perStudentRate: 3,
-      subtitle: "Everything from BASIC plan plus:",
-      orgLimit: "Max 3 Org Accounts",
-      organicClass: "organic-card-2",
-      features: [
-        "Membership fees (semester, event, custom)",
-        "Define fine types & standard amounts",
-        "Automated fees for registered members",
-        "Automated fines from attendance records",
-        "Officer-side clearance management",
-        "Student-Facing Modules: Payment verification workflow, Self-Registration, and Update Information",
-        "Max 3 Org Accounts",
-      ],
+      price: "Campus Tier",
+      description: "Enhanced features for active campus organizations.",
+      features: ["Full CORAL Integration", "USSC Connect Pro", "E-Passport Module", "Priority Bug Support"],
+      highlighted: true,
     },
     {
-      id: "premium",
       name: "Premium",
-      tagline: "Full Suite + Student Portal",
-      rate: "₱4",
-      rateUnit: "/ student / year",
-      minimumNote: "Minimum 60 students · ₱240/yr floor",
-      minStudents: 60,
-      floorPrice: 240,
-      perStudentRate: 4,
-      subtitle: "Everything from PLUS plan plus:",
-      orgLimit: "Max 5 Org Accounts",
-      organicClass: "organic-card-3",
-      features: [
-        "Dedicated Student Portal Interface",
-        "Student account via Google Sign-In",
-        "Student dashboard: balances & history",
-        "Waive Appeal for fees and fines",
-        "Financial Reports and Analytics",
-        "Max 5 Org Accounts",
-      ],
+      price: "Enterprise",
+      description: "Complete VERIS ecosystem with custom integration support.",
+      features: ["Dedicated CORAL Instance", "Unlimited E-Passport Tours", "Custom Analytics", "24/7 Dedicated SLA"],
     },
   ];
 
   return (
-    <section className="relative py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden">
-      {/* Decorative Organic Ambient Background Shapes */}
-      <div className="absolute top-10 left-10 w-72 h-72 bg-[#5D7052]/10 blob-shape-1 animate-float blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-80 h-80 bg-[#C18C5D]/10 blob-shape-2 animate-float-delayed blur-3xl pointer-events-none" />
-
-      {/* Header Section */}
-      <div className="relative text-center max-w-3xl mx-auto mb-12 animate-fade-in-up">
-
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black font-serif text-[#2C2C24] tracking-tight leading-tight">
-          Pricing
-        </h1>
-
-        <p className="mt-4 text-base sm:text-lg text-[#78786C] font-medium leading-relaxed">
-          Student-scaled pricing for student organizations and student councils .
-        </p>
+    <section className="py-12 max-w-6xl mx-auto px-4">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl font-bold text-zinc-900 dark:text-white">Subscription Tiers</h2>
+        <p className="text-sm text-zinc-500 mt-2">Flexible plans tailored for student organizations & university administration</p>
       </div>
-
-      {/* Subscription Cards Grid */}
-      <div className="relative grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-6 items-stretch animate-fade-in-up animation-delay-200">
-        {tiers.map((tier) => (
-          <SubscriptionTierCard key={tier.id} tier={tier} />
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {tiers.map((tier, idx) => (
+          <div
+            key={idx}
+            className={`p-6 rounded-xl border space-y-4 ${
+              tier.highlighted
+                ? "bg-emerald-50/50 dark:bg-emerald-950/20 border-emerald-500 ring-2 ring-emerald-500/20"
+                : "bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800"
+            }`}
+          >
+            <h3 className="font-bold text-xl text-zinc-900 dark:text-white">{tier.name}</h3>
+            <p className="text-sm font-semibold text-emerald-600 dark:text-emerald-400">{tier.price}</p>
+            <p className="text-xs text-zinc-500">{tier.description}</p>
+            <ul className="space-y-2 pt-2 border-t border-zinc-200 dark:border-zinc-800 text-xs">
+              {tier.features.map((f, i) => (
+                <li key={i} className="flex items-center gap-2 text-zinc-700 dark:text-zinc-300">
+                  <Check className="w-4 h-4 text-emerald-500 shrink-0" />
+                  <span>{f}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         ))}
       </div>
-
     </section>
   );
 }

@@ -1,22 +1,20 @@
 import type { Metadata } from "next";
-import { Nunito, Fraunces } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar, Footer } from "@/features/shared";
 
-const nunito = Nunito({
-  variable: "--font-nunito",
+const geistSans = Geist({
+  variable: "--font-geist-sans",
   subsets: ["latin"],
-  display: "swap",
 });
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
   subsets: ["latin"],
-  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "VERIS - Subscription Tiers & Pricing",
+  title: "VERIS - Campus Ecosystem & Platform",
   description: "Official marketing and informational site for VERIS campus platforms, CORAL, USSC Connect, and E-Passport.",
 };
 
@@ -26,8 +24,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${nunito.variable} ${fraunces.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-background text-foreground selection:bg-primary selection:text-primary-foreground">
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50">
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
