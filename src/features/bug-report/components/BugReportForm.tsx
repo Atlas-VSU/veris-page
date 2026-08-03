@@ -20,7 +20,7 @@ export function BugReportForm() {
 
     if (honeypot) {
       setFeedback({ type: "success", text: "Bug report submitted successfully! Our team will follow up via email." });
-      setFormData({ email: "", subject: "", description: "", category: "general" });
+      setFormData({ email: "", title: "", description: "", category: "general" });
       setHoneypot("");
       return;
     }
