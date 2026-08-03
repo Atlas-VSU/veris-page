@@ -1,6 +1,6 @@
 export interface BugReportInput {
   email: string;
-  title: string;
+  subject: string;
   description: string;
   category: "general" | "technical" | "ui_ux" | "billing";
 }

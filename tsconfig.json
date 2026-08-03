@@ -31,5 +31,5 @@
     "**/*.mts",
     "next.config.ts"
   ],
-  "exclude": ["node_modules", "supabase"]
+  "exclude": ["node_modules"]
 }
