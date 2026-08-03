@@ -47,18 +47,16 @@ src/
 │   ├── legal/                  # Terms of Service & Privacy Policy
 │   └── shared/                 # Reusable UI primitives & layouts
 └── lib/                        # Third-party SDK initializations & infra
-    └── supabase/               # Supabase Client initialization & helpers
+    └── firebase/               # Firebase Client initialization & helpers
 ```
 
 ---
 
-## Supabase Integration Guidelines
+## Firebase Integration Guidelines
 
-- Supabase Client is initialized in `src/lib/supabase/config.ts`.
-- Environment variables (`NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`) are required for the client to initialize; these are safe to expose publicly, as access control is enforced via Row Level Security (RLS) policies on the database itself.
-- Guest bug report submissions are stored in the `bug_reports` table.
-- Dynamic, editable site text (content that can be updated without a code change) is stored in the `site_content` table, using a key-value pattern.
-- RLS policies enforce: guests can insert into `bug_reports` but cannot read/update/delete; guests can read `site_content` but cannot write to it. Schema and policies are version-controlled as migration files under `supabase/migrations/`.
+- Firebase Client SDK is initialized in `src/lib/firebase/config.ts`.
+- It includes fallback initialization logic so the application compiles cleanly during SSR and static pre-rendering even if environment variables are not yet provided.
+- Guest bug report submissions use Firestore collection `bug_reports`.
 
 ---
 
