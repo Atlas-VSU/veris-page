@@ -1,71 +1,227 @@
 export function TermsContent() {
   return (
-    <article className="py-12 max-w-4xl mx-auto px-4 space-y-6 text-sm text-zinc-700 dark:text-zinc-300">
-      <h1 className="text-3xl font-bold text-zinc-900 dark:text-white">Terms of Service</h1>
-      <p className="text-xs text-zinc-500">Last updated: August 2026</p>
+    <article className="py-12 max-w-4xl mx-auto px-4 space-y-6 text-sm text-[#2C2C24]">
+      <h1
+        className="text-3xl font-bold text-[#2C2C24]"
+        style={{ fontFamily: "var(--font-fraunces, serif)" }}
+      >
+        Terms of Service (ToS)
+      </h1>
+      <p className="text-xs text-[#78786C]">Effective Date: Aug 2, 2026</p>
 
-      <section className="space-y-2">
-        <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">1. Introduction</h2>
-        <p className="text-xs leading-relaxed">
-          Welcome to VERIS. By accessing our platform, services, or mobile applications (including E-Passport), you agree to be bound by these Terms of Service.
-        </p>
-      </section>
+      <div className="p-6 sm:p-8 bg-[#FEFEFA] border border-[#DED8CF] rounded-[1.5rem] shadow-[0_4px_20px_-2px_rgba(93,112,82,0.15)] divide-y divide-[#DED8CF]">
+        <section className="py-5 first:pt-0 last:pb-0 space-y-2">
+          <h2 className="text-lg font-semibold text-[#5D7052]">
+            1. Definitions
+          </h2>
+          <ul className="text-xs leading-relaxed text-[#2C2C24] text-justify sm:text-left">
+            <li>
+              &bull; Service: The VERIS platform, including its software,
+              interfaces, and related documentation.
+            </li>
+            <li>
+              &bull; Subscriber: The university registered organization entering
+              into a subscription agreement to use the Service.
+            </li>
+            <li>
+              &bull; Officers (Authorized Users): Individuals designated by the
+              Subscriber to manage the organization's account and access the
+              platform's administrative features.
+            </li>
+            <li>
+              &bull; Students (End Users/Data Subjects): Individuals whose
+              attendance, clearance, and payment data are managed within the
+              Service by the Subscriber.
+            </li>
+          </ul>
+        </section>
 
-      <section className="space-y-2">
-        <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">2. User Responsibilities & Account Terms</h2>
-        <p className="text-xs leading-relaxed">
-          Users must provide accurate information when registering or submitting reports. Misuse of campus platform data or unauthorized access is strictly prohibited.
-        </p>
-      </section>
+        <section className="py-5 first:pt-0 last:pb-0 space-y-2">
+          <h2 className="text-lg font-semibold text-[#5D7052]">
+            2. Acceptance of Terms
+          </h2>
+          <p className="text-xs leading-relaxed text-[#2C2C24] text-justify sm:text-left">
+            By accessing, subscribing to, or using the Service, the Subscriber
+            and its Officers agree to be bound by these Terms of Service. If you
+            do not agree to these terms, do not use the Service. We may revise
+            these Terms from time to time. Continued use of the Service after
+            the effective date of updated Terms constitutes acceptance of the
+            revised Terms.
+          </p>
+        </section>
 
-      <section className="space-y-2">
-        <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">3. General Conditions & Governing Law</h2>
-        <p className="text-xs leading-relaxed">
-          These terms are governed by university policies and applicable local laws.
-        </p>
-      </section>
+        <section className="py-5 first:pt-0 last:pb-0 space-y-2">
+          <h2 className="text-lg font-semibold text-[#5D7052]">
+            3. Intellectual Property
+          </h2>
+          <p className="text-xs leading-relaxed text-[#2C2C24] text-justify sm:text-left">
+            All software, source code, branding, logos, user interface designs,
+            documentation, and related intellectual property remain the
+            exclusive property of VERIS. Subscribers may not copy, modify,
+            distribute, sublicense, resell, or create derivative works from the
+            Service except as expressly permitted.
+          </p>
+        </section>
 
-      <section className="space-y-2">
-        <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">4. Payment Terms</h2>
-        <p className="text-xs leading-relaxed">
-          If any paid features are introduced, fees, billing terms, and refund terms will be disclosed before payment is required. Unless otherwise stated, all charges are non-transferable and subject to the policies shown at the time of purchase.
-        </p>
-      </section>
-      
-      <section className="space-y-2">
-        <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">5. Cancellation Policy</h2>
-        <p className="text-xs leading-relaxed">
-          You may stop using the service at any time, and we may suspend or terminate access if you violate these terms or if the service is discontinued. If your account is canceled, your access to associated features and data may be limited or removed according to our retention policies.
-        </p>
-      </section>
+        <section className="py-5 first:pt-0 last:pb-0 space-y-2">
+          <h2 className="text-lg font-semibold text-[#5D7052]">
+            4. Description of Service and Data Processing
+          </h2>
+          <p className="text-xs leading-relaxed text-[#2C2C24] text-justify sm:text-left">
+            The platform provides software-as-a-service (SaaS) solutions for
+            university organizations. By using the Service, the Subscriber
+            authorizes the platform to process personal data solely for the
+            purpose of providing attendance management, managing fees, fines,
+            clearance, payment processing, reporting, security, backup, and
+            technical support.
+          </p>
+        </section>
 
-      <section className="space-y-2">
-        <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">6. Modification to Service</h2>
-        <p className="text-xs leading-relaxed">
-          We may update, modify, or discontinue any part of VERIS at any time to improve the service, maintain security, or comply with legal or institutional requirements.
-        </p>
-      </section>
+        <section className="py-5 first:pt-0 last:pb-0 space-y-2">
+          <h2 className="text-lg font-semibold text-[#5D7052]">
+            5. Data Ownership and Roles
+          </h2>
+          <p className="text-xs leading-relaxed text-[#2C2C24] text-justify sm:text-left">
+            The Subscriber remains the owner and controller of all student and
+            organizational data uploaded to the Service. The platform acts
+            solely as a service provider (Personal Information Processor) that
+            processes such information on behalf of the Subscriber for the
+            purpose of delivering the subscribed services.
+          </p>
+        </section>
 
-      <section className="space-y-2">
-        <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">7. Copyright and Ownership</h2>
-        <p className="text-xs leading-relaxed">
-          All content, branding, and code on the site remain the property of VERIS or its licensors.
-        </p>
-      </section>
+        <section className="py-5 first:pt-0 last:pb-0 space-y-2">
+          <h2 className="text-lg font-semibold text-[#5D7052]">
+            6. Subscription and Payment Terms
+          </h2>
+          <ul className="text-xs leading-relaxed text-[#2C2C24] text-justify sm:text-left">
+            <li>
+              &bull; Billing Cycle: Subscription plans are billed on a
+              per-semester basis unless otherwise specified in a separate
+              written agreement.
+            </li>
+            <li>
+              &bull; Fees and Refunds: Subscribers agree to pay the fees
+              associated with their chosen subscription tier. Subscription fees
+              are generally non-refundable except where required by applicable
+              Philippine law or expressly provided in the subscription
+              agreement.
+            </li>
+            <li>
+              &bull; Upgrades/Downgrades: Tier upgrades can be requested at any
+              time, subject to prorated billing. Downgrades take effect at the
+              end of the current billing cycle.
+            </li>
+          </ul>
+        </section>
 
-      <section className="space-y-2">
-        <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">8. Limitation of Liability</h2>
-        <p className="text-xs leading-relaxed">
-          VERIS is provided on an as-is basis, and we do not guarantee that the service will always be uninterrupted, error-free, or suitable for every purpose.
-        </p>
-      </section>
+        <section className="py-5 first:pt-0 last:pb-0 space-y-2">
+          <h2 className="text-lg font-semibold text-[#5D7052]">
+            7. Acceptable Use Policy
+          </h2>
+          <p className="text-xs leading-relaxed text-[#2C2C24] text-justify sm:text-left">
+            Subscribers and their Officers must use the platform responsibly.
+            Organizations may not:
+          </p>
+          <ul className="text-xs leading-relaxed text-[#2C2C24] text-justify sm:text-left">
+            <li>
+              &bull; Attempt to hack, bypass security, or reverse engineer the
+              software.
+            </li>
+            <li>
+              &bull; Scrape data or use automated systems to extract platform
+              information.
+            </li>
+            <li>
+              &bull; Share Officer accounts among multiple individuals, unless
+              consented by Service provider.
+            </li>
+            <li>&bull; Upload malicious files or harmful code.</li>
+            <li>
+              &bull; Abuse the payment verification system or conduct fraudulent
+              transactions.
+            </li>
+            <li>&bull; Impersonate other users or organizations.</li>
+          </ul>
+        </section>
 
-      <section className="space-y-2">
-        <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">9. Contact Information</h2>
-        <p className="text-xs leading-relaxed">
-          If you have questions about these Terms of Service, contact the VERIS team through the official support channel listed on the site.
-        </p>
-      </section>
+        <section className="py-5 first:pt-0 last:pb-0 space-y-2">
+          <h2 className="text-lg font-semibold text-[#5D7052]">
+            8. Security Responsibilities
+          </h2>
+          <p className="text-xs leading-relaxed text-[#2C2C24] text-justify sm:text-left">
+            While the platform implements enhanced security measures,
+            Subscribers are explicitly responsible for:
+          </p>
+          <ul className="text-xs leading-relaxed text-[#2C2C24] text-justify sm:text-left">
+            <li>
+              &bull; Protecting passwords and implementing secure login
+              practices.
+            </li>
+            <li>
+              &bull; Promptly informing us of the officers who must be removed
+              with their access from the site.
+            </li>
+            <li>
+              &bull; Ensuring any imported data (such as member directories) is
+              accurate and legally obtained.
+            </li>
+            <li>
+              &bull; All activities performed using their officer accounts.
+            </li>
+          </ul>
+        </section>
+
+        <section className="py-5 first:pt-0 last:pb-0 space-y-2">
+          <h2 className="text-lg font-semibold text-[#5D7052]">
+            9. Service Suspension and Termination
+          </h2>
+          <p className="text-xs leading-relaxed text-[#2C2C24] text-justify sm:text-left">
+            We reserve the right to suspend or terminate a Subscriber's access
+            to the Service for reasons including, but not limited to: unpaid
+            subscriptions, fraudulent payment activity, sharing of officer
+            accounts without consent, platform abuse, repeated security
+            violations, or direct disciplinary requests from university
+            administration.
+          </p>
+        </section>
+
+        <section className="py-5 first:pt-0 last:pb-0 space-y-2">
+          <h2 className="text-lg font-semibold text-[#5D7052]">
+            10. Warranty Disclaimer
+          </h2>
+          <p className="text-xs leading-relaxed text-[#2C2C24] text-justify sm:text-left">
+            The Service is provided "AS IS" and "AS AVAILABLE." We disclaim all
+            warranties, whether express or implied, regarding the platform's
+            fitness for a particular purpose or uninterrupted availability.
+          </p>
+        </section>
+
+        <section className="py-5 first:pt-0 last:pb-0 space-y-2">
+          <h2 className="text-lg font-semibold text-[#5D7052]">
+            11. Limitation of Liability
+          </h2>
+          <p className="text-xs leading-relaxed text-[#2C2C24] text-justify sm:text-left">
+            To the maximum extent permitted by Philippine law, the Service shall
+            not be liable for indirect, incidental, consequential, or special
+            damages arising from the use or inability to use the platform. This
+            includes losses stemming from server downtime, internet outages,
+            university network failures, or force majeure events.
+          </p>
+        </section>
+
+        <section className="py-5 first:pt-0 last:pb-0 space-y-2">
+          <h2 className="text-lg font-semibold text-[#5D7052]">
+            12. Governing Law and Dispute Resolution
+          </h2>
+          <p className="text-xs leading-relaxed text-[#2C2C24] text-justify sm:text-left">
+            These Terms shall be governed by the laws of the Republic of the
+            Philippines. Any disputes shall be settled through amicable
+            negotiation, or if unresolved, in the competent local courts of
+            Baybay City, Leyte.
+          </p>
+        </section>
+      </div>
     </article>
   );
 }
