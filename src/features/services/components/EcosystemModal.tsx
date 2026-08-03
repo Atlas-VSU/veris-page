@@ -4,14 +4,7 @@ import { Fraunces } from 'next/font/google';
 
 const fraunces = Fraunces({ subsets: ['latin'], weight: ['400', '500', '600'] });
 
-import { EcosystemModalDetails } from '../types';
-
-interface EcosystemModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  title: string;
-  modalDetails: EcosystemModalDetails;
-}
+import { EcosystemModalDetails, EcosystemModalProps } from '../types';
 
 export function EcosystemModal({ isOpen, onClose, title, modalDetails }: EcosystemModalProps) {
   if (!isOpen) return null;

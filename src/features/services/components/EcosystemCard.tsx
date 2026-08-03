@@ -7,18 +7,7 @@ import { EcosystemModal } from './EcosystemModal';
 
 const fraunces = Fraunces({ subsets: ['latin'], weight: ['400', '500', '600'] });
 
-import { EcosystemModalDetails } from '../types';
-
-interface EcosystemCardProps {
-  title: string;
-  description: string;
-  icon: React.ReactNode;
-  organicShapeClass: string;
-  iconBgClass: string;
-  iconColorClass: string;
-  hoverColorClass: string;
-  modalDetails: EcosystemModalDetails;
-}
+import { EcosystemModalDetails, EcosystemCardProps } from '../types';
 
 export function EcosystemCard({
   title,
