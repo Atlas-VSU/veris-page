@@ -14,6 +14,7 @@ const nunito = Nunito({
   display: "swap",
 });
 
+// Brand Serif Font (for editorial/special headings)
 const fraunces = Fraunces({
   variable: "--font-fraunces",
   subsets: ["latin"],
