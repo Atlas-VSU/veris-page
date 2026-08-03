@@ -25,23 +25,25 @@ export function FAQAccordion({
       </div>
 
       {/* Accordion List */}
-      <Accordion multiple className="w-full">
-        {faqs.map((faq, i) => (
-          <AccordionItem key={i} value={`item-${i}`}>
-            <AccordionTrigger>
-              <span className="flex items-center gap-2.5">
-                <HelpCircle className="w-4 h-4 text-primary shrink-0" />
-                <span>{faq.q}</span>
-              </span>
-            </AccordionTrigger>
-            <AccordionContent>
-              <p className="pl-6 text-xs text-muted-foreground leading-relaxed">
-                {faq.a}
-              </p>
-            </AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
+      <div className="md:mx-8 lg:mx-10">
+        <Accordion multiple className="w-full">
+          {faqs.map((faq, i) => (
+            <AccordionItem key={i} value={`item-${i}`}>
+              <AccordionTrigger>
+                <span className="flex items-center gap-2.5">
+                  <HelpCircle className="w-4 h-4 text-primary shrink-0" />
+                  <span>{faq.q}</span>
+                </span>
+              </AccordionTrigger>
+              <AccordionContent>
+                <p className="pl-6 text-xs text-muted-foreground leading-relaxed">
+                  {faq.a}
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </div>
 
       {/* Footer / Contact Link */}
       <div className="text-center pt-2">
