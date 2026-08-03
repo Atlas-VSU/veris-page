@@ -7,35 +7,15 @@ import { submitGuestBugReport } from "../services/bugReportService";
 export function BugReportForm() {
   const [formData, setFormData] = useState<BugReportInput>({
     email: "",
-    title: "",
+    subject: "",
     description: "",
     category: "general",
   });
   const [loading, setLoading] = useState(false);
   const [feedback, setFeedback] = useState<{ type: "success" | "error"; text: string } | null>(null);
-  const [honeypot, setHoneypot] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (honeypot) {
-      setFeedback({ type: "success", text: "Bug report submitted successfully! Our team will follow up via email." });
-      setFormData({ email: "", title: "", description: "", category: "general" });
-      setHoneypot("");
-      return;
-    }
-
-    const lastSubmitTime = localStorage.getItem("lastBugReportTime");
-    if (lastSubmitTime) {
-      const timeSinceLastSubmit = Date.now() - parseInt(lastSubmitTime, 10);
-      const COOLDOWN_MS = 5 * 60 * 1000;
-      if (timeSinceLastSubmit < COOLDOWN_MS) {
-        const minutesLeft = Math.ceil((COOLDOWN_MS - timeSinceLastSubmit) / 60000);
-        setFeedback({ type: "error", text: `Please wait ${minutesLeft} minute(s) before submitting another report.` });
-        return;
-      }
-    }
-
     setLoading(true);
     setFeedback(null);
 
@@ -43,9 +23,8 @@ export function BugReportForm() {
     setLoading(false);
 
     if (res.success) {
-      localStorage.setItem("lastBugReportTime", Date.now().toString());
       setFeedback({ type: "success", text: res.message });
-      setFormData({ email: "", title: "", description: "", category: "general" });
+      setFormData({ email: "", subject: "", description: "", category: "general" });
     } else {
       setFeedback({ type: "error", text: res.message });
     }
@@ -56,19 +35,6 @@ export function BugReportForm() {
       <div>
         <h2 className="text-xl font-bold text-zinc-900 dark:text-white">File a Guest Bug Report</h2>
         <p className="text-xs text-zinc-500 mt-1">No account required. Enter your email so our team can follow up.</p>
-      </div>
-
-      <div className="absolute -left-[9999px] opacity-0" aria-hidden="true">
-        <label htmlFor="website-url">Website</label>
-        <input
-          type="text"
-          id="website-url"
-          name="website-url"
-          tabIndex={-1}
-          autoComplete="off"
-          value={honeypot}
-          onChange={(e) => setHoneypot(e.target.value)}
-        />
       </div>
 
       {feedback && (
@@ -109,8 +75,8 @@ export function BugReportForm() {
           type="text"
           required
           placeholder="Brief summary of the issue..."
-          value={formData.title}
-          onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+          value={formData.subject}
+          onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
           className="w-full px-3 py-2 text-sm border rounded-lg bg-zinc-50 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-700 focus:outline-none focus:ring-2 focus:ring-emerald-500"
         />
       </div>
