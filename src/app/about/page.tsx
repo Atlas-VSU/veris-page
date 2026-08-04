@@ -1,9 +1,17 @@
-import { AboutOverview } from "@/features/about";
+import type { Metadata } from "next";
+import { Hero, TeamSection } from "@/features/about";
+
+export const metadata: Metadata = {
+  title: "About Us | VERIS",
+  description:
+    "VERIS empowers university ecosystems through digital transformation — meet our mission, vision, and team.",
+};
 
 export default function AboutPage() {
   return (
-    <div className="py-8">
-      <AboutOverview />
-    </div>
+    <>
+      <Hero />
+      <TeamSection />
+    </>
   );
 }

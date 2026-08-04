@@ -1,53 +1,60 @@
 import Link from "next/link";
 import { HelpCircle } from "lucide-react";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
 
-export function FAQAccordion() {
-  const faqs = [
-    {
-      q: "What is VERIS?",
-      a: "VERIS is a campus tech platform hosting digital services including CORAL systems, USSC Connect, and the mobile E-Passport tour.",
-    },
-    {
-      q: "How do I report bugs as a guest?",
-      a: "Navigate to the Report Bug page. You can file reports using your email without creating an account.",
-    },
-    {
-      q: "What are the subscription tiers?",
-      a: "We offer Basic, Plus, and Premium tiers tailored for different campus organizations and administrative scales.",
-    },
-    {
-      q: "Is E-Passport mobile friendly?",
-      a: "Yes! E-Passport is optimized specifically for phones and tablets during campus tours.",
-    },
-  ];
-
+export function FAQAccordion({
+  faqs = [],
+}: {
+  faqs?: { q: string; a: string }[];
+}) {
   return (
-    <section className="py-12 max-w-3xl mx-auto px-4 space-y-6">
+    <div className="space-y-6">
+      {/* Header */}
       <div className="text-center">
-        <h2 className="text-3xl font-bold text-zinc-900 dark:text-white">Frequently Asked Questions</h2>
-        <p className="text-sm text-zinc-500 mt-1">General, Billing, Technical, and Security inquiries</p>
+        <h2 className="text-3xl font-serif font-bold text-foreground">
+          Frequently Asked Questions
+        </h2>
+        <p className="text-sm text-muted-foreground mt-1">
+          General, Billing, Technical, and Security inquiries
+        </p>
       </div>
 
-      <div className="space-y-4">
+      {/* Accordion List */}
+      <Accordion multiple className="w-full">
         {faqs.map((faq, i) => (
-          <div key={i} className="p-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg space-y-1">
-            <h3 className="font-semibold text-sm text-zinc-900 dark:text-white flex items-center gap-2">
-              <HelpCircle className="w-4 h-4 text-emerald-500 shrink-0" />
-              {faq.q}
-            </h3>
-            <p className="text-xs text-zinc-600 dark:text-zinc-400 pl-6 leading-relaxed">{faq.a}</p>
-          </div>
+          <AccordionItem key={i} value={`item-${i}`}>
+            <AccordionTrigger>
+              <span className="flex items-center gap-2.5">
+                <HelpCircle className="w-4 h-4 text-primary shrink-0" />
+                <span>{faq.q}</span>
+              </span>
+            </AccordionTrigger>
+            <AccordionContent>
+              <p className="pl-6 text-xs text-muted-foreground leading-relaxed">
+                {faq.a}
+              </p>
+            </AccordionContent>
+          </AccordionItem>
         ))}
-      </div>
+      </Accordion>
 
-      <div className="text-center pt-4">
-        <p className="text-xs text-zinc-500">
+      {/* Footer / Contact Link */}
+      <div className="text-center pt-2">
+        <p className="text-xs text-muted-foreground">
           Have more questions?{" "}
-          <Link href="/contact" className="text-emerald-600 dark:text-emerald-400 font-medium underline">
+          <Link
+            href="/contact"
+            className="text-primary font-medium underline underline-offset-3 hover:text-primary/80 transition-colors"
+          >
             Contact Support
           </Link>
         </p>
       </div>
-    </section>
+    </div>
   );
 }
