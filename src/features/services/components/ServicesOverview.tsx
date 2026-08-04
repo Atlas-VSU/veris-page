@@ -4,6 +4,7 @@ import { ChevronRight, ChevronLeft } from "lucide-react";
 import { Fraunces } from 'next/font/google';
 import { ServicesHeader } from "./ServicesHeader";
 import { EcosystemCard } from "./EcosystemCard";
+import { EcosystemCardSkeleton } from "./EcosystemCardSkeleton";
 import { FeaturedPlatform } from "./FeaturedPlatform";
 import { useServicesOverview } from "../hooks/useServicesOverview";
 
@@ -39,12 +40,7 @@ export function ServicesOverview() {
             {isLoading ? (
               // Loading Skeletons
               Array.from({ length: 3 }).map((_, idx) => (
-                <div key={idx} className="bg-card organic-card-4 border border-border p-8 min-h-[200px] flex flex-col gap-4 animate-pulse">
-                  <div className="w-12 h-12 rounded-full bg-muted"></div>
-                  <div className="h-6 bg-muted rounded w-3/4"></div>
-                  <div className="h-4 bg-muted rounded w-full"></div>
-                  <div className="h-4 bg-muted rounded w-5/6"></div>
-                </div>
+                <EcosystemCardSkeleton key={idx} />
               ))
             ) : currentItems.length > 0 ? (
               currentItems.map((item, index) => (
