@@ -50,6 +50,12 @@
   --sidebar-ring: #5D7052;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Keep your existing dark mode variables here, or update when PM provides them */
+  }
+}
+
 @theme inline {
   /* --- Map CSS Variables to Tailwind v4 Utilities --- */
   --color-background: var(--background);
