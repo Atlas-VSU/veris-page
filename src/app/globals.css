@@ -1,29 +1,35 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
 html {
   scroll-behavior: smooth;
 }
 
+@custom-variant dark (&:is(.dark *));
+
 :root {
+/* --- 1. Light Mode (Organic Theme) Core Colors --- */
   --background: #FDFCF8;
   --foreground: #2C2C24;
   --card: #FEFEFA;
   --card-foreground: #2C2C24;
   --popover: #FEFEFA;
   --popover-foreground: #2C2C24;
-  --primary: #5D7052;
-  --primary-foreground: #F3F4F1;
-  --secondary: #C18C5D;
+  --primary: #5D7052;            /* Organic Moss Green */
+  --primary-foreground: #F3F4F1; /* Off-white text on Primary */
+  --secondary: #C18C5D;          /* Organic Terracotta */
   --secondary-foreground: #FFFFFF;
-  --accent: #E6DCCD;
+  --accent: #E6DCCD;             /* Warm Clay / Beige */
   --accent-foreground: #4A4A40;
-  --muted: #F0EBE5;
-  --muted-foreground: #78786C;
+  --muted: #F0EBE5;              /* Light Sand */
+  --muted-foreground: #78786C;   /* Muted Gray-Olive */
   --border: #DED8CF;
   --input: #DED8CF;
-  --ring: #5D7052;
-  --destructive: #A85448;
+  --ring: #5D7052;               /* Focus Ring (Moss Green) */
+  --destructive: #A85448;        /* Coral Red */
 
+  /* --- 2. Semantic Status Colors --- */
   --success: #5D7052;
   --success-foreground: #F3F4F1;
   --success-muted: #F0EBE5;
@@ -31,7 +37,21 @@ html {
   --warning-foreground: #FFFFFF;
   --warning-muted: #F0EBE5;
 
-  --radius: 1.5rem;
+  /* --- 3. Layout & Borders Base --- */
+  --radius: 0.625rem;
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: #FEFEFA;
+  --sidebar-foreground: #2C2C24;
+  --sidebar-primary: #5D7052;
+  --sidebar-primary-foreground: #F3F4F1;
+  --sidebar-accent: #F0EBE5;
+  --sidebar-accent-foreground: #4A4A40;
+  --sidebar-border: #DED8CF;
+  --sidebar-ring: #5D7052;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -48,6 +68,7 @@ html {
 }
 
 @theme inline {
+  /* --- Map CSS Variables to Tailwind v4 Utilities --- */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -73,10 +94,19 @@ html {
   --color-warning-foreground: var(--warning-foreground);
   --color-warning-muted: var(--warning-muted);
 
+  /* --- Typography --- */
+  --font-sans: var(--font-nunito), system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), serif;
+  --font-heading: var(--font-sans);
+
+  /* --- Dynamic Border Radii --- */
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);  
 
   --font-sans: var(--font-nunito), system-ui, sans-serif;
   --font-serif: var(--font-fraunces), Georgia, serif;
@@ -124,12 +154,20 @@ html {
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans);
-}
+  /* --- Custom Brand Shadows --- */
+  --shadow-soft: 0 4px 20px -2px rgba(93, 112, 82, 0.15);
+  --shadow-float: 0 10px 40px -10px rgba(193, 140, 93, 0.2);
+  --shadow-3xl: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
 
+  /* --- Sidebar Directives --- */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
 
 /* -------------------------------------------------------------
  * Featured Platform Styles (Moved from FeaturedPlatform.css)
@@ -160,6 +198,12 @@ body {
   }
 }
 
+  /* --- Chart Directives --- */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
 /* Left Column Content */
 .featured-content {
   flex: 1;
@@ -204,6 +248,16 @@ body {
   margin: 0;
 }
 
+  /* --- Animations --- */
+  --animate-fade-in: fade-in 0.6s ease-out;
+  --animate-fade-in-up: fade-in-up 0.6s ease-out;
+  --animate-fade-in-left: fade-in-left 0.6s ease-out;
+  --animate-fade-in-right: fade-in-right 0.6s ease-out;
+  --animate-fade-in-slow: fade-in 0.8s ease-out;
+  --animate-page-enter: page-enter 0.3s ease-out;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-delayed: float 6s ease-in-out infinite 2s;
+  --animate-gentle-rotate: gentle-rotate 20s linear infinite;
 .featured-explore-btn {
   display: inline-flex;
   align-items: center;
@@ -241,6 +295,35 @@ body {
   overflow: hidden;
 }
 
+  /* --- Keyframes (Native to Tailwind v4 @theme block) --- */
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes fade-in-up {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  @keyframes fade-in-left {
+    from { transform: translateX(-8px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  @keyframes fade-in-right {
+    from { transform: translateX(8px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  @keyframes page-enter {
+    from { transform: translateY(6px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  @keyframes gentle-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
 .featured-graphic-placeholder {
   color: #64748b;
   font-weight: 600;
@@ -257,8 +340,28 @@ body {
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   background-color: #e2e8f0;
+  --font-heading: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6)
 }
 
+/* --- Base Body Styling --- */
+body {
+  font-family: var(--font-sans);
 .featured-slide-img {
   position: absolute;
   top: 0;
@@ -271,11 +374,21 @@ body {
   transform: scale(1.05);
 }
 
+/* --- Asymmetric Blob & Organic Shape Utilities --- */
+.blob-shape-1 { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+.blob-shape-2 { border-radius: 50% 50% 30% 70% / 50% 60% 40% 50%; }
+.blob-shape-3 { border-radius: 40% 60% 70% 30% / 40% 50% 50% 60%; }
 .featured-slide-img.active {
   opacity: 1;
   transform: scale(1);
 }
 
+.organic-card-1 { border-radius: 2rem 4rem 2rem 3rem; }
+.organic-card-2 { border-radius: 3rem 2rem 4rem 2rem; }
+.organic-card-3 { border-radius: 2rem 3rem 2rem 4rem; }
+.organic-card-4 { border-radius: 4rem 2rem 3rem 2rem; }
+.organic-card-5 { border-radius: 3rem 4rem 2rem 2rem; }
+.organic-card-6 { border-radius: 2rem 2rem 4rem 3rem; }
 .featured-slideshow-indicators {
   position: absolute;
   bottom: 1rem;
@@ -286,6 +399,7 @@ body {
   z-index: 10;
 }
 
+/* --- Staggered Animation Delays --- */
 .featured-indicator {
   width: 8px;
   height: 8px;
@@ -390,3 +504,35 @@ body {
 .animation-delay-900 { animation-delay: 0.5s; }
 .animation-delay-1000 { animation-delay: 0.55s; }
 
+.dark {
+  --background: #1C1C16;
+  --foreground: #F3F4F1;
+  --card: #25251F;
+  --card-foreground: #F3F4F1;
+  --popover: #25251F;
+  --popover-foreground: #F3F4F1;
+  --primary: #8CA37E;
+  --primary-foreground: #1C1C16;
+  --secondary: #D9A778;
+  --secondary-foreground: #1C1C16;
+  --muted: #2D2D25;
+  --muted-foreground: #A1A194;
+  --accent: #3A3A31;
+  --accent-foreground: #F3F4F1;
+  --destructive: #C46B5E;
+  --border: rgba(238, 233, 223, 0.1);
+  --input: rgba(238, 233, 223, 0.15);
+  --ring: #8CA37E
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
