@@ -2,10 +2,6 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-html {
-  scroll-behavior: smooth;
-}
-
 @custom-variant dark (&:is(.dark *));
 
 :root {
@@ -56,13 +52,6 @@ html {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
     /* Keep your existing dark mode variables here, or update when PM provides them */
   }
 }
@@ -79,14 +68,15 @@ html {
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-destructive: var(--destructive);
+
   --color-success: var(--success);
   --color-success-foreground: var(--success-foreground);
   --color-success-muted: var(--success-muted);
@@ -108,52 +98,6 @@ html {
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);  
 
-  --font-sans: var(--font-nunito), system-ui, sans-serif;
-  --font-serif: var(--font-fraunces), Georgia, serif;
-  --shadow-soft: 0 4px 20px -2px rgba(93, 112, 82, 0.15);
-  --shadow-float: 0 10px 40px -10px rgba(193, 140, 93, 0.2);
-  --shadow-3xl: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
-
-  --animate-fade-in: fade-in 0.6s ease-out forwards;
-  --animate-fade-in-up: fade-in-up 0.6s ease-out forwards;
-  --animate-fade-in-left: fade-in-left 0.6s ease-out forwards;
-  --animate-fade-in-right: fade-in-right 0.6s ease-out forwards;
-  --animate-fade-in-slow: fade-in 0.8s ease-out forwards;
-  --animate-page-enter: page-enter 0.3s ease-out forwards;
-  --animate-float: float 6s ease-in-out infinite;
-  --animate-float-delayed: float 6s ease-in-out infinite 2s;
-  --animate-gentle-rotate: gentle-rotate 20s linear infinite;
-
-  @keyframes fade-in {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  @keyframes fade-in-up {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes fade-in-left {
-    from { opacity: 0; transform: translateX(-8px); }
-    to { opacity: 1; transform: translateX(0); }
-  }
-  @keyframes fade-in-right {
-    from { opacity: 0; transform: translateX(8px); }
-    to { opacity: 1; transform: translateX(0); }
-  }
-  @keyframes page-enter {
-    from { opacity: 0; transform: translateY(6px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
-  }
-  @keyframes gentle-rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-}
-
   /* --- Custom Brand Shadows --- */
   --shadow-soft: 0 4px 20px -2px rgba(93, 112, 82, 0.15);
   --shadow-float: 0 10px 40px -10px rgba(193, 140, 93, 0.2);
@@ -169,39 +113,91 @@ html {
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
+  /* --- Chart Directives --- */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
 
-/* Organic Asymmetric Shapes */
-.blob-shape-1 {
-  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-}
-.blob-shape-2 {
-  border-radius: 50% 50% 30% 70% / 50% 60% 40% 50%;
-}
-.blob-shape-3 {
-  border-radius: 40% 60% 70% 30% / 40% 50% 50% 60%;
+  /* --- Animations --- */
+  --animate-fade-in: fade-in 0.6s ease-out;
+  --animate-fade-in-up: fade-in-up 0.6s ease-out;
+  --animate-fade-in-left: fade-in-left 0.6s ease-out;
+  --animate-fade-in-right: fade-in-right 0.6s ease-out;
+  --animate-fade-in-slow: fade-in 0.8s ease-out;
+  --animate-page-enter: page-enter 0.3s ease-out;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-delayed: float 6s ease-in-out infinite 2s;
+  --animate-gentle-rotate: gentle-rotate 20s linear infinite;
+
+  /* --- Keyframes (Native to Tailwind v4 @theme block) --- */
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes fade-in-up {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  @keyframes fade-in-left {
+    from { transform: translateX(-8px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  @keyframes fade-in-right {
+    from { transform: translateX(8px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  @keyframes page-enter {
+    from { transform: translateY(6px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  @keyframes gentle-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  --font-heading: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6)
 }
 
-.organic-card-1 {
-  border-radius: 2rem 4rem 2rem 3rem;
-}
-.organic-card-2 {
-  border-radius: 3rem 2rem 4rem 2rem;
-}
-.organic-card-3 {
-  border-radius: 2rem 3rem 2rem 4rem;
-}
-.organic-card-4 {
-  border-radius: 4rem 2rem 3rem 2rem;
-}
-.organic-card-5 {
-  border-radius: 3rem 4rem 2rem 2rem;
-}
-.organic-card-6 {
-  border-radius: 2rem 2rem 4rem 3rem;
+/* --- Base Body Styling --- */
+body {
+  font-family: var(--font-sans);
 }
 
+/* --- Asymmetric Blob & Organic Shape Utilities --- */
+.blob-shape-1 { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+.blob-shape-2 { border-radius: 50% 50% 30% 70% / 50% 60% 40% 50%; }
+.blob-shape-3 { border-radius: 40% 60% 70% 30% / 40% 50% 50% 60%; }
 
-/* Animation Delays */
+.organic-card-1 { border-radius: 2rem 4rem 2rem 3rem; }
+.organic-card-2 { border-radius: 3rem 2rem 4rem 2rem; }
+.organic-card-3 { border-radius: 2rem 3rem 2rem 4rem; }
+.organic-card-4 { border-radius: 4rem 2rem 3rem 2rem; }
+.organic-card-5 { border-radius: 3rem 4rem 2rem 2rem; }
+.organic-card-6 { border-radius: 2rem 2rem 4rem 3rem; }
+
+/* --- Staggered Animation Delays --- */
 .animation-delay-100 { animation-delay: 0.1s; }
 .animation-delay-200 { animation-delay: 0.15s; }
 .animation-delay-300 { animation-delay: 0.2s; }
