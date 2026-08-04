@@ -65,10 +65,10 @@ export function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full px-6 sm:px-8 lg:px-12 pt-5 md:pt-8 flex flex-col items-center animate-fade-in-up">
-      <div className="w-full max-w-[80rem] h-16 md:h-[4.5rem] px-5 md:px-7 bg-card/90 backdrop-blur-md border border-border rounded-full shadow-soft flex items-center justify-between transition-all duration-300">
+    <header className="sticky top-0 z-50 w-full px-4 sm:px-6 pt-5 md:pt-8 flex flex-col items-center animate-fade-in-up">
+      <div className="w-full max-w-[90rem] h-[4.5rem] md:h-20 px-6 md:px-8 bg-card/90 backdrop-blur-md border border-border rounded-full shadow-soft flex items-center justify-between transition-all duration-300">
         <Link href="/" className="flex items-center gap-3.5 group active:scale-98 transition-transform">
-          <div className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-serif font-extrabold text-base shadow-soft">
+          <div className="w-10 h-10 md:w-11 md:h-11 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-serif font-extrabold text-base shadow-soft">
             V
           </div>
           <div className="flex flex-col leading-none">
@@ -82,7 +82,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-6 xl:gap-8 text-base font-semibold text-primary">
+        <nav className="hidden lg:flex items-center gap-8 xl:gap-10 text-base font-semibold text-primary">
           {navLinks.map((link) => (
             <Link key={link.href} href={link.href} className="relative py-1 text-muted-foreground font-sans hover:text-primary transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-center after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 after:ease-out hover:after:scale-x-100">
               {link.name}
@@ -94,7 +94,7 @@ export function Navbar() {
         <div className="hidden lg:flex items-center gap-3">
           <Link
             href="/bug-report"
-            className="group flex items-center gap-2 px-5 py-2.5 text-xs font-semibold rounded-full bg-secondary text-secondary-foreground shadow-soft hover:shadow-float hover:bg-secondary/90 hover:scale-[1.06] active:scale-95 transition-all duration-300"
+            className="group flex items-center gap-2 px-6 py-3 text-xs font-semibold rounded-full bg-secondary text-secondary-foreground shadow-soft hover:shadow-float hover:bg-secondary/90 hover:scale-[1.06] active:scale-95 transition-all duration-300"
           >
             <Bug className="w-5 h-5" />
             Report Bug
