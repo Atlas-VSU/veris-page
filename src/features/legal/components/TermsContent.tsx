@@ -25,7 +25,7 @@ const sections = [
   },
   {
     title: "7. Acceptable Use Policy",
-    body: "Subscribers and their Officers must use the platform responsibly. Organizations may not:\n• Attempt to hack, bypass security, or reverse engineer the software.\n• Scrape data or use automated systems to extract platform information.\n• Share Officer accounts among multiple individuals, unless consented by Service provider.\n• Upload malicious files or harmful code.\n• Abuse the payment verification system or conduct fraudulent transactions.\n• Impersonate other users or organizations.",
+    body: "Subscribers and their Officers must use the platform responsibly. Organizations may not:\n• Attempt to hack, bypass security, or reverse engineer the software.\n• Scrape data or use automated systems to extract platform information.\n• Share Officer accounts among multiple individuals, unless explicitly authorized by the Service Provider.\n• Upload malicious files or harmful code.\n• Abuse the payment verification system or conduct fraudulent transactions.\n• Impersonate other users or organizations.",
   },
   {
     title: "8. Security Responsibilities",
