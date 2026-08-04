@@ -11,16 +11,18 @@ const figtree = Figtree({subsets:['latin'],variable:'--font-sans'});
 const nunito = Nunito({
   variable: "--font-nunito",
   subsets: ["latin"],
+  display: "swap",
 });
 
 // Brand Serif Font (for editorial/special headings)
 const fraunces = Fraunces({
   variable: "--font-fraunces",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "VERIS - Campus Ecosystem & Platform",
+  title: "VERIS - Subscription Tiers & Pricing",
   description: "Official marketing and informational site for VERIS campus platforms, CORAL, USSC Connect, and E-Passport.",
 };
 
