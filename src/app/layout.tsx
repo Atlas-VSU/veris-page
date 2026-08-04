@@ -1,14 +1,20 @@
 import type { Metadata } from "next";
-import { Nunito, Fraunces } from "next/font/google";
+import { Nunito, Fraunces, Figtree } from "next/font/google";
 import "./globals.css";
 import { Navbar, Footer } from "@/features/shared";
+import { cn } from "@/lib/utils";
 
+const figtree = Figtree({subsets:['latin'],variable:'--font-sans'});
+
+
+// Brand Sans-Serif Font
 const nunito = Nunito({
   variable: "--font-nunito",
   subsets: ["latin"],
   display: "swap",
 });
 
+// Brand Serif Font (for editorial/special headings)
 const fraunces = Fraunces({
   variable: "--font-fraunces",
   subsets: ["latin"],
@@ -26,8 +32,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${nunito.variable} ${fraunces.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-background text-foreground selection:bg-primary selection:text-primary-foreground">
+    <html lang="en" className={cn("h-full", "antialiased", nunito.variable, fraunces.variable, "font-sans", figtree.variable)}>
+      <body className="min-h-full flex flex-col">
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
