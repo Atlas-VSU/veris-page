@@ -18,7 +18,7 @@ export function FeaturedPlatformInfo({ title, description, link }: FeaturedPlatf
         <Shield className="w-6 h-6 text-primary" />
       </div>
       
-      <h3 className={`${fraunces.className} text-4xl md:text-5xl font-medium text-heading leading-tight`}>
+      <h3 className={`${fraunces.className} text-4xl md:text-5xl font-medium text-neutral-900 leading-tight`}>
         {title}
       </h3>
       
