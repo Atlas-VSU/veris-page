@@ -41,6 +41,12 @@ html {
   }
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Keep your existing dark mode variables here, or update when PM provides them */
+  }
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
