@@ -1,17 +1,17 @@
 export function Hero() {
   return (
-    <section className="lg:grid lg:grid-cols-[1.2fr_1fr] lg:min-h-screen bg-surface-container-low border-b border-warm-border overflow-hidden">
+    <section className="lg:grid lg:grid-cols-[1.2fr_1fr] lg:min-h-screen bg-muted border-b border-border overflow-hidden">
       {/* Left: intro copy */}
-      <div className="flex items-center px-margin-mobile md:px-margin-desktop py-2xl lg:py-0 border-b lg:border-b-0 lg:border-r border-warm-border">
+      <div className="flex items-center px-4 md:px-20 py-16 lg:py-0 border-b lg:border-b-0 lg:border-r border-border">
         <div className="max-w-xl">
-          <span className="font-label-md text-label-md text-primary tracking-widest uppercase mb-md block">
+          <span className="font-sans text-sm font-bold text-primary tracking-widest uppercase mb-4 block">
             Welcome to VERIS
           </span>
-          <h1 className="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-charcoal-olive mb-lg leading-tight">
+          <h1 className="font-serif text-4xl md:text-5xl text-foreground mb-6 leading-tight">
             Empowering University Ecosystems Through{" "}
             <span className="text-primary italic">Digital Transformation</span>
           </h1>
-          <p className="font-body-lg text-body-lg text-on-surface-variant">
+          <p className="font-sans text-lg text-muted-foreground">
             We provide student organizations with the infrastructure to eliminate friction and deliver
             student-centered services.
           </p>
@@ -20,17 +20,17 @@ export function Hero() {
 
       {/* Right: Mission / Vision panels */}
       <div className="flex flex-col gap-0">
-        <div className="flex-1 p-xl md:p-2xl text-off-white bg-moss-green flex flex-col justify-center">
-          <h2 className="font-headline-lg text-headline-lg mb-md">Our Mission</h2>
-          <p className="font-body-lg text-body-lg opacity-90 max-w-lg">
+        <div className="flex-1 p-10 md:p-16 bg-primary text-primary-foreground flex flex-col justify-center">
+          <h2 className="font-serif text-2xl mb-4">Our Mission</h2>
+          <p className="font-sans text-base opacity-90 max-w-lg">
             To provide student organizations with intuitive digital infrastructure that eliminates
             bureaucratic friction, transforming workflows into fast, transparent, and accessible
             services for every student.
           </p>
         </div>
-        <div className="flex-1 p-xl md:p-2xl text-off-white bg-terracotta flex flex-col justify-center">
-          <h2 className="font-headline-lg text-headline-lg mb-md">Our Vision</h2>
-          <p className="font-body-lg text-body-lg opacity-90 max-w-lg">
+        <div className="flex-1 p-10 md:p-16 bg-secondary text-secondary-foreground flex flex-col justify-center">
+          <h2 className="font-serif text-2xl mb-4">Our Vision</h2>
+          <p className="font-sans text-base opacity-90 max-w-lg">
             To pioneer the digital transformation of university ecosystems by transforming student
             organization operations into student-centered campus services through innovative digital
             solutions.
