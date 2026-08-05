@@ -48,11 +48,11 @@ export function useServicesOverview() {
           .select('title, link, photo, description');
 
         if (error) {
-          console.warn("Could not fetch from Supabase (table might not exist yet). Falling back to mock data.", error);
+          console.warn("Could not fetch from Supabase (table might not exist yet).", error);
         }
 
-        // If data is missing or empty, use the mock data
-        const contentToMap = (!error && data && data.length > 0) ? data : mockEcosystemData;
+        // Use mock data first (as requested), keeping the fetch code intact
+        const contentToMap = mockEcosystemData;
 
         // Map database rows to our EcosystemCard format
         const formattedData = contentToMap.map((item, index) => {

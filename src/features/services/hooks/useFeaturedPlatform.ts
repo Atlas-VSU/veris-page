@@ -2,21 +2,13 @@
 
 import { useState, useEffect } from "react";
 import { createClient } from '@supabase/supabase-js';
+import { mockFeaturedPlatformData } from "../constants/mockData";
 
 export function useFeaturedPlatform() {
   const [isFeaturedModalOpen, setIsFeaturedModalOpen] = useState(false);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   
-  const [featuredData, setFeaturedData] = useState({
-    title: "Administrative Portal",
-    description: "Comprehensive dashboard for administrators to monitor student eligibility, track organizational fees and fines, and verify payment settlements in real-time. Total control over the clearance ecosystem.",
-    link: "https://admin.veris.example.com",
-    photos: [
-      '/screenshots/platform_mock_1.png',
-      '/screenshots/platform_mock_2.png',
-      '/screenshots/platform_mock_3.png'
-    ]
-  });
+  const [featuredData, setFeaturedData] = useState(mockFeaturedPlatformData);
 
   useEffect(() => {
     async function fetchData() {
@@ -50,9 +42,9 @@ export function useFeaturedPlatform() {
             ];
           }
           setFeaturedData({
-            title: item.title || "Administrative Portal",
-            description: item.description || "Comprehensive dashboard for administrators to monitor student eligibility, track organizational fees and fines, and verify payment settlements in real-time. Total control over the clearance ecosystem.",
-            link: item.link || "https://admin.veris.example.com",
+            title: item.title || mockFeaturedPlatformData.title,
+            description: item.description || mockFeaturedPlatformData.description,
+            link: item.link || mockFeaturedPlatformData.link,
             photos: photos
           });
         }
