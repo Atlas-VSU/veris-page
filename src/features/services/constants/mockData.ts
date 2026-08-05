@@ -1,22 +1,22 @@
-import { GraduationCap, Pen, CreditCard, FileText, Users, Database } from "lucide-react";
+import { FileSliders, NotepadText, Map, FileText, Users, Database } from "lucide-react";
 
 export const styleTemplates = [
   {
-    Icon: GraduationCap,
+    Icon: FileSliders,
     organicShapeClass: "organic-card-4",
     iconBgClass: "bg-success-muted",
     iconColorClass: "text-primary",
     hoverColorClass: "group-hover:text-primary",
   },
   {
-    Icon: Pen,
+    Icon: NotepadText,
     organicShapeClass: "organic-card-5",
     iconBgClass: "bg-warning-muted",
     iconColorClass: "text-secondary",
     hoverColorClass: "group-hover:text-secondary",
   },
   {
-    Icon: CreditCard,
+    Icon: Map,
     organicShapeClass: "organic-card-6",
     iconBgClass: "bg-success-muted",
     iconColorClass: "text-primary",
@@ -47,39 +47,37 @@ export const styleTemplates = [
 
 export const mockEcosystemData = [
   {
-    title: "Student Self-Registration",
-    description: "New students can easily register for organization membership online by verifying their email address.",
-    link: "https://example.com/register",
-    photo: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80&w=800"
+    title: "VERIS System",
+    description: "A modern web app for organizations to efficiently manage event attendance, with a Plus tier for handling fees, fines, and student clearances.",
+    link: "https://veris.fc-ssc.online/",
+    photo: '/screenshots/system.png'
   },
   {
-    title: "Update Student Record",
-    description: "Ensure your student information is accurate and up-to-date in order to receive correct clearance status.",
-    link: "https://example.com/update",
-    photo: "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&q=80&w=800"
+    title: "VERIS Student Portal",
+    description: "A separate repository for the VERIS system's existing public student modules for Plan subscribers.",
+    link: "https://veris-student-portal.fc-ssc.online/",
+    photo: '/screenshots/studentportal.png'
   },
   {
-    title: "Pay Dues & Fines",
-    description: "Verify your enrollment, review academic term dues or attendance fines, and securely submit GCash receipts.",
-    link: "https://example.com/payment",
-    photo: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=800"
-  },
-  {
-    title: "Clearance Tracking",
-    description: "View your real-time clearance status across all departments and organizations in a single dashboard.",
-    link: "https://example.com/clearance",
-    photo: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=800"
-  },
-  {
-    title: "Organization Management",
-    description: "Tools for student leaders to manage members, post announcements, and track overall organization health.",
-    link: "https://example.com/orgs",
-    photo: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800"
-  },
-  {
-    title: "System Settings",
-    description: "Configure notification preferences, connect external accounts, and manage your account security.",
-    link: "https://example.com/settings",
-    photo: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800"
+    title: "VSU E-Passport",
+    description: "A mobile and tablet web app for the Visayas State University (USSC) campus tour. Students navigate a passport-style UI and 'stamp' landmarks by uploading on-site photos.",
+    link: "https://ussc-epassport.fc-ssc.online/",
+    photo: '/screenshots/passport.png'
   }
 ];
+
+export const mockFeaturedPlatformData = {
+  title: "USSC Connect",
+  description: "A custom web application developed exclusively for the USSC to automate organizational transactions. It streamlines attendance tracking, event management, fee and fine collection, and student clearance processes.",
+  link: "https://coral-ussc-bay.vercel.app/",
+  photos: [
+    '/screenshots/ussc_1.png',
+    '/screenshots/ussc_2.png',
+    '/screenshots/ussc_3.png',
+    '/screenshots/ussc_4.png',
+    '/screenshots/ussc_5.png',
+    '/screenshots/ussc_6.png',
+    '/screenshots/ussc_7.png',
+    '/screenshots/ussc_8.png'
+  ]
+};

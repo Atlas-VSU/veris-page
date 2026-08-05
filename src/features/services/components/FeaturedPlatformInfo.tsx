@@ -1,13 +1,13 @@
 "use client";
 
-import { ArrowRight, Shield } from "lucide-react";
+import { ArrowRight, SquareChartGantt } from "lucide-react";
 import { FeaturedPlatformInfoProps } from "../types";
 
 export function FeaturedPlatformInfo({ title, description, link }: FeaturedPlatformInfoProps) {
   return (
     <div className="flex-1 space-y-6">
       <div className="w-12 h-12 bg-success-muted rounded-full flex items-center justify-center">
-        <Shield className="w-6 h-6 text-primary" />
+        <SquareChartGantt className="w-6 h-6 text-primary" />
       </div>
       
       <h3 className="font-serif text-4xl md:text-5xl font-medium text-neutral-900 leading-tight">
