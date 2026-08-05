@@ -1,19 +1,18 @@
 "use client";
 
 import { ChevronDown } from "lucide-react";
-
-interface YearSelectProps {
-  value: string;
-  years: string[];
-  onChange: (year: string) => void;
-  className?: string;
-}
+import { YearSelectProps } from "../types";
 
 /**
  * Generic, domain-agnostic year filter control.
  * Lives in `shared` since it has no knowledge of the feature that uses it.
  */
-export function YearSelect({ value, years, onChange, className = "" }: YearSelectProps) {
+export function YearSelect({
+  value,
+  years,
+  onChange,
+  className = "",
+}: YearSelectProps) {
   return (
     <div className="relative inline-block">
       <select
