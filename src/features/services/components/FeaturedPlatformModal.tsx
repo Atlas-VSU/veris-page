@@ -1,10 +1,17 @@
 "use client";
 
-import { X } from "lucide-react";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 import { FeaturedPlatformModalProps } from "../types";
 
-export function FeaturedPlatformModal({ isOpen, onClose, photoUrl }: FeaturedPlatformModalProps) {
+export function FeaturedPlatformModal({ 
+  isOpen, 
+  onClose, 
+  photoUrl, 
+  onNext, 
+  onPrev, 
+  hasMultiplePhotos 
+}: FeaturedPlatformModalProps) {
   if (!isOpen) return null;
   
   return (
@@ -18,10 +25,27 @@ export function FeaturedPlatformModal({ isOpen, onClose, photoUrl }: FeaturedPla
       >
         <button 
           onClick={onClose}
-          className="absolute -top-12 right-0 md:-right-12 md:top-0 w-10 h-10 rounded-full bg-muted/50 hover:bg-muted flex items-center justify-center text-foreground transition-colors"
+          className="absolute -top-12 right-0 md:-right-12 md:top-0 w-10 h-10 rounded-full bg-muted/50 hover:bg-muted flex items-center justify-center text-foreground transition-colors z-10"
         >
           <X className="w-5 h-5" />
         </button>
+
+        {hasMultiplePhotos && (
+          <>
+            <button
+              onClick={(e) => { e.stopPropagation(); onPrev(); }}
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-background/80 hover:bg-background shadow-lg flex items-center justify-center text-foreground transition-colors z-10"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+            <button
+              onClick={(e) => { e.stopPropagation(); onNext(); }}
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-background/80 hover:bg-background shadow-lg flex items-center justify-center text-foreground transition-colors z-10"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+          </>
+        )}
         <img 
           src={photoUrl} 
           alt="Platform Mockup Full" 

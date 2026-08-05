@@ -49,6 +49,9 @@ export interface FeaturedPlatformModalProps {
   isOpen: boolean;
   onClose: () => void;
   photoUrl: string;
+  onNext: () => void;
+  onPrev: () => void;
+  hasMultiplePhotos: boolean;
 }
 
 export interface FeaturedPlatformInfoProps {

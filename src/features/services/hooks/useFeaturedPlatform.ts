@@ -57,11 +57,13 @@ export function useFeaturedPlatform() {
   }, []);
 
   useEffect(() => {
+    if (isFeaturedModalOpen) return;
+
     const interval = setInterval(() => {
       setCurrentSlideIndex((prev) => (prev + 1) % featuredData.photos.length);
     }, 4000);
     return () => clearInterval(interval);
-  }, [featuredData.photos.length]);
+  }, [featuredData.photos.length, isFeaturedModalOpen]);
 
   return {
     isFeaturedModalOpen,

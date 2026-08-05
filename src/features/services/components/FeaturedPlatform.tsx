@@ -10,6 +10,7 @@ export function FeaturedPlatform() {
     isFeaturedModalOpen,
     setIsFeaturedModalOpen,
     currentSlideIndex,
+    setCurrentSlideIndex,
     featuredData
   } = useFeaturedPlatform();
 
@@ -43,6 +44,9 @@ export function FeaturedPlatform() {
         isOpen={isFeaturedModalOpen}
         onClose={() => setIsFeaturedModalOpen(false)}
         photoUrl={featuredData.photos[currentSlideIndex]}
+        hasMultiplePhotos={featuredData.photos.length > 1}
+        onNext={() => setCurrentSlideIndex((prev) => (prev + 1) % featuredData.photos.length)}
+        onPrev={() => setCurrentSlideIndex((prev) => (prev === 0 ? featuredData.photos.length - 1 : prev - 1))}
       />
     </>
   );
