@@ -7,11 +7,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 
-import type {
-  TeamMember,
-  TeamMemberCardProps,
-  TeamMemberIcon,
-} from "../types/team.types";
+import type { TeamMemberCardProps, TeamMemberIcon } from "../types/team.types";
 
 const ICONS: Record<
   TeamMemberIcon,
