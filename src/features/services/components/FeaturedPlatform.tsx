@@ -1,12 +1,9 @@
 "use client";
 
-import { Fraunces } from 'next/font/google';
 import { useFeaturedPlatform } from "../hooks/useFeaturedPlatform";
 import { FeaturedPlatformInfo } from "./FeaturedPlatformInfo";
 import { FeaturedPlatformSlideshow } from "./FeaturedPlatformSlideshow";
 import { FeaturedPlatformModal } from "./FeaturedPlatformModal";
-
-const fraunces = Fraunces({ subsets: ['latin'], weight: ['400', '500', '600'] });
 
 export function FeaturedPlatform() {
   const {
@@ -19,7 +16,7 @@ export function FeaturedPlatform() {
   return (
     <>
       <section className="space-y-10 animate-fade-in-up animation-delay-200">
-        <h2 className={`${fraunces.className} text-center text-3xl font-medium text-neutral-900`}>
+        <h2 className="font-serif text-center text-3xl font-medium text-neutral-900">
           Featured Platform
         </h2>
         
