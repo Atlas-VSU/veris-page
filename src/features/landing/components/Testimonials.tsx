@@ -2,96 +2,33 @@ import React from "react";
 import { CheckCircle2, Quote } from "lucide-react";
 import type { Testimonial, TestimonialsProps } from "../types";
 import { CtaSection } from "./CtaSection";
+import { defaultTestimonials } from "../data";
+import {
+  getInitials,
+  getFullName,
+  getAvatarColorClasses,
+  getServiceTagClasses,
+  getBlobRadius,
+  getAnimationDelayClass,
+  partitionTestimonials,
+} from "../helperFunction/testimonial";
 
-const defaultTestimonials: Testimonial[] = [
-  {
-    firstName: "USSC",
-    lastName: "Officer",
-    role: "Finance Committee",
-    service: "USSC Connect",
-    message:
-      "Before USSC Connect, clearance season meant hours of manually checking payment proofs and cross-referencing spreadsheets. Now it's just a dashboard away.",
-    avatarPicture:
-      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
-    blobShape: "blob-shape-1",
-    accent: "primary",
-    featured: true,
-  },
-  {
-    firstName: "USSC",
-    lastName: "Officer",
-    role: "Membership Committee",
-    service: "VERIS Attendance",
-    message:
-      "Attendance tracking used to be pen and paper at every event. With VERIS, we know instantly who's cleared and who still owes fines.",
-    avatarPicture:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
-    blobShape: "blob-shape-2",
-    accent: "secondary",
-  },
-  {
-    firstName: "USSC",
-    lastName: "Officer",
-    role: "Enrollment Support Team",
-    service: "OSSE Self-Registration",
-    message:
-      "Onboarding freshmen at OSSE was so much smoother with self-registration — officers just verified instead of encoding everything by hand.",
-    avatarPicture:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80",
-    blobShape: "blob-shape-3",
-    accent: "primary",
-  },
-  {
-    firstName: "Student",
-    lastName: "Name",
-    role: "ABELS",
-    service: "Clearance Settlement",
-    message:
-      "What I appreciate most is the elimination of long queues for hours during the settling of clearance status.",
-    avatarPicture:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
-    blobShape: "blob-shape-1",
-    accent: "secondary",
-  },
-  {
-    firstName: "Freshman",
-    lastName: "Name",
-    role: "BSCS",
-    service: "E-Passport",
-    message: "The E-Passport made the campus tour much more enjoyable!",
-    avatarPicture:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80",
-    blobShape: "blob-shape-2",
-    accent: "primary",
-  },
-];
 
-const blobRadius: Record<Testimonial["blobShape"], string> = {
-  "blob-shape-1": "60% 40% 30% 70% / 60% 30% 70% 40%",
-  "blob-shape-2": "50% 50% 30% 70% / 50% 60% 40% 50%",
-  "blob-shape-3": "40% 60% 70% 30% / 40% 50% 50% 60%",
-};
+const DefaultTestimonials: Testimonial[] = defaultTestimonials;
 
 function Avatar({ t }: { t: Testimonial }) {
-  const bg =
-    t.accent === "primary"
-      ? "bg-[var(--primary)]/15"
-      : "bg-[var(--secondary)]/15";
-  const fg =
-    t.accent === "primary"
-      ? "text-[var(--primary)]"
-      : "text-[var(--secondary)]";
-  const initials = `${t.firstName[0] || ""}${t.lastName[0] || ""}`;
+  const { bg, fg } = getAvatarColorClasses(t.accent);
+  const initials = getInitials(t.firstName, t.lastName);
 
   return (
     <div
       className={`w-12 h-12 shrink-0 flex items-center justify-center font-bold font-sans overflow-hidden ${bg} ${fg}`}
-      style={{ borderRadius: blobRadius[t.blobShape] }}
+      style={{ borderRadius: getBlobRadius(t.blobShape) }}
     >
       {t.avatarPicture ? (
         <img
           src={t.avatarPicture}
-          alt={`${t.firstName} ${t.lastName}`}
+          alt={getFullName(t.firstName, t.lastName)}
           className="w-full h-full object-cover"
         />
       ) : (
@@ -108,13 +45,11 @@ function ServiceTag({
   service: string;
   accent: "primary" | "secondary";
 }) {
-  const cls =
-    accent === "primary"
-      ? "bg-primary/10 text-primary border-primary/20"
-      : "bg-secondary/10 text-secondary border-secondary/20";
   return (
     <span
-      className={`font-sans text-[11px] font-semibold px-2.5 py-1 rounded-full border ${cls}`}
+      className={`font-sans text-[11px] font-semibold px-2.5 py-1 rounded-full border ${getServiceTagClasses(
+        accent
+      )}`}
     >
       {service}
     </span>
@@ -122,7 +57,7 @@ function ServiceTag({
 }
 
 function NameRow({ t }: { t: Testimonial }) {
-  const fullName = `${t.firstName} ${t.lastName}`;
+  const fullName = getFullName(t.firstName, t.lastName);
 
   return (
     <div className="flex items-center gap-3">
@@ -149,7 +84,7 @@ export function Testimonials({
   pillText = "Voices Across Campus",
   title = "Trusted across the entire campus ecosystem",
   subtitle = "Discover how organization officers and students are eliminating administrative chaos, cutting long queues, and modernizing campus life with VERIS.",
-  items = defaultTestimonials,
+  items = DefaultTestimonials,
   ctaTitle,
   ctaSubtitle,
   ctaButtonText,
@@ -157,8 +92,7 @@ export function Testimonials({
   showCta = true,
   className = "",
 }: TestimonialsProps) {
-  const featured = items.find((t) => t.featured) || items[0];
-  const rest = items.filter((t) => t !== featured);
+  const { featured, firstRest, remainingRest } = partitionTestimonials(items);
 
   return (
     <section className={`relative py-16 md:py-24 ${className}`}>
@@ -215,35 +149,31 @@ export function Testimonials({
           )}
 
           {/* Second testimonial (Top right column) */}
-          {rest[0] && (
+          {firstRest && (
             <div
               className="bg-card p-6 flex flex-col justify-between animate-fade-in-up animation-delay-200 relative shadow-soft hover:shadow-float transition-all duration-300"
               style={{ borderRadius: "3rem 2rem 4rem 2rem" }}
             >
               <div>
-                <ServiceTag service={rest[0].service} accent={rest[0].accent} />
+                <ServiceTag service={firstRest.service} accent={firstRest.accent} />
                 <p className="mt-4 font-sans text-sm text-foreground leading-relaxed">
-                  "{rest[0].message}"
+                  "{firstRest.message}"
                 </p>
               </div>
 
               <div className="mt-5 pt-5 border-t border-border">
-                <NameRow t={rest[0]} />
+                <NameRow t={firstRest} />
               </div>
             </div>
           )}
 
-          {/* Bottom row testimonials (3 columns) */}
-          {rest.slice(1).map((t, i) => (
+          {/* Bottom row testimonials */}
+          {remainingRest.map((t, i) => (
             <div
               key={t.id || `${t.firstName}-${t.lastName}-${i}`}
-              className={`bg-card/80 border border-border/60 p-6 flex flex-col justify-between animate-fade-in-up shadow-soft hover:shadow-float transition-all duration-300 ${
-                i === 0
-                  ? "animation-delay-300"
-                  : i === 1
-                  ? "animation-delay-400"
-                  : "animation-delay-500"
-              }`}
+              className={`bg-card/80 border border-border/60 p-6 flex flex-col justify-between animate-fade-in-up shadow-soft hover:shadow-float transition-all duration-300 ${getAnimationDelayClass(
+                i
+              )}`}
               style={{ borderRadius: "2rem 3rem 2rem 4rem" }}
             >
               <div>

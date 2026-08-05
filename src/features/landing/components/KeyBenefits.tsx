@@ -1,117 +1,23 @@
 import React from 'react';
-import { 
-  UserCheck, 
-  ShieldCheck, 
-  Zap, 
-  Sparkles, 
-  Code2, 
-  RefreshCw, 
-  Headphones, 
-  Building2,
-  LucideIcon
-} from 'lucide-react';
-
 import type { DevServiceFeatureItem, KeyBenefitItem, KeyBenefitsProps } from '../types';
+import { DEFAULT_BENEFITS, DEFAULT_TRUST_FEATURES } from '../data';
+import {
+  getAnimationDelayClass,
+  getBenefitIcon,
+  getOrganicShapeClass,
+  getTrustIcon,
+} from '../helperFunction/keyBenefit';
 
-
-const DEFAULT_BENEFITS: KeyBenefitItem[] = [
-  {
-    id: 'benefit-1',
-    title: 'Friction-Free Onboarding',
-    description: 'Self-registration eliminates long queues and manual encoding bottlenecks during peak enrollment.',
-    badge: 'For Students',
-    highlight: 'Zero manual encoding queues',
-    iconName: 'user-check',
-  },
-  {
-    id: 'benefit-2',
-    title: 'Real-Time Clearance Status',
-    description: 'Complete dashboard visibility into unpaid fees, fines, and requirements with zero guesswork.',
-    badge: 'Students & Officers',
-    highlight: 'Instant status transparency',
-    iconName: 'shield-check',
-  },
-  {
-    id: 'benefit-3',
-    title: 'Automated Admin Workflows',
-    description: 'Automated fee calculation and payment checks free officers to focus on actual programs and events.',
-    badge: 'For Officers',
-    highlight: 'Saves 10+ hours weekly',
-    iconName: 'zap',
-  },
-  {
-    id: 'benefit-4',
-    title: 'One Unified Campus Experience',
-    description: 'A single, trusted platform students interact with across every campus organization from year 1 to graduation.',
-    badge: 'University-Wide',
-    highlight: '4-year process continuity',
-    iconName: 'sparkles',
-  },
-];
-
-const DEFAULT_TRUST_FEATURES: DevServiceFeatureItem[] = [
-  {
-    id: 'trust-1',
-    title: 'Dedicated In-House Team',
-    description: 'Built by engineers who understand actual student workflows.',
-    iconName: 'code',
-  },
-  {
-    id: 'trust-2',
-    title: 'Continuous Upgrades',
-    description: 'Includes annual fixes, updates, and backend scaling.',
-    iconName: 'refresh',
-  },
-  {
-    id: 'trust-3',
-    title: 'Responsive Context Support',
-    description: 'Quick issue resolution directly from the core developers.',
-    iconName: 'headphones',
-  },
-  {
-    id: 'trust-4',
-    title: 'Institutional Continuity',
-    description: 'Maintained under Project Atlas to persist beyond single semesters.',
-    iconName: 'building',
-  },
-];
-
-// Helper to map icon string identifiers to Lucide components
-const getBenefitIcon = (name?: string): LucideIcon => {
-  switch (name) {
-    case 'user-check': return UserCheck;
-    case 'shield-check': return ShieldCheck;
-    case 'zap': return Zap;
-    case 'sparkles': return Sparkles;
-    default: return Sparkles;
-  }
-};
-
-const getTrustIcon = (name?: string): LucideIcon => {
-  switch (name) {
-    case 'code': return Code2;
-    case 'refresh': return RefreshCw;
-    case 'headphones': return Headphones;
-    case 'building': return Building2;
-    default: return Building2;
-  }
-};
-
-// Asymmetric card shapes mapped from design tokens
-const organicShapes = [
-  'organic-card-1',
-  'organic-card-2',
-  'organic-card-3',
-  'organic-card-4',
-];
+const DefaultBenefits: KeyBenefitItem[] = DEFAULT_BENEFITS;
+const DefaultTrustFeatures: DevServiceFeatureItem[] = DEFAULT_TRUST_FEATURES;
 
 export const KeyBenefits: React.FC<KeyBenefitsProps> = ({
   sectionTitle = "Designed for Seamless Organizational Operations",
   sectionSubtitle = "Real outcomes that eliminate administrative chaos, speed up enrollment, and build long-term trust.",
-  benefits = DEFAULT_BENEFITS,
+  benefits = DefaultBenefits,
   trustTitle = "Built to Last: The Dev Service Behind VERIS",
   trustSubtitle = "Backing your campus with institutional continuity and dedicated in-house engineering.",
-  trustFeatures = DEFAULT_TRUST_FEATURES,
+  trustFeatures = DefaultTrustFeatures,
   className = "",
 }) => {
   return (
@@ -139,8 +45,8 @@ export const KeyBenefits: React.FC<KeyBenefitsProps> = ({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {benefits.map((item, index) => {
               const Icon = getBenefitIcon(item.iconName);
-              const shapeClass = organicShapes[index % organicShapes.length];
-              const delayClass = `animation-delay-${(index + 1) * 200}`;
+              const shapeClass = getOrganicShapeClass(index);
+              const delayClass = getAnimationDelayClass(index);
 
               return (
                 <div

@@ -1,16 +1,7 @@
 'use client';
 
 import { ArrowRight } from "lucide-react";
-
-interface CtaSectionProps {
-  showCta?: boolean;
-  ctaTitle?: string;
-  ctaSubtitle?: string;
-  ctaButtonText?: string;
-  ctaHref?: string;
-  /** Optional risk-reversal microcopy shown under the button. Pass "" to hide it. */
-  ctaMicrocopy?: string;
-}
+import type { CtaSectionProps } from "../types";
 
 export function CtaSection({
   showCta = true,
