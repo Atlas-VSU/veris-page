@@ -56,7 +56,7 @@ export interface TestimonialsProps {
 
 // CTA SECTION TYPES
 
-interface CtaSectionProps {
+export interface CtaSectionProps {
   showCta?: boolean;
   ctaTitle?: string;
   ctaSubtitle?: string;
