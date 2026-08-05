@@ -72,47 +72,50 @@ export function ServicesOverview() {
         </section>
 
         {/* Pagination Section */}
-        {totalPages > 1 && (
+        {!isLoading && (
           <section className="flex justify-center items-center gap-3 pt-4 animate-fade-in animation-delay-600">
-            {currentPage > 1 && (
-              <button 
-                onClick={handlePrevPage}
-                className="w-10 h-10 rounded-full flex items-center justify-center transition-colors hover:bg-accent text-muted-foreground hover:text-accent-foreground bg-muted"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-            )}
-            
-            {Array.from({ length: totalPages }).map((_, index) => {
-              const pageNum = index + 1;
-              const isActive = currentPage === pageNum;
-              return (
-                <button 
-                  key={pageNum}
-                  onClick={() => handlePageClick(pageNum)}
-                  className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium transition-colors ${
-                    isActive 
-                      ? 'bg-primary text-primary-foreground shadow-soft' 
-                      : 'bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground'
-                  }`}
-                >
-                  {pageNum}
-                </button>
-              );
-            })}
-            
             <button 
-              onClick={handleNextPage}
-              disabled={currentPage === totalPages}
-              className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
-                currentPage === totalPages 
-                  ? 'opacity-50 cursor-not-allowed text-muted-foreground bg-muted/50' 
-                  : 'hover:bg-accent text-muted-foreground hover:text-accent-foreground bg-muted'
-              }`}
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </section>
+              onClick={handlePrevPage}
+            disabled={isLoading || currentPage <= 1}
+            className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
+              (isLoading || currentPage <= 1)
+                ? 'opacity-50 cursor-not-allowed text-muted-foreground bg-muted/50' 
+                : 'hover:bg-accent text-muted-foreground hover:text-accent-foreground bg-muted'
+            }`}
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          
+          {Array.from({ length: Math.max(1, totalPages) }).map((_, index) => {
+            const pageNum = index + 1;
+            const isActive = currentPage === pageNum;
+            return (
+              <button 
+                key={pageNum}
+                onClick={() => handlePageClick(pageNum)}
+                className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium transition-colors ${
+                  isActive 
+                    ? 'bg-primary text-primary-foreground shadow-soft' 
+                    : 'bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground'
+                }`}
+              >
+                {pageNum}
+              </button>
+            );
+          })}
+          
+          <button 
+            onClick={handleNextPage}
+            disabled={isLoading || totalPages <= 1 || currentPage >= totalPages}
+            className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
+              (isLoading || totalPages <= 1 || currentPage >= totalPages)
+                ? 'opacity-50 cursor-not-allowed text-muted-foreground bg-muted/50' 
+                : 'hover:bg-accent text-muted-foreground hover:text-accent-foreground bg-muted'
+            }`}
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </section>
         )}
 
       </div>
