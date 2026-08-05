@@ -1,14 +1,11 @@
 "use client";
 
 import { ChevronRight, ChevronLeft } from "lucide-react";
-import { Fraunces } from 'next/font/google';
 import { ServicesHeader } from "./ServicesHeader";
 import { EcosystemCard } from "./EcosystemCard";
 import { EcosystemCardSkeleton } from "./EcosystemCardSkeleton";
 import { FeaturedPlatform } from "./FeaturedPlatform";
 import { useServicesOverview } from "../hooks/useServicesOverview";
-
-const fraunces = Fraunces({ subsets: ['latin'], weight: ['400', '500', '600'] });
 
 export function ServicesOverview() {
   const {
@@ -32,7 +29,7 @@ export function ServicesOverview() {
 
         {/* Ecosystem Section */}
         <section className="space-y-10 animate-fade-in-up animation-delay-400">
-          <h2 className={`${fraunces.className} text-center text-3xl font-medium text-neutral-900`}>
+          <h2 className="font-serif text-center text-3xl font-medium text-neutral-900">
             Ecosystem
           </h2>
           

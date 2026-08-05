@@ -1,9 +1,5 @@
 import React from 'react';
 import { X, ExternalLink } from "lucide-react";
-import { Fraunces } from 'next/font/google';
-
-const fraunces = Fraunces({ subsets: ['latin'], weight: ['400', '500', '600'] });
-
 import { EcosystemModalDetails, EcosystemModalProps } from '../types';
 
 export function EcosystemModal({ isOpen, onClose, title, modalDetails }: EcosystemModalProps) {
@@ -26,7 +22,7 @@ export function EcosystemModal({ isOpen, onClose, title, modalDetails }: Ecosyst
 
         {/* Left Content */}
         <div className="flex-1 space-y-6">
-          <h3 className={`${fraunces.className} text-4xl md:text-5xl font-medium text-foreground leading-tight`}>
+          <h3 className="font-serif text-4xl md:text-5xl font-medium text-foreground leading-tight">
             {title}
           </h3>
           

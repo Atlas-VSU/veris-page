@@ -1,12 +1,10 @@
 
-import { Fraunces } from 'next/font/google';
 
-const fraunces = Fraunces({ subsets: ['latin'], weight: ['400', '500', '600'] });
 
 export function ServicesHeader() {
   return (
     <section className="flex flex-col items-center text-center space-y-6 animate-fade-in-up">
-      <h1 className={`${fraunces.className} text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-primary font-medium tracking-tight`}>
+      <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-primary font-medium tracking-tight">
         What Veris Does?
       </h1>
       

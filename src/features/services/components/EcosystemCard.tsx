@@ -2,11 +2,7 @@
 
 import React, { useState } from 'react';
 import { ArrowRight } from "lucide-react";
-import { Fraunces } from 'next/font/google';
 import { EcosystemModal } from './EcosystemModal';
-
-const fraunces = Fraunces({ subsets: ['latin'], weight: ['400', '500', '600'] });
-
 import { EcosystemModalDetails, EcosystemCardProps } from '../types';
 
 export function EcosystemCard({
@@ -30,7 +26,7 @@ export function EcosystemCard({
         <div className={`w-12 h-12 ${iconBgClass} rounded-full flex items-center justify-center`}>
           <div className={iconColorClass}>{icon}</div>
         </div>
-        <h3 className={`${fraunces.className} text-2xl text-neutral-900 font-medium`}>{title}</h3>
+        <h3 className="font-serif text-2xl text-neutral-900 font-medium">{title}</h3>
         <p className="text-muted-foreground text-sm leading-relaxed flex-1">
           {description}
         </p>
