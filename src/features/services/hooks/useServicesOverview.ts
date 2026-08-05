@@ -57,15 +57,11 @@ export function useServicesOverview() {
         // Map database rows to our EcosystemCard format
         const formattedData = contentToMap.map((item, index) => {
           const template = styleTemplates[index % styleTemplates.length];
-          const IconComponent = template.Icon;
           
           return {
             title: item.title || "Untitled",
             description: item.description || "No description provided.",
-            IconComponent, // We return the component reference to be rendered in the main file
             organicShapeClass: template.organicShapeClass,
-            iconBgClass: template.iconBgClass,
-            iconColorClass: template.iconColorClass,
             hoverColorClass: template.hoverColorClass,
             modalDetails: {
               fullDescription: item.description || "No description provided.",

@@ -1,46 +1,26 @@
-import { FileSliders, NotepadText, Map, FileText, Users, Database } from "lucide-react";
-
 export const styleTemplates = [
   {
-    Icon: FileSliders,
     organicShapeClass: "organic-card-4",
-    iconBgClass: "bg-success-muted",
-    iconColorClass: "text-primary",
     hoverColorClass: "group-hover:text-primary",
   },
   {
-    Icon: NotepadText,
     organicShapeClass: "organic-card-5",
-    iconBgClass: "bg-warning-muted",
-    iconColorClass: "text-secondary",
     hoverColorClass: "group-hover:text-secondary",
   },
   {
-    Icon: Map,
     organicShapeClass: "organic-card-6",
-    iconBgClass: "bg-success-muted",
-    iconColorClass: "text-primary",
     hoverColorClass: "group-hover:text-primary",
   },
   {
-    Icon: FileText,
     organicShapeClass: "organic-card-4",
-    iconBgClass: "bg-success-muted",
-    iconColorClass: "text-primary",
     hoverColorClass: "group-hover:text-primary",
   },
   {
-    Icon: Users,
     organicShapeClass: "organic-card-5",
-    iconBgClass: "bg-warning-muted",
-    iconColorClass: "text-secondary",
     hoverColorClass: "group-hover:text-secondary",
   },
   {
-    Icon: Database,
     organicShapeClass: "organic-card-6",
-    iconBgClass: "bg-success-muted",
-    iconColorClass: "text-primary",
     hoverColorClass: "group-hover:text-primary",
   }
 ];

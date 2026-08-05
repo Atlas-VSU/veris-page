@@ -45,10 +45,7 @@ export function ServicesOverview() {
                   key={index}
                   title={item.title}
                   description={item.description}
-                  icon={<item.IconComponent className="w-5 h-5" />}
                   organicShapeClass={item.organicShapeClass}
-                  iconBgClass={item.iconBgClass}
-                  iconColorClass={item.iconColorClass}
                   hoverColorClass={item.hoverColorClass}
                   modalDetails={{
                     fullDescription: item.modalDetails.fullDescription,

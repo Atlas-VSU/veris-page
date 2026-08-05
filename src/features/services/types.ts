@@ -9,10 +9,7 @@ export interface EcosystemModalDetails {
 export interface EcosystemCardProps {
   title: string;
   description: string;
-  icon: React.ReactNode;
   organicShapeClass: string;
-  iconBgClass: string;
-  iconColorClass: string;
   hoverColorClass: string;
   modalDetails: EcosystemModalDetails;
 }
@@ -27,10 +24,7 @@ export interface EcosystemModalProps {
 export interface EcosystemItem {
   title: string;
   description: string;
-  IconComponent: React.ElementType;
   organicShapeClass: string;
-  iconBgClass: string;
-  iconColorClass: string;
   hoverColorClass: string;
   modalDetails: {
     fullDescription: string;
