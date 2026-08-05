@@ -5,7 +5,7 @@ import { FeaturedPlatformInfoProps } from "../types";
 
 export function FeaturedPlatformInfo({ title, description, link }: FeaturedPlatformInfoProps) {
   return (
-    <div className="flex-1 space-y-6">
+    <div className="w-full lg:w-[40%] xl:w-[35%] shrink-0 space-y-6">
       <div className="w-12 h-12 bg-success-muted rounded-full flex items-center justify-center">
         <SquareChartGantt className="w-6 h-6 text-primary" />
       </div>

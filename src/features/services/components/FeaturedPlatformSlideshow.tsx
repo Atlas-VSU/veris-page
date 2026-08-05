@@ -5,7 +5,7 @@ import { FeaturedPlatformSlideshowProps } from "../types";
 export function FeaturedPlatformSlideshow({ photos, currentSlideIndex, onOpenModal }: FeaturedPlatformSlideshowProps) {
   return (
     <div 
-      className="flex-1 w-full relative overflow-hidden shadow-inner organic-card-2 bg-gradient-to-br from-muted to-accent min-h-[350px] md:min-h-[450px] cursor-pointer group"
+      className="w-full lg:flex-1 relative overflow-hidden shadow-inner rounded-3xl bg-gradient-to-br from-muted to-accent aspect-video cursor-pointer group"
       onClick={onOpenModal}
     >
       {photos.map((imgUrl, index) => (
@@ -13,7 +13,7 @@ export function FeaturedPlatformSlideshow({ photos, currentSlideIndex, onOpenMod
           key={index}
           src={imgUrl} 
           alt={`Platform Mockup ${index + 1}`}
-          className={`absolute top-0 left-0 w-full h-full object-cover transition-all duration-1000 ${index === currentSlideIndex ? 'opacity-100 scale-100' : 'opacity-0 scale-105'} group-hover:scale-105 group-hover:opacity-90`}
+          className={`absolute top-0 left-0 w-full h-full object-contain p-2 md:p-6 transition-all duration-1000 ${index === currentSlideIndex ? 'opacity-100 scale-100' : 'opacity-0 scale-105'} group-hover:scale-105 group-hover:opacity-90`}
         />
       ))}
       
