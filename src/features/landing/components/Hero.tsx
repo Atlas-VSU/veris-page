@@ -5,7 +5,7 @@ import { ArrowRight, Sparkles, ShieldCheck } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12 pt-10 sm:pt-14 md:pt-20 lg:pt-24 pb-20 md:pb-28 lg:pb-32 overflow-x-hidden">
+    <section className="relative max-w-360 mx-auto px-6 sm:px-8 lg:px-12 pt-10 sm:pt-14 md:pt-20 lg:pt-24 pb-20 md:pb-28 lg:pb-32 overflow-x-hidden">
 
       {/* Floating Ambient Background Glows */}
       <div
@@ -23,22 +23,23 @@ export function Hero() {
         {/* Proof-based badge instead of empty "next-gen" claim */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary font-sans text-xs sm:text-sm font-semibold tracking-wide uppercase mb-6 animate-fade-in-up">
           <Sparkles className="w-3.5 h-3.5 text-secondary" />
-          <span>Trusted by Organizations Campuswide</span>
+          <span>Trusted by Student Organizations</span>
         </div>
 
         {/* Headline: names the buyer + concrete modules, not a mission statement */}
         <h1 className="font-serif font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-foreground leading-[1.08] tracking-tight animate-fade-in-up animation-delay-100">
-          One Platform to Run Your{" "}
-          <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-[length:200%_auto] bg-clip-text text-transparent">
-            Entire Campus
+          Run Your Student Org{" "}
+          <span className="bg-linear-to-r from-primary via-secondary to-primary bg-size-[200%_auto] bg-clip-text text-transparent">
+            Without Beureaucracy
           </span>
         </h1>
 
         {/* Subtitle: concrete capabilities instead of abstract nouns */}
         <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto mt-6 font-medium animate-fade-in-up animation-delay-200">
-          VERIS unifies ID &amp; access control, campus-wide alerts, and student
-          engagement tools into a single system — built for IT directors who are
-          tired of stitching together six different vendors.
+          VERIS unifies membership tracking, event clearance, and student
+          engagement tools into a single system — built for student
+          organizations tired of running everything through spreadsheets and
+          group chats.
         </p>
 
         {/* CTA Button Group: one high-intent action, one low-commitment action */}
@@ -65,7 +66,6 @@ export function Hero() {
             Powering operations at
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-muted-foreground/70 font-serif text-lg sm:text-xl">
-            <span>Visayas State University</span>
             <span>USSC</span>
             <span>FC-SSC</span>
             <span>CS3</span>

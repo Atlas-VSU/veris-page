@@ -106,7 +106,7 @@ const organicShapes = [
 ];
 
 export const KeyBenefits: React.FC<KeyBenefitsProps> = ({
-  sectionTitle = "Designed for seamless campus operations",
+  sectionTitle = "Designed for Seamless Organizational Operations",
   sectionSubtitle = "Real outcomes that eliminate administrative chaos, speed up enrollment, and build long-term trust.",
   benefits = DEFAULT_BENEFITS,
   trustTitle = "Built to Last: The Dev Service Behind VERIS",
