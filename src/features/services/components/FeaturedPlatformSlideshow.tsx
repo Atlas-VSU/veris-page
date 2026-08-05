@@ -1,10 +1,6 @@
 "use client";
 
-interface FeaturedPlatformSlideshowProps {
-  photos: string[];
-  currentSlideIndex: number;
-  onOpenModal: () => void;
-}
+import { FeaturedPlatformSlideshowProps } from "../types";
 
 export function FeaturedPlatformSlideshow({ photos, currentSlideIndex, onOpenModal }: FeaturedPlatformSlideshowProps) {
   return (

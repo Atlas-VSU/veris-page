@@ -1,15 +1,7 @@
 "use client";
 
 import { ArrowRight, Shield } from "lucide-react";
-import { Fraunces } from 'next/font/google';
-
-const fraunces = Fraunces({ subsets: ['latin'], weight: ['400', '500', '600'] });
-
-interface FeaturedPlatformInfoProps {
-  title: string;
-  description: string;
-  link: string;
-}
+import { FeaturedPlatformInfoProps } from "../types";
 
 export function FeaturedPlatformInfo({ title, description, link }: FeaturedPlatformInfoProps) {
   return (
@@ -18,7 +10,7 @@ export function FeaturedPlatformInfo({ title, description, link }: FeaturedPlatf
         <Shield className="w-6 h-6 text-primary" />
       </div>
       
-      <h3 className={`${fraunces.className} text-4xl md:text-5xl font-medium text-neutral-900 leading-tight`}>
+      <h3 className="font-serif text-4xl md:text-5xl font-medium text-neutral-900 leading-tight">
         {title}
       </h3>
       

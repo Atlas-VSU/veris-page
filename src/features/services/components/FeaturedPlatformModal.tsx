@@ -2,11 +2,7 @@
 
 import { X } from "lucide-react";
 
-interface FeaturedPlatformModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  photoUrl: string;
-}
+import { FeaturedPlatformModalProps } from "../types";
 
 export function FeaturedPlatformModal({ isOpen, onClose, photoUrl }: FeaturedPlatformModalProps) {
   if (!isOpen) return null;

@@ -3,21 +3,7 @@
 import { useState, useEffect } from "react";
 import { styleTemplates, mockEcosystemData } from "../constants/mockData";
 import { createClient } from '@supabase/supabase-js';
-
-export interface EcosystemItem {
-  title: string;
-  description: string;
-  IconComponent: any;
-  organicShapeClass: string;
-  iconBgClass: string;
-  iconColorClass: string;
-  hoverColorClass: string;
-  modalDetails: {
-    fullDescription: string;
-    link: string;
-    photo: string | null;
-  };
-}
+import { EcosystemItem } from "../types";
 
 export function useServicesOverview() {
   const [ecosystemData, setEcosystemData] = useState<EcosystemItem[]>([]);
