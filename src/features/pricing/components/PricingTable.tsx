@@ -1,9 +1,7 @@
 import { SubscriptionTierCard } from "./SubscriptionTierCard";
 import { SubscriptionTier } from "../types";
+import { PricingTableProps } from "../types";
 
-interface PricingTableProps {
-  tiers: SubscriptionTier[];
-}
 
 export function PricingTable({ tiers }: PricingTableProps) {
   return (

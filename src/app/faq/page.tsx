@@ -7,6 +7,8 @@ const fallbackFaqs: FAQItem[] = [
   },
 ];
 
+export const revalidate = 60;
+
 export default async function FAQPage() {
   const faqs = (await getFaqItems()) ?? fallbackFaqs;
 
