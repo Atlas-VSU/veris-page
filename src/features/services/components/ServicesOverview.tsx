@@ -1,47 +1,121 @@
-import { Server, Compass, Network, Smartphone } from "lucide-react";
+"use client";
+
+import { ChevronRight, ChevronLeft } from "lucide-react";
+import { ServicesHeader } from "./ServicesHeader";
+import { EcosystemCard } from "./EcosystemCard";
+import { EcosystemCardSkeleton } from "./EcosystemCardSkeleton";
+import { FeaturedPlatform } from "./FeaturedPlatform";
+import { useServicesOverview } from "../hooks/useServicesOverview";
 
 export function ServicesOverview() {
-  const services = [
-    {
-      title: "CORAL System",
-      description: "Core Operational Resource & Administration Logic for campus-wide data handling.",
-      icon: Server,
-    },
-    {
-      title: "USSC Connect",
-      description: "Unified student council communication portal and digital event registration.",
-      icon: Network,
-    },
-    {
-      title: "VERIS Systems",
-      description: "Modular deployment instance powering student government infrastructure.",
-      icon: Compass,
-    },
-    {
-      title: "E-Passport",
-      description: "Mobile-and-tablet interactive campus landmark passport and tour platform.",
-      icon: Smartphone,
-    },
-  ];
+  const {
+    isLoading,
+    currentPage,
+    totalPages,
+    currentItems,
+    handlePrevPage,
+    handleNextPage,
+    handlePageClick
+  } = useServicesOverview();
 
   return (
-    <section className="py-12 max-w-6xl mx-auto px-4">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold text-zinc-900 dark:text-white">Services & Ecosystem</h2>
-        <p className="text-sm text-zinc-500 mt-2">Explore the digital platforms powering VERIS</p>
+    <div className="services-theme min-h-screen bg-background py-16 px-4 md:px-8 text-foreground">
+
+      <div className="max-w-6xl mx-auto space-y-24">
+        
+        <ServicesHeader />
+
+        <FeaturedPlatform />
+
+        {/* Ecosystem Section */}
+        <section className="space-y-10 animate-fade-in-up animation-delay-400">
+          <h2 className="font-serif text-center text-3xl font-medium text-neutral-900">
+            Ecosystem
+          </h2>
+          
+          <div key={currentPage} className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-in">
+            {isLoading ? (
+              // Loading Skeletons
+              Array.from({ length: 3 }).map((_, idx) => (
+                <EcosystemCardSkeleton key={idx} />
+              ))
+            ) : currentItems.length > 0 ? (
+              currentItems.map((item, index) => (
+                <EcosystemCard 
+                  key={index}
+                  title={item.title}
+                  description={item.description}
+                  organicShapeClass={item.organicShapeClass}
+                  hoverColorClass={item.hoverColorClass}
+                  modalDetails={{
+                    fullDescription: item.modalDetails.fullDescription,
+                    link: item.modalDetails.link,
+                    imageNode: item.modalDetails.photo ? (
+                      <img src={item.modalDetails.photo} alt={item.title || "Graphic"} className="w-full h-full object-cover rounded-3xl shadow-inner max-h-[400px]" />
+                    ) : (
+                      <div className="w-full bg-gradient-to-br from-muted to-background rounded-3xl p-8 min-h-[300px] flex items-center justify-center shadow-inner">
+                        <span className="text-muted-foreground font-medium">No Image Available</span>
+                      </div>
+                    )
+                  }}
+                />
+              ))
+            ) : (
+              <div className="col-span-3 py-12 text-center text-muted-foreground">
+                No ecosystem cards found.
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* Pagination Section */}
+        {!isLoading && (
+          <section className="flex justify-center items-center gap-3 pt-4 animate-fade-in animation-delay-600">
+            <button 
+              onClick={handlePrevPage}
+            disabled={isLoading || currentPage <= 1}
+            className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
+              (isLoading || currentPage <= 1)
+                ? 'opacity-50 cursor-not-allowed text-muted-foreground bg-muted/50' 
+                : 'hover:bg-accent text-muted-foreground hover:text-accent-foreground bg-muted'
+            }`}
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          
+          {Array.from({ length: Math.max(1, totalPages) }).map((_, index) => {
+            const pageNum = index + 1;
+            const isActive = currentPage === pageNum;
+            return (
+              <button 
+                key={pageNum}
+                onClick={() => handlePageClick(pageNum)}
+                className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium transition-colors ${
+                  isActive 
+                    ? 'bg-primary text-primary-foreground shadow-soft' 
+                    : 'bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground'
+                }`}
+              >
+                {pageNum}
+              </button>
+            );
+          })}
+          
+          <button 
+            onClick={handleNextPage}
+            disabled={isLoading || totalPages <= 1 || currentPage >= totalPages}
+            className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
+              (isLoading || totalPages <= 1 || currentPage >= totalPages)
+                ? 'opacity-50 cursor-not-allowed text-muted-foreground bg-muted/50' 
+                : 'hover:bg-accent text-muted-foreground hover:text-accent-foreground bg-muted'
+            }`}
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </section>
+        )}
+
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {services.map((item, idx) => {
-          const Icon = item.icon;
-          return (
-            <div key={idx} className="p-6 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl space-y-3">
-              <Icon className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />
-              <h3 className="font-semibold text-lg text-zinc-900 dark:text-white">{item.title}</h3>
-              <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">{item.description}</p>
-            </div>
-          );
-        })}
-      </div>
-    </section>
+    </div>
   );
 }
