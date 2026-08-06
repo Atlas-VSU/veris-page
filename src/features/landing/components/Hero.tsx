@@ -5,7 +5,7 @@ import { ArrowRight, Sparkles, ShieldCheck } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative max-w-360 mx-auto px-6 sm:px-8 lg:px-12 pt-10 sm:pt-14 md:pt-20 lg:pt-24 pb-20 md:pb-28 lg:pb-32 overflow-x-hidden">
+    <section className="relative max-w-360 mx-auto px-6 sm:px-8 lg:px-12 pt-10 sm:pt-14 md:pt-20 lg:pt-24 pb-16 overflow-x-hidden">
 
       {/* Floating Ambient Background Glows */}
       <div
@@ -24,7 +24,7 @@ export function Hero() {
         <h1 className="font-serif font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-foreground leading-[1.08] tracking-tight animate-fade-in-up animation-delay-100">
           Run Your Student Org{" "}
           <span className="bg-linear-to-r from-primary via-secondary to-primary bg-size-[200%_auto] bg-clip-text text-transparent">
-            Without Beureaucracy
+            Without Bureaucracy
           </span>
         </h1>
 
@@ -39,7 +39,7 @@ export function Hero() {
         {/* CTA Button Group: one high-intent action, one low-commitment action */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto mt-10 animate-fade-in-up animation-delay-300">
           <Link
-            href="/demo"
+            href="/contact"
             className="group relative inline-flex items-center justify-center whitespace-nowrap gap-2 font-medium bg-primary text-primary-foreground hover:bg-primary/90 shadow-soft hover:shadow-float rounded-full px-8 py-4 text-base transition-all duration-300 hover:-translate-y-1 active:translate-y-0 w-full sm:w-auto"
           >
             <span>Book a Demo</span>
@@ -55,7 +55,7 @@ export function Hero() {
         </div>
 
         {/* Lightweight trust bar — swap labels for real institution names/logos when available */}
-        <div className="w-full mt-25 pt-8 border-t border-border animate-fade-in-up animation-delay-500">
+        <div className="w-full mt-[150px] pt-8 border-t border-border animate-fade-in-up animation-delay-500">
           <p className="text-xs uppercase tracking-widest text-muted-foreground/80 font-semibold mb-4">
             Powering operations at
           </p>
