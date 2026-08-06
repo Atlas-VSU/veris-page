@@ -20,12 +20,6 @@ export function Hero() {
       {/* Centered Hero Content */}
       <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto">
 
-        {/* Proof-based badge instead of empty "next-gen" claim */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary font-sans text-xs sm:text-sm font-semibold tracking-wide uppercase mb-6 animate-fade-in-up">
-          <Sparkles className="w-3.5 h-3.5 text-secondary" />
-          <span>Trusted by Student Organizations</span>
-        </div>
-
         {/* Headline: names the buyer + concrete modules, not a mission statement */}
         <h1 className="font-serif font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-foreground leading-[1.08] tracking-tight animate-fade-in-up animation-delay-100">
           Run Your Student Org{" "}
