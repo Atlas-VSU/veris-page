@@ -17,3 +17,7 @@ export interface SubscriptionTier {
 export interface SubscriptionTierCardProps {
     tier: SubscriptionTier;
 }
+
+export interface PricingTableProps {
+  tiers: SubscriptionTier[];
+}
