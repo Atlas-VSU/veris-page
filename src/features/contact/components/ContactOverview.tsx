@@ -1,43 +1,27 @@
-import { Mail, Phone, MapPin } from "lucide-react";
+import { CONTACTS } from "../data";
+import { ContactCard } from "./ContactCard";
 
 export function ContactOverview() {
   return (
-    <section className="py-12 max-w-4xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div className="space-y-6">
-        <div>
-          <h2 className="text-3xl font-bold text-zinc-900 dark:text-white">Get in Touch</h2>
-          <p className="text-sm text-zinc-500 mt-1">Connect with the VERIS team and department administrators</p>
-        </div>
-
-        <div className="space-y-4 text-xs">
-          <div className="flex items-start gap-3">
-            <MapPin className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
-            <div>
-              <strong className="block text-zinc-900 dark:text-zinc-100">Department Address</strong>
-              <span className="text-zinc-600 dark:text-zinc-400">Visayas State University, Visca, Baybay City, Leyte</span>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <Mail className="w-5 h-5 text-emerald-500 shrink-0" />
-            <div>
-              <strong className="block text-zinc-900 dark:text-zinc-100">Email Address</strong>
-              <span className="text-zinc-600 dark:text-zinc-400">veris@vsu.edu.ph</span>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <Phone className="w-5 h-5 text-emerald-500 shrink-0" />
-            <div>
-              <strong className="block text-zinc-900 dark:text-zinc-100">Phone Number</strong>
-              <span className="text-zinc-600 dark:text-zinc-400">+63 (053) 563-7000</span>
-            </div>
-          </div>
-        </div>
+    <section className="py-10 px-4 md:px-20 bg-background" id="contact">
+      <div className="text-center mb-16">
+        <span className="font-sans text-sm font-bold text-primary tracking-widest uppercase mb-3 block">
+          Get In Touch
+        </span>
+        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-[#2C2C24] tracking-tight leading-tight">
+          Contact VERIS
+        </h2>
+        <div className="w-20 h-1 bg-accent mx-auto rounded-full" />
+        <p className="font-sans text-muted-foreground max-w-xl mx-auto mt-6">
+          Have a question, a partnership idea, or feedback for the team? Reach
+          us through any of the channels below.
+        </p>
       </div>
 
-      <div className="bg-zinc-100 dark:bg-zinc-900 rounded-xl p-6 border border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-xs text-zinc-500">
-        [Google Maps Embed Placeholder]
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        {CONTACTS.map((contact) => (
+          <ContactCard key={contact.title} contact={contact} />
+        ))}
       </div>
     </section>
   );
