@@ -21,7 +21,7 @@ export function Footer() {
       <div className="pointer-events-none absolute -bottom-16 right-0 w-56 h-56 sm:w-72 sm:h-72 rounded-full bg-primary opacity-[0.06] blur-3xl animate-float-delayed -z-10" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 lg:gap-10">
           <div className="animate-fade-in-up">
             <h3 className="font-serif text-2xl text-[#2C2C24] mb-3 tracking-tight">
               VERIS
@@ -130,10 +130,10 @@ export function Footer() {
           </div>
 
           <div className="animate-fade-in-up animation-delay-300">
-            <h4 className="font-sans font-semibold text-sm uppercase tracking-wide text-[#2C2C24] mb-3">
+            <h4 className="font-sans font-semibold text-sm uppercase tracking-wide text-[#2C2C24] mb-4">
               Socials
             </h4>
-            <ul className="space-y-2 font-sans text-sm">
+            <ul className="space-y-2.5 font-sans text-sm">
               <li>
                 <Link
                   href="https://facebook.com"
