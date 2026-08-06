@@ -1,4 +1,4 @@
-import { BugReportInput, BugReportResult } from "../types/types";
+import { BugReportInput, BugReportResult } from "../types";
 import { supabase } from "@/lib/supabase/config";
 
 export async function submitGuestBugReport(

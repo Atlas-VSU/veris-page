@@ -1,4 +1,4 @@
-import type { BugReportCategoryOption } from "../types/types";
+import type { BugReportCategoryOption } from "../types";
 
 export const BUG_REPORT_CATEGORIES: BugReportCategoryOption[] = [
   { value: "general", label: "General" },

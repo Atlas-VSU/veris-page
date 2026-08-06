@@ -27,7 +27,7 @@ import {
 } from "lucide-react";
 import { useBugReportForm } from "../hooks/useBugReportForm";
 import { BUG_REPORT_CATEGORIES } from "../data/categories";
-import type { BugReportCategory } from "../types/types";
+import type { BugReportCategory } from "../types";
 import { getCategoryLabel } from "../utils/categoryUtils";
 
 export default function BugReportForm() {
