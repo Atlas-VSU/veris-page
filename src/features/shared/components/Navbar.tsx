@@ -85,7 +85,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-6 xl:gap-8 text-base font-semibold text-primary">
+        <nav className="hidden lg:flex items-center gap-8 xl:gap-10 text-base font-semibold text-primary">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -101,7 +101,7 @@ export function Navbar() {
         <div className="hidden lg:flex items-center gap-3">
           <Link
             href="/bug-report"
-            className="group flex items-center gap-2 px-5 py-2.5 text-xs font-semibold rounded-full bg-secondary text-secondary-foreground shadow-soft hover:shadow-float hover:bg-secondary/90 hover:scale-[1.06] active:scale-95 transition-all duration-300"
+            className="group flex items-center gap-2 px-6 py-3 text-xs font-semibold rounded-full bg-secondary text-secondary-foreground shadow-soft hover:shadow-float hover:bg-secondary/90 hover:scale-[1.06] active:scale-95 transition-all duration-300"
           >
             <MessageSquareWarning className="w-5 h-5" />
             Report a Problem
