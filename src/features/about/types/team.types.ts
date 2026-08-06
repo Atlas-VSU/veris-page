@@ -1,6 +1,4 @@
-export type TeamMemberRole = "lead" | "developer";
-
-export type TeamMemberIcon = "code" | "terminal" | "database";
+export type TeamMemberRole = "lead" | "developer" | "qa";
 
 export interface TeamMember {
   id: string;
@@ -24,3 +22,16 @@ export interface BlobCardProps {
   viewBox: string;
   className?: string;
 }
+
+export interface TeamMemberCardProps {
+  member: TeamMember;
+  size?: "lg" | "md";
+}
+
+export type TeamMemberIcon =
+  | "code"
+  | "terminal"
+  | "database"
+  | "briefcase"
+  | "user-check"
+  | "check-circle";

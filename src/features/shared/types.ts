@@ -3,3 +3,10 @@ export interface NavLink {
   href: string;
   icon: any;
 }
+
+export interface YearSelectProps {
+  value: string;
+  years: string[];
+  onChange: (year: string) => void;
+  className?: string;
+}
