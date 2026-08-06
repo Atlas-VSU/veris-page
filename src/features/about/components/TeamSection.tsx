@@ -1,27 +1,12 @@
 "use client";
 
-import { useMemo, useState } from "react";
 import { YearSelect } from "@/features/shared/components/YearSelect";
 import { TeamMemberCard } from "./TeamMemberCard";
-import { TEAM_MEMBERS, TEAM_YEARS } from "../data/teamMembers";
+import { useTeamSection } from "../hooks/useTeamSection";
 
 export function TeamSection() {
-  const [year, setYear] = useState(TEAM_YEARS[0] ?? "2025");
-
-  const leads = useMemo(
-    () =>
-      TEAM_MEMBERS.filter(
-        (member) => member.role === "lead" && member.year === year,
-      ),
-    [year],
-  );
-  const developers = useMemo(
-    () =>
-      TEAM_MEMBERS.filter(
-        (member) => member.role === "developer" && member.year === year,
-      ),
-    [year],
-  );
+  const { year, setYear, years, leads, developers, qaMembers } =
+    useTeamSection();
 
   return (
     <section className="py-16 px-4 md:px-20 bg-background" id="team">
@@ -31,7 +16,7 @@ export function TeamSection() {
         </h2>
         <div className="w-20 h-1 bg-accent mx-auto rounded-full" />
         <div className="mt-6 md:absolute md:top-0 md:right-0">
-          <YearSelect value={year} years={TEAM_YEARS} onChange={setYear} />
+          <YearSelect value={year} years={years} onChange={setYear} />
         </div>
       </div>
 
@@ -43,7 +28,6 @@ export function TeamSection() {
           </h3>
           {leads.length > 0 ? (
             <div className="flex flex-wrap justify-center gap-6">
-              {" "}
               {leads.map((member) => (
                 <TeamMemberCard key={member.id} member={member} size="lg" />
               ))}
@@ -69,6 +53,24 @@ export function TeamSection() {
           ) : (
             <p className="text-center font-sans text-muted-foreground">
               No builders on record for {year}.
+            </p>
+          )}
+        </div>
+
+        {/* QA */}
+        <div>
+          <h3 className="font-serif text-xl text-accent mb-6 text-center">
+            QA
+          </h3>
+          {qaMembers.length > 0 ? (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {qaMembers.map((member) => (
+                <TeamMemberCard key={member.id} member={member} size="md" />
+              ))}
+            </div>
+          ) : (
+            <p className="text-center font-sans text-muted-foreground">
+              No QA members on record for {year}.
             </p>
           )}
         </div>
