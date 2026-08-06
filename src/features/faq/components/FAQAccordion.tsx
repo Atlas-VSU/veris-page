@@ -13,7 +13,7 @@ export function FAQAccordion({
   faqs?: { q: string; a: string }[];
 }) {
   return (
-    <div className="max-w-3xl mx-auto space-y-8 py-6 px-4">
+    <div className="w-full max-w-[80rem] mx-auto space-y-8 py-6 px-4 sm:px-8 lg:px-12">
       {/* Header with Fade-in Animation */}
       <div className="text-center space-y-2.5 animate-fade-in-up">
         <h2
