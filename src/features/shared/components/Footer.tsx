@@ -11,7 +11,10 @@ export function Footer() {
       }}
     >
       {/* solid backing layer — guarantees text contrast even if blobs render above expected z-index */}
-      <div className="absolute inset-0 -z-10" style={{ backgroundColor: "#FDFCF8" }} />
+      <div
+        className="absolute inset-0 -z-10"
+        style={{ backgroundColor: "#FDFCF8" }}
+      />
 
       {/* ambient decorative shapes — clipped tightly so they can't bleed across the whole viewport on narrow screens */}
       <div className="pointer-events-none absolute -top-10 -left-16 w-56 h-56 sm:w-64 sm:h-64 rounded-full bg-accent opacity-25 blur-2xl animate-float -z-10" />
@@ -24,7 +27,8 @@ export function Footer() {
               VERIS
             </h3>
             <p className="font-sans text-sm leading-relaxed text-[#78786C] max-w-xs">
-              Empowering campus tech ecosystems, digital campus tours, and student connectivity.
+              Empowering campus tech ecosystems, digital campus tours, and
+              student connectivity.
             </p>
           </div>
 
@@ -34,17 +38,26 @@ export function Footer() {
             </h4>
             <ul className="space-y-2 font-sans text-sm">
               <li>
-                <Link href="/services" className="text-[#78786C] hover:text-secondary transition-colors">
+                <Link
+                  href="/services"
+                  className="text-[#78786C] hover:text-secondary transition-colors"
+                >
                   CORAL System
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-[#78786C] hover:text-secondary transition-colors">
+                <Link
+                  href="/services"
+                  className="text-[#78786C] hover:text-secondary transition-colors"
+                >
                   USSC Connect
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-[#78786C] hover:text-secondary transition-colors">
+                <Link
+                  href="/services"
+                  className="text-[#78786C] hover:text-secondary transition-colors"
+                >
                   E-Passport
                 </Link>
               </li>
@@ -57,17 +70,26 @@ export function Footer() {
             </h4>
             <ul className="space-y-2 font-sans text-sm">
               <li>
-                <Link href="/about" className="text-[#78786C] hover:text-secondary transition-colors">
+                <Link
+                  href="/about"
+                  className="text-[#78786C] hover:text-secondary transition-colors"
+                >
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/pricing" className="text-[#78786C] hover:text-secondary transition-colors">
+                <Link
+                  href="/pricing"
+                  className="text-[#78786C] hover:text-secondary transition-colors"
+                >
                   Pricing & Tiers
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-[#78786C] hover:text-secondary transition-colors">
+                <Link
+                  href="/contact"
+                  className="text-[#78786C] hover:text-secondary transition-colors"
+                >
                   Contact Support
                 </Link>
               </li>
@@ -77,7 +99,7 @@ export function Footer() {
                   className="inline-flex items-center gap-1.5 text-secondary hover:text-[#A8703F] transition-colors font-medium"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-secondary" />
-                  Report a Bug
+                  Report a Problem
                 </Link>
               </li>
             </ul>
@@ -89,12 +111,18 @@ export function Footer() {
             </h4>
             <ul className="space-y-2 font-sans text-sm">
               <li>
-                <Link href="/terms" className="text-[#78786C] hover:text-secondary transition-colors">
+                <Link
+                  href="/terms"
+                  className="text-[#78786C] hover:text-secondary transition-colors"
+                >
                   Terms of Service
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="text-[#78786C] hover:text-secondary transition-colors">
+                <Link
+                  href="/privacy"
+                  className="text-[#78786C] hover:text-secondary transition-colors"
+                >
                   Privacy Policy
                 </Link>
               </li>
@@ -107,17 +135,32 @@ export function Footer() {
             </h4>
             <ul className="space-y-2 font-sans text-sm">
               <li>
-                <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-[#78786C] hover:text-secondary transition-colors">
+                <Link
+                  href="https://facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#78786C] hover:text-secondary transition-colors"
+                >
                   Facebook
                 </Link>
               </li>
               <li>
-                <Link href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-[#78786C] hover:text-secondary transition-colors">
+                <Link
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#78786C] hover:text-secondary transition-colors"
+                >
                   Instagram
                 </Link>
               </li>
               <li>
-                <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-[#78786C] hover:text-secondary transition-colors">
+                <Link
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#78786C] hover:text-secondary transition-colors"
+                >
                   LinkedIn
                 </Link>
               </li>
