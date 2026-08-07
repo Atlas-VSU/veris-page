@@ -1,4 +1,4 @@
-import { BugReportForm } from "@/features/bug-report";
+import BugReportForm from "@/features/bug-report";
 
 export default function BugReportPage() {
   return (
