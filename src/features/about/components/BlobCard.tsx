@@ -15,8 +15,10 @@ export function BlobCard({
       <div
         className={`lg:hidden rounded-2xl px-7 py-8 text-primary-foreground ${bgClassName}`}
       >
-        <h3 className="font-serif text-2xl mb-3">{title}</h3>
-        <p className="font-sans text-base leading-relaxed opacity-90">
+        <h3 className="font-serif text-2xl font-semibold tracking-tight text-primary-foreground mb-3">
+          {title}
+        </h3>
+        <p className="font-sans text-base leading-relaxed text-primary-foreground/90">
           {description}
         </p>
       </div>
@@ -31,8 +33,10 @@ export function BlobCard({
           <path d={path} fill="currentColor" />
         </svg>
         <div className="relative z-10 h-full flex flex-col justify-center px-19 py-12 text-primary-foreground">
-          <h3 className="font-serif text-3xl mb-3">{title}</h3>
-          <p className="font-sans text-base leading-relaxed opacity-90">
+          <h3 className="font-serif text-3xl font-semibold tracking-tight text-primary-foreground mb-3">
+            {title}
+          </h3>
+          <p className="font-sans text-base leading-relaxed text-primary-foreground/90">
             {description}
           </p>
         </div>
