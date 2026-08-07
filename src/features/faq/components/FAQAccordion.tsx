@@ -1,53 +1,76 @@
 import Link from "next/link";
-import { HelpCircle } from "lucide-react";
+import { HelpCircle, MessageCircleQuestion } from "lucide-react";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
 
-export function FAQAccordion() {
-  const faqs = [
-    {
-      q: "What is VERIS?",
-      a: "VERIS is a campus tech platform hosting digital services including CORAL systems, USSC Connect, and the mobile E-Passport tour.",
-    },
-    {
-      q: "How do I report bugs as a guest?",
-      a: "Navigate to the Report Bug page. You can file reports using your email without creating an account.",
-    },
-    {
-      q: "What are the subscription tiers?",
-      a: "We offer Basic, Plus, and Premium tiers tailored for different campus organizations and administrative scales.",
-    },
-    {
-      q: "Is E-Passport mobile friendly?",
-      a: "Yes! E-Passport is optimized specifically for phones and tablets during campus tours.",
-    },
-  ];
-
+export function FAQAccordion({
+  faqs = [],
+}: {
+  faqs?: { q: string; a: string }[];
+}) {
   return (
-    <section className="py-12 max-w-3xl mx-auto px-4 space-y-6">
-      <div className="text-center">
-        <h2 className="text-3xl font-bold text-zinc-900 dark:text-white">Frequently Asked Questions</h2>
-        <p className="text-sm text-zinc-500 mt-1">General, Billing, Technical, and Security inquiries</p>
+    <div className="w-full max-w-[80rem] mx-auto space-y-8 py-6 px-4 sm:px-8 lg:px-12">
+      {/* Header with Fade-in Animation */}
+      <div className="text-center space-y-2.5 animate-fade-in-up">
+        <h2
+          className="font-serif font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.08]  text-primary tracking-tight"
+          style={{ fontFamily: "var(--font-fraunces, serif)" }}
+        >
+          Frequently Asked Questions
+        </h2>
+        <p className="text-xs sm:text-sm text-muted-foreground max-w-md mx-auto">
+          General, Billing, Technical, and Security inquiries
+        </p>
       </div>
 
-      <div className="space-y-4">
-        {faqs.map((faq, i) => (
-          <div key={i} className="p-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg space-y-1">
-            <h3 className="font-semibold text-sm text-zinc-900 dark:text-white flex items-center gap-2">
-              <HelpCircle className="w-4 h-4 text-emerald-500 shrink-0" />
-              {faq.q}
-            </h3>
-            <p className="text-xs text-zinc-600 dark:text-zinc-400 pl-6 leading-relaxed">{faq.a}</p>
-          </div>
-        ))}
+      {/* Accordion List */}
+      {/* Accordion Card Container (Constrained Width + Shadow + Animation) */}
+      <div className="bg-card border border-border rounded-[1.5rem] p-3 sm:p-5 shadow-soft animate-fade-in-up animation-delay-200">
+        <Accordion multiple className="w-full space-y-1">
+          {faqs.map((faq, i) => (
+            <AccordionItem
+              key={i}
+              value={`item-${i}`}
+              className="border-b border-border/60 last:border-b-0 px-2 sm:px-3 rounded-xl transition-colors hover:bg-muted/40"
+              style={{
+                animation: "fade-in-up 0.6s ease-out forwards",
+                animationDelay: `${(i + 1) * 100}ms`,
+              }}
+            >
+              <AccordionTrigger className="py-4 hover:no-underline group">
+                <span className="flex items-center gap-3 text-left text-sm font-medium text-foreground group-hover:text-primary transition-colors">
+                  <span className="p-1.5 rounded-lg bg-primary/10 text-primary shrink-0 transition-transform group-hover:scale-110">
+                    <HelpCircle className="w-4 h-4" />
+                  </span>
+                  <span>{faq.q}</span>
+                </span>
+              </AccordionTrigger>
+              <AccordionContent className="pb-4 pt-1">
+                <p className="pl-11 pr-4 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                  {faq.a}
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
       </div>
 
-      <div className="text-center pt-4">
-        <p className="text-xs text-zinc-500">
+      {/* Footer / Contact Link */}
+      <div className="text-center pt-2 animate-fade-in-up animation-delay-400">
+        <p className="text-xs sm:text-sm text-muted-foreground">
           Have more questions?{" "}
-          <Link href="/contact" className="text-emerald-600 dark:text-emerald-400 font-medium underline">
+          <Link
+            href="/contact"
+            className="text-primary font-semibold underline underline-offset-4 hover:text-secondary transition-colors"
+          >
             Contact Support
           </Link>
         </p>
       </div>
-    </section>
+    </div>
   );
 }

@@ -1,56 +1,31 @@
-import { Check } from "lucide-react";
+import { SubscriptionTierCard } from "./SubscriptionTierCard";
+import { SubscriptionTier } from "../types";
+import { PricingTableProps } from "../types";
 
-export function PricingTable() {
-  const tiers = [
-    {
-      name: "Basic",
-      price: "Free / Starter",
-      description: "Essential access for basic student organization features.",
-      features: ["Standard CORAL Access", "Basic USSC Connect", "Standard Support"],
-    },
-    {
-      name: "Plus",
-      price: "Campus Tier",
-      description: "Enhanced features for active campus organizations.",
-      features: ["Full CORAL Integration", "USSC Connect Pro", "E-Passport Module", "Priority Bug Support"],
-      highlighted: true,
-    },
-    {
-      name: "Premium",
-      price: "Enterprise",
-      description: "Complete VERIS ecosystem with custom integration support.",
-      features: ["Dedicated CORAL Instance", "Unlimited E-Passport Tours", "Custom Analytics", "24/7 Dedicated SLA"],
-    },
-  ];
 
+export function PricingTable({ tiers }: PricingTableProps) {
   return (
-    <section className="py-12 max-w-6xl mx-auto px-4">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold text-zinc-900 dark:text-white">Subscription Tiers</h2>
-        <p className="text-sm text-zinc-500 mt-2">Flexible plans tailored for student organizations & university administration</p>
+    <section className="relative py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden">
+      {/* Decorative Organic Ambient Background Shapes */}
+      <div className="absolute top-10 left-10 w-72 h-72 bg-[#5D7052]/10 blob-shape-1 animate-float blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-80 h-80 bg-[#C18C5D]/10 blob-shape-2 animate-float-delayed blur-3xl pointer-events-none" />
+
+      {/* Header Section */}
+      <div className="relative text-center max-w-3xl mx-auto mb-12 animate-fade-in-up">
+
+        <h1 className="font-serif font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.08]  text-primary tracking-tight">
+          Pricing
+        </h1>
+
+        <p className="mt-4 text-base sm:text-lg text-[#78786C] font-medium leading-relaxed">
+          Student-scaled pricing for student organizations and student councils.
+        </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {tiers.map((tier, idx) => (
-          <div
-            key={idx}
-            className={`p-6 rounded-xl border space-y-4 ${
-              tier.highlighted
-                ? "bg-emerald-50/50 dark:bg-emerald-950/20 border-emerald-500 ring-2 ring-emerald-500/20"
-                : "bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800"
-            }`}
-          >
-            <h3 className="font-bold text-xl text-zinc-900 dark:text-white">{tier.name}</h3>
-            <p className="text-sm font-semibold text-emerald-600 dark:text-emerald-400">{tier.price}</p>
-            <p className="text-xs text-zinc-500">{tier.description}</p>
-            <ul className="space-y-2 pt-2 border-t border-zinc-200 dark:border-zinc-800 text-xs">
-              {tier.features.map((f, i) => (
-                <li key={i} className="flex items-center gap-2 text-zinc-700 dark:text-zinc-300">
-                  <Check className="w-4 h-4 text-emerald-500 shrink-0" />
-                  <span>{f}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+
+      {/* Subscription Cards Grid */}
+      <div className="relative grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-6 items-stretch animate-fade-in-up animation-delay-200">
+        {tiers.map((tier) => (
+          <SubscriptionTierCard key={tier.id} tier={tier} />
         ))}
       </div>
     </section>
