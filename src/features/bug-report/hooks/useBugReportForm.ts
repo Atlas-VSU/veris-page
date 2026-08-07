@@ -2,29 +2,23 @@
 
 import { useState, type FormEvent } from "react";
 import { submitGuestBugReport } from "../services/bugReportService";
-import type {
-  BugReportFormErrors,
-  BugReportFormValues,
-  BugReportSubmitStatus,
+import {
+  EMPTY_BUG_REPORT_FORM,
+  type BugReportFormErrors,
+  type BugReportFormState,
+  type BugReportSubmitStatus,
 } from "../types";
 
-const EMPTY_FORM: BugReportFormValues = {
-  email: "",
-  category: "general",
-  subject: "",
-  description: "",
-};
-
 export function useBugReportForm() {
-  const [form, setForm] = useState<BugReportFormValues>(EMPTY_FORM);
+  const [form, setForm] = useState<BugReportFormState>(EMPTY_BUG_REPORT_FORM);
   const [errors, setErrors] = useState<BugReportFormErrors>({});
   const [status, setStatus] = useState<BugReportSubmitStatus>("idle");
   const [message, setMessage] = useState<string | null>(null);
   const [submittedEmail, setSubmittedEmail] = useState("");
 
-  function update<K extends keyof BugReportFormValues>(
+  function update<K extends keyof BugReportFormState>(
     field: K,
-    value: BugReportFormValues[K],
+    value: BugReportFormState[K],
   ) {
     setForm((prev) => ({ ...prev, [field]: value }));
     if (errors[field]) {
@@ -72,7 +66,7 @@ export function useBugReportForm() {
 
     if (result.success) {
       setSubmittedEmail(form.email.trim());
-      setForm(EMPTY_FORM);
+      setForm(EMPTY_BUG_REPORT_FORM);
       setErrors({});
       setStatus("submitted");
       setMessage(result.message);
@@ -84,7 +78,7 @@ export function useBugReportForm() {
   }
 
   function reset() {
-    setForm(EMPTY_FORM);
+    setForm(EMPTY_BUG_REPORT_FORM);
     setErrors({});
     setStatus("idle");
     setMessage(null);

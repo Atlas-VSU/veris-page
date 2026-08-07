@@ -13,9 +13,24 @@ export interface BugReportFormValues {
   description: string;
 }
 
-export type BugReportFormErrors = Partial<Record<keyof BugReportFormValues, string>>;
+export type BugReportFormState = BugReportFormValues;
 
-export type BugReportSubmitStatus = "idle" | "submitting" | "submitted" | "error";
+export const EMPTY_BUG_REPORT_FORM: BugReportFormState = {
+  email: "",
+  category: "general",
+  subject: "",
+  description: "",
+};
+
+export type BugReportFormErrors = Partial<
+  Record<keyof BugReportFormValues, string>
+>;
+
+export type BugReportSubmitStatus =
+  | "idle"
+  | "submitting"
+  | "submitted"
+  | "error";
 
 export interface BugReportInput {
   email: string;
