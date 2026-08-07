@@ -12,7 +12,8 @@ export function PricingTable({ tiers }: PricingTableProps) {
 
       {/* Header Section */}
       <div className="relative text-center max-w-3xl mx-auto mb-12 animate-fade-in-up">
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black font-serif text-[#2C2C24] tracking-tight leading-tight">
+
+        <h1 className="font-serif font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.08]  text-primary tracking-tight">
           Pricing
         </h1>
 

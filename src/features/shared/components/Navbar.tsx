@@ -20,6 +20,7 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
 import { Layer } from "@hugeicons/core-free-icons";
 import { NavLink } from "../types";
@@ -71,9 +72,12 @@ export function Navbar() {
           href="/"
           className="flex items-center gap-3.5 group active:scale-98 transition-transform"
         >
-          <div className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-serif font-extrabold text-base shadow-soft">
-            V
-          </div>
+          <Avatar size="lg">
+            <AvatarImage src="/veris-icon.png" alt="VERIS logo" />
+            <AvatarFallback className="bg-primary text-primary-foreground font-serif font-extrabold text-base">
+              V
+            </AvatarFallback>
+          </Avatar>
           <div className="flex flex-col leading-none">
             <span className="font-extrabold text-foreground tracking-tight text-lg font-serif">
               VERIS
@@ -122,9 +126,12 @@ export function Navbar() {
               <div className="space-y-6">
                 <DrawerHeader className="text-left border-b border-border pb-4 p-0">
                   <DrawerTitle className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-serif font-bold text-xs">
-                      V
-                    </div>
+                    <Avatar size="sm">
+                      <AvatarImage src="/veris-icon.png" alt="VERIS logo" />
+                      <AvatarFallback className="bg-primary text-primary-foreground font-serif font-bold text-[10px]">
+                        V
+                      </AvatarFallback>
+                    </Avatar>
                     <div className="flex flex-col leading-none">
                       <span className="font-bold text-foreground text-sm font-serif">
                         VERIS

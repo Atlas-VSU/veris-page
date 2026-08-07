@@ -6,10 +6,10 @@ import type { CtaSectionProps } from "../types";
 export function CtaSection({
   showCta = true,
   ctaTitle = "Ready to Unify your Organizational Operations?",
-  ctaSubtitle = "Book a walkthrough and see how VERIS replaces manual registration, attendance checking, and hours of tracking with one system your team can manage.",
-  ctaButtonText = "Book a Demo",
-  ctaHref = "/demo",
-  ctaMicrocopy = "No commitment · Takes 20 minutes",
+  ctaSubtitle = "Reach out to our team to discover how VERIS replaces manual registration, attendance checking, and hours of tracking with one unified platform.",
+  ctaButtonText = "Contact Us",
+  ctaHref = "/contact",
+  ctaMicrocopy = "",
 }: CtaSectionProps) {
   if (!showCta) return null;
 
