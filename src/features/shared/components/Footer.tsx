@@ -21,8 +21,8 @@ export function Footer() {
       <div className="pointer-events-none absolute -bottom-16 right-0 w-56 h-56 sm:w-72 sm:h-72 rounded-full bg-primary opacity-[0.06] blur-3xl animate-float-delayed -z-10" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 lg:gap-10">
-          <div className="animate-fade-in-up">
+        <div className="grid grid-cols-1 sm:grid-cols-3 sm:grid-rows-2 lg:grid-cols-5 lg:grid-rows-1 gap-8 lg:gap-10">
+          <div className="animate-fade-in-up sm:col-start-1 sm:row-start-1 sm:row-span-2 lg:row-span-1 lg:col-start-auto lg:row-start-auto">
             <h3 className="font-serif text-2xl text-[#2C2C24] mb-3 tracking-tight">
               VERIS
             </h3>
@@ -32,22 +32,14 @@ export function Footer() {
             </p>
           </div>
 
-          <div className="animate-fade-in-up animation-delay-100">
+          <div className="animate-fade-in-up animation-delay-100 sm:col-start-2 sm:row-start-1 lg:col-start-auto lg:row-start-auto">
             <h4 className="font-sans font-semibold text-sm uppercase tracking-wide text-[#2C2C24] mb-4">
               Ecosystem
             </h4>
             <ul className="space-y-2.5 font-sans text-sm">
               <li>
                 <Link
-                  href="/services"
-                  className="text-[#78786C] hover:text-secondary transition-colors"
-                >
-                  CORAL System
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services"
+                  href="https://ussc-connect.fc-ssc.online/"
                   className="text-[#78786C] hover:text-secondary transition-colors"
                 >
                   USSC Connect
@@ -55,16 +47,32 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/services"
+                  href="https://veris-student-portal.fc-ssc.online/"
                   className="text-[#78786C] hover:text-secondary transition-colors"
                 >
-                  E-Passport
+                  VERIS Student Portal
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://veris.fc-ssc.online/"
+                  className="text-[#78786C] hover:text-secondary transition-colors"
+                >
+                  VERIS System
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://ussc-epassport.fc-ssc.online/"
+                  className="text-[#78786C] hover:text-secondary transition-colors"
+                >
+                  VSU E-Passport
                 </Link>
               </li>
             </ul>
           </div>
 
-          <div className="animate-fade-in-up animation-delay-200">
+          <div className="animate-fade-in-up animation-delay-200 sm:col-start-3 sm:row-start-1 lg:col-start-auto lg:row-start-auto">
             <h4 className="font-sans font-semibold text-sm uppercase tracking-wide text-[#2C2C24] mb-4">
               Organization
             </h4>
@@ -105,7 +113,7 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="animate-fade-in-up animation-delay-300">
+          <div className="animate-fade-in-up animation-delay-300 sm:col-start-2 sm:row-start-2 lg:col-start-auto lg:row-start-auto">
             <h4 className="font-sans font-semibold text-sm uppercase tracking-wide text-[#2C2C24] mb-4">
               Legal
             </h4>
@@ -129,14 +137,14 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="animate-fade-in-up animation-delay-300">
+          <div className="animate-fade-in-up animation-delay-300 sm:col-start-3 sm:row-start-2 lg:col-start-auto lg:row-start-auto">
             <h4 className="font-sans font-semibold text-sm uppercase tracking-wide text-[#2C2C24] mb-4">
               Socials
             </h4>
             <ul className="space-y-2.5 font-sans text-sm">
               <li>
                 <Link
-                  href="https://facebook.com"
+                  href="https://www.facebook.com/profile.php?id=61580632527281"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[#78786C] hover:text-secondary transition-colors"
@@ -146,36 +154,22 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="https://instagram.com"
+                  href="veris-dev@vsu.edu.ph"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[#78786C] hover:text-secondary transition-colors"
                 >
-                  Instagram
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#78786C] hover:text-secondary transition-colors"
-                >
-                  LinkedIn
+                  Email
                 </Link>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-[#DED8CF] flex flex-col sm:flex-row items-center justify-between gap-3 animate-fade-in-slow">
+        <div className="mt-12 pt-8 border-t border-[#DED8CF] flex flex-col items-center justify-center gap-3 animate-fade-in-slow text-center">
           <p className="font-sans text-xs text-[#78786C]">
             © {new Date().getFullYear()} VERIS Systems. All rights reserved.
           </p>
-          <div className="flex items-center gap-2 font-sans text-xs text-[#78786C]">
-            <span className="w-2 h-2 rounded-full bg-primary animate-gentle-rotate" />
-            Crafted for campus communities
-          </div>
         </div>
       </div>
     </footer>

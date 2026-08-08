@@ -52,8 +52,8 @@ export const CONTACTS: ContactEntry[] = [
     blobClassName: "blob-shape-1 bg-secondary",
     links: [
       // TODO: replace with the actual PM and President contact numbers
-      { label: "PM — +63 9XX XXX XXXX", href: "tel:+639XXXXXXXX" },
-      { label: "President — +63 9XX XXX XXXX", href: "tel:+639XXXXXXXX" },
+      { label: "PM — +63 969 223 1657", href: "tel:+639692231657" },
+      { label: "President — +63 960 522 0241", href: "tel:+639605220241" },
     ],
   },
 ];

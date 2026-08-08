@@ -41,8 +41,8 @@ export const DEFAULT_BENEFITS: KeyBenefitItem[] = [
 export const DEFAULT_TRUST_FEATURES: DevServiceFeatureItem[] = [
   {
     id: 'trust-1',
-    title: 'Dedicated In-House Team',
-    description: 'Built by engineers who understand actual student workflows.',
+    title: 'Dedicated Team',
+    description: 'Built by students who understand actual student workflows.',
     iconName: 'code',
   },
   {
