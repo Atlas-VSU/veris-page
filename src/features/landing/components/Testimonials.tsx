@@ -1,5 +1,7 @@
-import React from "react";
-import { CheckCircle2, Quote } from "lucide-react";
+"use client";
+
+import React, { useState } from "react";
+import { CheckCircle2, Quote, ChevronDown } from "lucide-react";
 import type { Testimonial, TestimonialsProps } from "../types/types";
 import { CtaSection } from "./CtaSection";
 import { defaultTestimonials } from "../data/data";
@@ -79,6 +81,42 @@ function NameRow({ t }: { t: Testimonial }) {
   );
 }
 
+// Shared message block: clamps text, shows a toggle only when the message
+// actually overflows the clamp so short quotes don't get a pointless button.
+function TestimonialMessage({
+  message,
+  clampClass,
+  textClass,
+  toggleClass,
+}: {
+  message: string;
+  clampClass: string;
+  textClass: string;
+  toggleClass: string;
+}) {
+  const [expanded, setExpanded] = useState(false);
+
+  return (
+    <div>
+      <p className={`${textClass} whitespace-pre-line ${expanded ? "" : clampClass}`}>
+        "{message}"
+      </p>
+      <button
+        type="button"
+        onClick={() => setExpanded((prev) => !prev)}
+        className={`mt-2 inline-flex items-center gap-1 font-sans text-xs font-semibold transition-colors ${toggleClass}`}
+      >
+        {expanded ? "Show less" : "Read more"}
+        <ChevronDown
+          className={`w-3.5 h-3.5 transition-transform duration-200 ${
+            expanded ? "rotate-180" : ""
+          }`}
+        />
+      </button>
+    </div>
+  );
+}
+
 export function Testimonials({
   pillText = "Voices Across Campus",
   title = "Trusted across the entire campus ecosystem",
@@ -108,7 +146,7 @@ export function Testimonials({
           </span>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6 animate-fade-in-up">
+        <div className="flex flex-col md:flex-row justify-between items-start mb-12 gap-6 animate-fade-in-up">
           <div className="space-y-3 max-w-2xl">
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
               {title}
@@ -120,11 +158,11 @@ export function Testimonials({
         </div>
 
         {/* Grid Container */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
           {/* Featured testimonial */}
           {featured && (
             <div
-              className="lg:col-span-2 bg-card p-8 md:p-10 flex flex-col justify-between animate-fade-in-up relative overflow-hidden shadow-soft group hover:shadow-float transition-all duration-300"
+              className="lg:col-span-2 bg-card p-8 md:p-10 flex flex-col justify-between animate-fade-in-up relative overflow-hidden shadow-soft group hover:shadow-2xl transition-all duration-300"
               style={{ borderRadius: "2rem 4rem 2rem 3rem" }}
             >
               <Quote
@@ -134,13 +172,15 @@ export function Testimonials({
               />
 
               <div className="relative">
-                <ServiceTag
-                  service={featured.service}
-                  accent={featured.accent}
-                />
-                <p className="mt-5 font-serif text-xl md:text-[1.35rem] italic text-foreground leading-relaxed">
-                  "{featured.message}"
-                </p>
+                <ServiceTag service={featured.service} accent={featured.accent} />
+                <div className="mt-5">
+                  <TestimonialMessage
+                    message={featured.message}
+                    clampClass="line-clamp-6"
+                    textClass="font-serif text-xl md:text-[1.35rem] italic text-foreground leading-relaxed"
+                    toggleClass="text-primary hover:text-primary/70"
+                  />
+                </div>
               </div>
 
               <div className="relative flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mt-8 pt-6 border-t border-border">
@@ -152,17 +192,19 @@ export function Testimonials({
           {/* Second testimonial (Top right column) */}
           {firstRest && (
             <div
-              className="bg-card p-6 flex flex-col justify-between animate-fade-in-up animation-delay-200 relative shadow-soft hover:shadow-float transition-all duration-300"
+              className="bg-card p-6 flex flex-col justify-between animate-fade-in-up animation-delay-200 relative shadow-soft hover:shadow-2xl transition-all duration-300"
               style={{ borderRadius: "3rem 2rem 4rem 2rem" }}
             >
               <div>
-                <ServiceTag
-                  service={firstRest.service}
-                  accent={firstRest.accent}
-                />
-                <p className="mt-4 font-sans text-sm text-foreground leading-relaxed">
-                  "{firstRest.message}"
-                </p>
+                <ServiceTag service={firstRest.service} accent={firstRest.accent} />
+                <div className="mt-4">
+                  <TestimonialMessage
+                    message={firstRest.message}
+                    clampClass="line-clamp-6" 
+                    textClass="font-sans text-base md:text-lg text-foreground leading-relaxed"
+                    toggleClass="text-secondary hover:text-secondary/70"
+                  />
+                </div>
               </div>
 
               <div className="mt-5 pt-5 border-t border-border">
@@ -175,16 +217,21 @@ export function Testimonials({
           {remainingRest.map((t, i) => (
             <div
               key={t.id || `${t.firstName}-${t.lastName}-${i}`}
-              className={`bg-card/80 border border-border/60 p-6 flex flex-col justify-between animate-fade-in-up shadow-soft hover:shadow-float transition-all duration-300 ${getAnimationDelayClass(
-                i,
+              className={`bg-card/80 border border-border/60 p-6 flex flex-col justify-between animate-fade-in-up shadow-soft hover:shadow-2xl transition-all duration-300 ${getAnimationDelayClass(
+                i
               )}`}
               style={{ borderRadius: "2rem 3rem 2rem 4rem" }}
             >
               <div>
                 <ServiceTag service={t.service} accent={t.accent} />
-                <p className="mt-4 font-sans text-sm text-muted-foreground leading-relaxed">
-                  "{t.message}"
-                </p>
+                <div className="mt-4">
+                  <TestimonialMessage
+                    message={t.message}
+                    clampClass="line-clamp-5"
+                    textClass="font-sans text-base md:text-lg text-muted-foreground leading-relaxed"
+                    toggleClass="text-secondary hover:text-secondary/70"
+                  />
+                </div>
               </div>
               <div className="mt-5 pt-5 border-t border-border/60">
                 <NameRow t={t} />
@@ -193,7 +240,6 @@ export function Testimonials({
           ))}
         </div>
 
-        {/* CTA now lives in its own component — pass through only the props that were provided */}
         <CtaSection
           showCta={showCta}
           {...(ctaTitle !== undefined && { ctaTitle })}
