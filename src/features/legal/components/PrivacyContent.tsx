@@ -57,6 +57,11 @@ export function PrivacyContent() {
           </section>
         ))}
       </div>
+
+      <p className="text-xs italic leading-relaxed text-[#78786C]">
+        This Privacy Policy is not final and may be revised or updated as the
+        platform evolves or as required by applicable laws and regulations.
+      </p>
     </article>
   );
 }
