@@ -19,7 +19,7 @@ export function ServicesOverview() {
   } = useServicesOverview();
 
   return (
-    <div className="services-theme min-h-screen bg-background py-16 px-4 md:px-8 text-foreground">
+    <div className="w-full max-w-[80rem] mx-auto space-y-8 py-6 px-4 sm:px-8 lg:px-12">
       <div className="max-w-6xl mx-auto space-y-24">
         <ServicesHeader />
 
