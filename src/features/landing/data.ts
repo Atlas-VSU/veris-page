@@ -68,65 +68,56 @@ export const DEFAULT_TRUST_FEATURES: DevServiceFeatureItem[] = [
 // DATA FOR TESTIMONIALS SECTION
 export const defaultTestimonials: Testimonial[] = [
   {
-    firstName: "USSC",
-    lastName: "Officer",
-    role: "Finance Committee",
+    firstName: "Kleenie Elumene",
+    lastName: "Yuzon",
+    role: "USSC Treasurer",
     service: "USSC Connect",
     message:
-      "Before USSC Connect, clearance season meant hours of manually checking payment proofs and cross-referencing spreadsheets. Now it's just a dashboard away.",
+      `USSC Connect has made our work as student leaders more organized and efficient, particularly in managing payments, records, and other administrative processes. As clearance and record management has been a longstanding concern, the existence of USSC Connect felt like a weight had finally been taken off our shoulders.
+	    As the Council Treasurer, I appreciate having a centralized system that reduces manual work while making services more accessible to students. The integration of USSC Connect with SUREPay, which make online payments available and also releases customized digital receipts, has offered greater convenience for the students we aim to serve. I also appreciate how proactive and responsive the VERIS team has been to our feedback and actual needs on the ground throughout the entire development. 
+	    It has been fulfilling to see the platform develop from an idea into something that can genuinely support student governance. I believe there's still so much potential for expansion of the system. I look forward to seeing USSC Connect and the entire team behind it continue to grow and become an even more integral part of student services at VSU. `,
     avatarPicture:
-      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+      "/testimonial-img/Kleenie-Elumene-Yuzon.jpg",
     blobShape: "blob-shape-1",
     accent: "primary",
     featured: true,
   },
   {
-    firstName: "USSC",
-    lastName: "Officer",
-    role: "Membership Committee",
-    service: "VERIS Attendance",
-    message:
-      "Attendance tracking used to be pen and paper at every event. With VERIS, we know instantly who's cleared and who still owes fines.",
+    firstName: "Kyle",
+    lastName: "Ambid",
+    role: "USSC President",
+    service: "USSC Connect",
+    message: `Thank you for bringing to life the dreams we once had for the council. You have helped us make the system more organized and systematic—from long queues to a smoother and more efficient process.
+      I am truly grateful for the God-given talent you all have and for the way you have used it in service of the Viscan community. Thank you for the time, effort, and heart you have given to the council. Your contribution has made a difference, and I hope you know how much your service is appreciated.`,
     avatarPicture:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+      "/testimonial-img/Kyle-Ambid.jpeg",
     blobShape: "blob-shape-2",
-    accent: "secondary",
-  },
-  {
-    firstName: "USSC",
-    lastName: "Officer",
-    role: "Enrollment Support Team",
-    service: "OSSE Self-Registration",
-    message:
-      "Onboarding freshmen at OSSE was so much smoother with self-registration — officers just verified instead of encoding everything by hand.",
-    avatarPicture:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80",
-    blobShape: "blob-shape-3",
     accent: "primary",
   },
   {
-    firstName: "Student",
-    lastName: "Name",
-    role: "ABELS",
-    service: "Clearance Settlement",
+    firstName: "Crystel Jane",
+    lastName: "Gadil",
+    role: "USSC Committee Member",
+    service: "USSC Connect",
     message:
-      "What I appreciate most is the elimination of long queues for hours during the settling of clearance status.",
+      'In my experience, signing clearances and collecting payments was easy, the lines moved quickly, allowing us to assist many students daily. And accessing pending payments and clearing them in the system was seamless, as it required just a few clicks instead of manually updating multiple spreadsheet cells. And because fines were also logged automatically from faculty attendance checks at events, students rarely questioned the accuracy of how their fines came to be. Overall, it made the entire process much smoother, more reliable, and hassle-free for the council and also the students.',
     avatarPicture:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+      "/testimonial-img/Crystel-Jane-Gadil.jpg",
+    blobShape: "blob-shape-3",
+    accent: "secondary",
+  },
+  {
+    firstName: "Reniel",
+    lastName: "Emberso",
+    role: "USSC Auditor",
+    service: "USSC Connect",
+    message: `USSC Connect reflects VSU’s commitment to innovation by making student services more accessible, efficient, and transparent. As a student-centered initiative, it simplifies processes—from recording attendance to managing transactions—while making it easier for both students and student officers to access, manage, and deliver services. More than a digital system, it brings innovation closer to every Viscan.`,
+    avatarPicture:
+      "/testimonial-img/Reniel-Emberso.jpeg",
     blobShape: "blob-shape-1",
     accent: "secondary",
-  },
-  {
-    firstName: "Freshman",
-    lastName: "Name",
-    role: "BSCS",
-    service: "E-Passport",
-    message: "The E-Passport made the campus tour much more enjoyable!",
-    avatarPicture:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80",
-    blobShape: "blob-shape-2",
-    accent: "primary",
-  },
+  }
+
 ];
 
 export const BlobRadius: Record<Testimonial["blobShape"], string> = {
