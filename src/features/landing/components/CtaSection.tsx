@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
 import { ArrowRight } from "lucide-react";
-import type { CtaSectionProps } from "../types";
+import type { CtaSectionProps } from "../types/types";
+import { BookDemoModal } from "./BookDemoModal";
 
 export function CtaSection({
   showCta = true,
   ctaTitle = "Ready to Unify your Organizational Operations?",
   ctaSubtitle = "Reach out to our team to discover how VERIS replaces manual registration, attendance checking, and hours of tracking with one unified platform.",
-  ctaButtonText = "Contact Us",
-  ctaHref = "/contact",
+  ctaButtonText = "Book a Demo",
   ctaMicrocopy = "",
 }: CtaSectionProps) {
   if (!showCta) return null;
@@ -33,13 +33,17 @@ export function CtaSection({
         </div>
 
         <div className="flex flex-col items-center gap-3 relative z-10">
-          <a
-            href={ctaHref}
-            className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-primary text-primary-foreground font-sans font-medium normal-case text-sm md:text-base shadow-soft hover:shadow-float hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 group"
-          >
-            <span>{ctaButtonText}</span>
-            <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-200 group-hover:translate-x-1" />
-          </a>
+          <BookDemoModal
+            trigger={
+              <button
+                type="button"
+                className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-primary text-primary-foreground font-sans font-medium normal-case text-sm md:text-base shadow-soft hover:shadow-float hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 group"
+              >
+                <span>{ctaButtonText}</span>
+                <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-200 group-hover:translate-x-1" />
+              </button>
+            }
+          />
 
           {/* Risk-reversal microcopy — last objection-handling before the visitor leaves the page */}
           {ctaMicrocopy && (
