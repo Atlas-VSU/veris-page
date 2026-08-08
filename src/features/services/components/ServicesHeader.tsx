@@ -1,8 +1,8 @@
 export function ServicesHeader() {
   return (
-    <section className="relative py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden animate-fade-in-up">
+    <section className="relative px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden animate-fade-in-up">
       {/* Soft Background Accent Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-primary/5 rounded-full blur-3xl -z-10 pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full blur-3xl -z-10 pointer-events-none" />
 
       <div className="relative text-center max-w-3xl mx-auto mb-12">
         {/* Main Headline */}

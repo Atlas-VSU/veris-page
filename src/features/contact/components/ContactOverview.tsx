@@ -5,7 +5,7 @@ import { ContactCard } from "./ContactCard";
 
 export function ContactOverview() {
   return (
-    <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto space-y-10" id="contact">
+    <section className="w-full max-w-[80rem] mx-auto space-y-8 py-6 px-4 sm:px-8 lg:px-12" id="contact">
       {/* Header with Fade-in Animation */}
       <div className="text-center space-y-3 animate-fade-in-up">
         <h1
@@ -35,12 +35,13 @@ export function ContactOverview() {
             <MapPin className="w-5 h-5" />
           </div>
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-primary">
+            <h4 className="text-xs sm:text-sm md:text-base font-bold uppercase tracking-wider text-primary">
               On-Campus Headquarters
             </h4>
-            <p className="text-xs text-foreground font-medium mt-0.5">
-              Department of Computer Science, Visayas State University, Baybay City, Leyte
-            </p>
+            <div className="space-y-0.5 text-[0.72rem] sm:text-xs md:text-sm text-foreground font-medium mt-0.5">
+              <p>Department of Computer Science and Technology</p>
+              <p>Visayas State University, Baybay City, Leyte</p>
+            </div>
           </div>
         </div>
 
