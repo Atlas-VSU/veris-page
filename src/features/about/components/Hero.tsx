@@ -2,14 +2,14 @@ import { BlobCard } from "./BlobCard";
 
 export function Hero() {
   return (
-    <section className="min-h-[70vh] lg:min-h-[78vh] border-b border-border flex items-center px-6 md:px-20 pt-2 pb-6 md:pt-4 md:pb-8 overflow-hidden animate-fade-in-up">
-      <div className="w-full flex flex-col lg:flex-row items-center gap-8 md:gap-10 lg:gap-10 xl:gap-16">
-        <div className="max-w-3xl">
+    <section className="min-h-[70vh] min-[1156px]:min-h-[78vh] border-b border-border flex items-center px-6 md:px-20 pt-2 pb-6 md:pt-4 md:pb-8 overflow-hidden animate-fade-in-up">
+      <div className="w-full flex flex-col min-[1156px]:flex-row items-center gap-8 md:gap-10 min-[1156px]:gap-10 xl:gap-16">
+        <div className="max-w-3xl text-center min-[1156px]:text-left">
           <span className="font-sans text-sm font-bold text-primary tracking-[0.25em] uppercase mb-4 md:mb-5 block animate-fade-in-up animation-delay-100">
             Welcome to VERIS
           </span>
 
-          <h1 className="font-serif text-4xl md:text-6xl lg:text-[72px] leading-[0.95] text-foreground mb-4 md:mb-5">
+          <h1 className="font-serif text-4xl md:text-6xl min-[1156px]:text-[72px] leading-[0.95] text-foreground mb-4 md:mb-5">
             <div className="block animate-fade-in-up animation-delay-200">
               Empowering
             </div>
@@ -33,7 +33,7 @@ export function Hero() {
           </p>
         </div>
 
-        <div className="w-full lg:flex-1 lg:h-full flex flex-col items-center justify-center gap-4 md:gap-5 lg:max-w-md lg:ml-8 xl:ml-12">
+        <div className="w-full min-[1156px]:flex-1 min-[1156px]:h-full flex flex-col items-center justify-center gap-4 md:gap-5 min-[1156px]:max-w-md min-[1156px]:ml-8 xl:ml-12">
           <BlobCard
             title="Our Mission"
             description="To provide student organizations with intuitive digital infrastructure that eliminates bureaucratic friction, transforming workflows into fast, transparent, and accessible services for every student."
@@ -50,7 +50,7 @@ export function Hero() {
             textColorClassName="text-[#7a5230]"
             viewBox="0 0 500 320"
             path="M95,45 C210,-5 355,10 420,65 C480,120 485,205 425,260 C365,315 240,320 150,295 C60,270 20,210 20,150 C20,105 45,75 95,45 Z"
-            className="lg:ml-14 xl:ml-20 animate-fade-in-up animation-delay-600"
+            className="min-[1156px]:ml-14 xl:ml-20 animate-fade-in-up animation-delay-600"
           />
         </div>
       </div>

@@ -4,8 +4,7 @@ import "./globals.css";
 import { Navbar, Footer } from "@/features/shared";
 import { cn } from "@/lib/utils";
 
-const figtree = Figtree({subsets:['latin'],variable:'--font-sans'});
-
+const figtree = Figtree({ subsets: ["latin"], variable: "--font-sans" });
 
 // Brand Sans-Serif Font
 const nunito = Nunito({
@@ -22,8 +21,8 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "VERIS - Subscription Tiers & Pricing",
-  description: "Official marketing and informational site for VERIS campus platforms, CORAL, USSC Connect, and E-Passport.",
+  title: "VERIS - Official Website",
+  description: "Official marketing and informational site for VERIS systems",
 };
 
 export default function RootLayout({
@@ -32,7 +31,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("h-full", "antialiased", nunito.variable, fraunces.variable, "font-sans", figtree.variable)}>
+    <html
+      lang="en"
+      className={cn(
+        "h-full",
+        "antialiased",
+        nunito.variable,
+        fraunces.variable,
+        "font-sans",
+        figtree.variable,
+      )}
+    >
       <body className="min-h-full flex flex-col">
         <Navbar />
         <main className="flex-1">{children}</main>
