@@ -166,14 +166,10 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-[#DED8CF] flex flex-col sm:flex-row items-center justify-between gap-3 animate-fade-in-slow">
+        <div className="mt-12 pt-8 border-t border-[#DED8CF] flex flex-col items-center justify-center gap-3 animate-fade-in-slow text-center">
           <p className="font-sans text-xs text-[#78786C]">
             © {new Date().getFullYear()} VERIS Systems. All rights reserved.
           </p>
-          <div className="flex items-center gap-2 font-sans text-xs text-[#78786C]">
-            <span className="w-2 h-2 rounded-full bg-primary animate-gentle-rotate" />
-            Crafted for campus communities
-          </div>
         </div>
       </div>
     </footer>

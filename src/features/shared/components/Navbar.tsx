@@ -133,18 +133,18 @@ export function Navbar() {
               <div className="mx-auto w-12 h-1.5 rounded-full bg-muted-foreground/20 mb-5" />
               <div className="space-y-6">
                 <DrawerHeader className="text-left border-b border-border pb-5 p-0">
-                  <DrawerTitle className="flex items-center gap-3.5">
+                  <DrawerTitle className="flex items-start justify-start gap-3.5 w-full">
                     <Avatar className="w-10 h-10 shrink-0">
                       <AvatarImage src="/veris-icon.png" alt="VERIS logo" />
                       <AvatarFallback className="bg-primary text-primary-foreground font-serif font-bold text-sm">
                         V
                       </AvatarFallback>
                     </Avatar>
-                    <div className="flex flex-col gap-1.5">
+                    <div className="flex flex-col gap-1.5 items-start">
                       <span className="font-bold text-foreground text-base font-serif leading-none">
                         VERIS
                       </span>
-                      <span className="text-[10px] font-bold text-muted-foreground tracking-wider uppercase bg-muted px-2 py-0.5 rounded-full w-fit leading-none">
+                      <span className="text-[10px] font-bold text-primary tracking-wider uppercase bg-muted px-2 py-0.5 rounded-full w-fit leading-none">
                         Official Site
                       </span>
                     </div>
