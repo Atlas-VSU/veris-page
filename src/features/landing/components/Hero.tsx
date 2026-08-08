@@ -1,8 +1,9 @@
-'use client';
+"use client";
 
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import { BookDemoModal } from "./BookDemoModal";
 
 const partners = [
   { name: "USSC", src: "/USSC-LOGO.png" },
@@ -13,7 +14,6 @@ const partners = [
 export function Hero() {
   return (
     <section className="relative max-w-360 mx-auto px-6 sm:px-8 lg:px-12 pt-10 sm:pt-14 md:pt-20 lg:pt-24 overflow-visible">
-
       {/* Floating Ambient Background Glows */}
       <div
         className="pointer-events-none absolute -top-12 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full bg-accent/40 blur-3xl animate-float -z-10"
@@ -26,7 +26,6 @@ export function Hero() {
 
       {/* Centered Hero Content */}
       <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto">
-
         {/* Headline: names the buyer + concrete modules, not a mission statement */}
         <h1 className="font-serif font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-foreground leading-[1.08] tracking-tight animate-fade-in-up animation-delay-100">
           Run Your Student Org{" "}
@@ -45,13 +44,15 @@ export function Hero() {
 
         {/* CTA Button Group: one high-intent action, one low-commitment action */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto mt-10 animate-fade-in-up animation-delay-300">
-          <Link
-            href="/contact"
-            className="group relative inline-flex items-center justify-center whitespace-nowrap gap-2 font-medium bg-primary text-primary-foreground hover:bg-primary/90 shadow-soft hover:shadow-float rounded-full px-8 py-4 text-base transition-all duration-300 hover:-translate-y-1 active:translate-y-0 w-full sm:w-auto"
-          >
-            <span>Book a Demo</span>
-            <ArrowRight className="w-4 h-4 shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
-          </Link>
+          <BookDemoModal
+            triggerClassName="group relative inline-flex items-center justify-center whitespace-nowrap gap-2 font-medium bg-primary text-primary-foreground hover:bg-primary/90 shadow-soft hover:shadow-float rounded-full px-8 py-4 text-base transition-all duration-300 hover:-translate-y-1 active:translate-y-0 w-full sm:w-auto"
+            trigger={
+              <>
+                <span>Book a Demo</span>
+                <ArrowRight className="w-4 h-4 shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
+              </>
+            }
+          />
 
           <Link
             href="/pricing"
@@ -86,7 +87,6 @@ export function Hero() {
             ))}
           </div>
         </div>
-
       </div>
     </section>
   );
