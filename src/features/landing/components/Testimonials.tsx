@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { CheckCircle2, Quote, ChevronDown } from "lucide-react";
 import type { Testimonial, TestimonialsProps } from "../types";
 import { CtaSection } from "./CtaSection";
-import { defaultTestimonials } from "../data";
+import { defaultTestimonials } from "../data/data";
 import {
   getInitials,
   getFullName,
@@ -49,7 +49,7 @@ function ServiceTag({
   return (
     <span
       className={`font-sans text-[11px] font-semibold px-2.5 py-1 rounded-full border ${getServiceTagClasses(
-        accent
+        accent,
       )}`}
     >
       {service}

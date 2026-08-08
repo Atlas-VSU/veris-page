@@ -1,12 +1,16 @@
-import React from 'react';
-import type { DevServiceFeatureItem, KeyBenefitItem, KeyBenefitsProps } from '../types';
-import { DEFAULT_BENEFITS, DEFAULT_TRUST_FEATURES } from '../data';
+import React from "react";
+import type {
+  DevServiceFeatureItem,
+  KeyBenefitItem,
+  KeyBenefitsProps,
+} from "../types/types";
+import { DEFAULT_BENEFITS, DEFAULT_TRUST_FEATURES } from "../data/data";
 import {
   getAnimationDelayClass,
   getBenefitIcon,
   getOrganicShapeClass,
   getTrustIcon,
-} from '../helperFunction/keyBenefit';
+} from "../helperFunction/keyBenefit";
 
 const DefaultBenefits: KeyBenefitItem[] = DEFAULT_BENEFITS;
 const DefaultTrustFeatures: DevServiceFeatureItem[] = DEFAULT_TRUST_FEATURES;
@@ -21,9 +25,10 @@ export const KeyBenefits: React.FC<KeyBenefitsProps> = ({
   className = "",
 }) => {
   return (
-    <section className={`w-full bg-background text-foreground py-16 px-4 md:px-8 lg:px-12 ${className}`}>
+    <section
+      className={`w-full bg-background text-foreground py-16 px-4 md:px-8 lg:px-12 ${className}`}
+    >
       <div className="pt-12 border-t border-border max-w-7xl mx-auto space-y-20">
-        
         {/* ========================================== */}
         {/* Primary Section: Key Benefits & Impact     */}
         {/* ========================================== */}
@@ -108,7 +113,7 @@ export const KeyBenefits: React.FC<KeyBenefitsProps> = ({
               {trustFeatures.map((feature, idx) => {
                 const Icon = getTrustIcon(feature.iconName);
                 return (
-                  <div 
+                  <div
                     key={feature.id}
                     className="p-5 bg-card/80 rounded-2xl border border-border/60 hover:border-primary/40 transition-all duration-200"
                   >
@@ -127,7 +132,6 @@ export const KeyBenefits: React.FC<KeyBenefitsProps> = ({
             </div>
           </div>
         </div>
-
       </div>
     </section>
   );
