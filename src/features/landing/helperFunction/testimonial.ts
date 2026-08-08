@@ -1,5 +1,5 @@
-import type { Testimonial } from "../types";
-import { BlobRadius } from "../data";
+import type { Testimonial } from "../types/types";
+import { BlobRadius } from "../data/data";
 
 /**
  * Returns user initials from first and last name.

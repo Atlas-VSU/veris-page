@@ -1,8 +1,8 @@
 import React from "react";
 import { CheckCircle2, Quote } from "lucide-react";
-import type { Testimonial, TestimonialsProps } from "../types";
+import type { Testimonial, TestimonialsProps } from "../types/types";
 import { CtaSection } from "./CtaSection";
-import { defaultTestimonials } from "../data";
+import { defaultTestimonials } from "../data/data";
 import {
   getInitials,
   getFullName,
@@ -12,7 +12,6 @@ import {
   getAnimationDelayClass,
   partitionTestimonials,
 } from "../helperFunction/testimonial";
-
 
 const DefaultTestimonials: Testimonial[] = defaultTestimonials;
 
@@ -48,7 +47,7 @@ function ServiceTag({
   return (
     <span
       className={`font-sans text-[11px] font-semibold px-2.5 py-1 rounded-full border ${getServiceTagClasses(
-        accent
+        accent,
       )}`}
     >
       {service}
@@ -102,7 +101,6 @@ export function Testimonials({
       <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-border to-transparent" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
         {/* Section Header */}
         <div className="flex justify-center mb-6 animate-fade-in-up">
           <span className="inline-flex items-center justify-center text-center text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">
@@ -136,7 +134,10 @@ export function Testimonials({
               />
 
               <div className="relative">
-                <ServiceTag service={featured.service} accent={featured.accent} />
+                <ServiceTag
+                  service={featured.service}
+                  accent={featured.accent}
+                />
                 <p className="mt-5 font-serif text-xl md:text-[1.35rem] italic text-foreground leading-relaxed">
                   "{featured.message}"
                 </p>
@@ -155,7 +156,10 @@ export function Testimonials({
               style={{ borderRadius: "3rem 2rem 4rem 2rem" }}
             >
               <div>
-                <ServiceTag service={firstRest.service} accent={firstRest.accent} />
+                <ServiceTag
+                  service={firstRest.service}
+                  accent={firstRest.accent}
+                />
                 <p className="mt-4 font-sans text-sm text-foreground leading-relaxed">
                   "{firstRest.message}"
                 </p>
@@ -172,7 +176,7 @@ export function Testimonials({
             <div
               key={t.id || `${t.firstName}-${t.lastName}-${i}`}
               className={`bg-card/80 border border-border/60 p-6 flex flex-col justify-between animate-fade-in-up shadow-soft hover:shadow-float transition-all duration-300 ${getAnimationDelayClass(
-                i
+                i,
               )}`}
               style={{ borderRadius: "2rem 3rem 2rem 4rem" }}
             >
