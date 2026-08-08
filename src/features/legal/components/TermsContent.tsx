@@ -75,6 +75,11 @@ export function TermsContent() {
           </section>
         ))}
       </div>
+
+      <p className="text-xs italic leading-relaxed text-[#78786C]">
+        These Terms of Service are not final and may be revised or updated as
+        the platform evolves or as required by applicable laws and regulations.
+      </p>
     </article>
   );
 }
