@@ -76,7 +76,7 @@ export function ServicesOverview() {
         </section>
 
         {/* Pagination Section */}
-        {!isLoading && (
+        {!isLoading && totalPages > 1 && (
           <section className="flex justify-center items-center gap-3 pt-4 animate-fade-in animation-delay-600">
             <button
               onClick={handlePrevPage}
