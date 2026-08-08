@@ -1,11 +1,18 @@
 'use client';
 
 import Link from "next/link";
-import { ArrowRight, Sparkles, ShieldCheck } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
+
+const partners = [
+  { name: "USSC", src: "/USSC-LOGO.png" },
+  { name: "FC-SSC", src: "/FC-SSC-Logo.png" },
+  { name: "CS3", src: "/CS3_LOGO.png" },
+];
 
 export function Hero() {
   return (
-    <section className="relative max-w-360 mx-auto px-6 sm:px-8 lg:px-12 pt-10 sm:pt-14 md:pt-20 lg:pt-24 pb-16 overflow-x-hidden">
+    <section className="relative max-w-360 mx-auto px-6 sm:px-8 lg:px-12 pt-10 sm:pt-14 md:pt-20 lg:pt-24 overflow-visible">
 
       {/* Floating Ambient Background Glows */}
       <div
@@ -54,15 +61,29 @@ export function Hero() {
           </Link>
         </div>
 
-        {/* Lightweight trust bar — swap labels for real institution names/logos when available */}
+        {/* Partner logos */}
         <div className="w-full mt-[150px] pt-8 border-t border-border animate-fade-in-up animation-delay-500">
-          <p className="text-xs uppercase tracking-widest text-muted-foreground/80 font-semibold mb-4">
+          <p className="text-xs uppercase tracking-widest text-muted-foreground/80 font-semibold mb-6 text-center">
             Powering operations at
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-muted-foreground/70 font-serif text-lg sm:text-xl">
-            <span>USSC</span>
-            <span>FC-SSC</span>
-            <span>CS3</span>
+          <div className="flex flex-wrap items-center justify-center gap-x-14 gap-y-6">
+            {partners.map((partner) => (
+              <div
+                key={partner.name}
+                className="group relative h-12 sm:h-14 w-32 sm:w-36 grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+              >
+                <Image
+                  src={partner.src}
+                  alt={partner.name}
+                  fill
+                  className="object-contain"
+                  sizes="144px"
+                />
+                <span className="pointer-events-none absolute left-1/2 top-full mt-2 w-max -translate-x-1/2 rounded-full bg-muted px-2 py-1 text-[11px] sm:text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground opacity-0 transition-all duration-300 group-hover:opacity-100">
+                  {partner.name}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
 
