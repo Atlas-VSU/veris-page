@@ -1,5 +1,11 @@
 import { FAQAccordion } from "@/features/faq/components/FAQAccordion";
 import { getFaqItems, FAQItem } from "@/features/faq/services/faqService";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Frequently Asked Questions | VERIS",
+};
+
 const fallbackFaqs: FAQItem[] = [
   {
     q: "What is VERIS?",
