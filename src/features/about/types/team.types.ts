@@ -1,4 +1,4 @@
-export type TeamMemberRole = "lead" | "developer" | "qa";
+export type TeamMemberRole = "lead" | "developer" | "qa" | "pm";
 
 export interface TeamMember {
   id: string;

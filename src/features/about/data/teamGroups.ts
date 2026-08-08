@@ -5,11 +5,14 @@ export function getMembersByRoleAndYear(
   year: string,
   role: TeamMemberRole,
 ) {
-  return members.filter((member) => member.role === role && member.year === year);
+  return members.filter(
+    (member) => member.role === role && member.year === year,
+  );
 }
 
 export function getTeamMembersByYear(members: TeamMember[], year: string) {
   return {
+    pm: getMembersByRoleAndYear(members, year, "pm"),
     leads: getMembersByRoleAndYear(members, year, "lead"),
     developers: getMembersByRoleAndYear(members, year, "developer"),
     qaMembers: getMembersByRoleAndYear(members, year, "qa"),

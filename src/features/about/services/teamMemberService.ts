@@ -1,7 +1,11 @@
 import { supabase } from "@/lib/supabase/config";
-import type { TeamMember, TeamMemberIcon, TeamMemberRole } from "../types/team.types";
+import type {
+  TeamMember,
+  TeamMemberIcon,
+  TeamMemberRole,
+} from "../types/team.types";
 
-const ROLE_VALUES: TeamMemberRole[] = ["lead", "developer", "qa"];
+const ROLE_VALUES: TeamMemberRole[] = ["lead", "developer", "qa", "pm"];
 
 function normalizeRole(role?: string | null): TeamMemberRole {
   if (role && ROLE_VALUES.includes(role as TeamMemberRole)) {
