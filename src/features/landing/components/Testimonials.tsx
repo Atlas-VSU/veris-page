@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { CheckCircle2, Quote, ChevronDown } from "lucide-react";
-import type { Testimonial, TestimonialsProps } from "../types";
+import type { Testimonial, TestimonialsProps } from "../types/types";
 import { CtaSection } from "./CtaSection";
 import { defaultTestimonials } from "../data/data";
 import {
