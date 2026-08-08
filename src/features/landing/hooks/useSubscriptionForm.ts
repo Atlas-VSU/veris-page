@@ -1,3 +1,4 @@
+"use client";
 import { useState, type FormEvent } from "react";
 import { EMPTY_SUBSCRIPTION_FORM } from "../data/tiers";
 import { validateSubscriptionForm } from "../utils/subscriptionUtils";

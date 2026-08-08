@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  JSXElementConstructor,
-  ReactElement,
-  ReactNode,
-  ReactPortal,
-  useState,
-} from "react";
+import { useState } from "react";
 import { Loader2, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -34,24 +28,27 @@ import {
 } from "@/components/ui/field";
 import { TIERS } from "../data/tiers";
 import { useSubscriptionForm } from "../hooks/useSubscriptionForm";
-import type {
-  BookDemoModalProps,
-  Tier,
-} from "../types/subscription-form.types";
+import {
+  createTierChangeHandler,
+  createOpenChangeHandler,
+} from "../utils/modalHandlers";
+import type { BookDemoModalProps } from "../types/subscription-form.types";
 
-export function BookDemoModal({ trigger, onSubmit }: BookDemoModalProps) {
+export function BookDemoModal({
+  trigger,
+  triggerClassName,
+  onSubmit,
+}: BookDemoModalProps) {
   const [open, setOpen] = useState(false);
   const { form, errors, submitError, status, update, submit, resetAfterClose } =
     useSubscriptionForm({ onSuccess: onSubmit });
 
-  function handleOpenChange(next: boolean) {
-    setOpen(next);
-    if (!next) resetAfterClose();
-  }
+  const handleOpenChange = createOpenChangeHandler(setOpen, resetAfterClose);
+  const handleTierChange = createTierChangeHandler(update);
 
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
-      <DialogTrigger>{trigger}</DialogTrigger>
+      <DialogTrigger className={triggerClassName}>{trigger}</DialogTrigger>
 
       <DialogContent className="bg-card text-card-foreground border-border rounded-[1.75rem] sm:max-w-md">
         {status === "submitted" ? (
@@ -95,7 +92,7 @@ export function BookDemoModal({ trigger, onSubmit }: BookDemoModalProps) {
                   <FieldLabel htmlFor="orgName">Organization name</FieldLabel>
                   <Input
                     id="orgName"
-                    placeholder="Acme University"
+                    placeholder="Enter your organization name"
                     value={form.orgName}
                     onChange={(e) => update("orgName", e.target.value)}
                     aria-invalid={!!errors.orgName}
@@ -113,7 +110,7 @@ export function BookDemoModal({ trigger, onSubmit }: BookDemoModalProps) {
                   <Input
                     id="orgEmail"
                     type="email"
-                    placeholder="ops@acme.edu"
+                    placeholder="org-email@vsu.edu.ph"
                     value={form.orgEmail}
                     onChange={(e) => update("orgEmail", e.target.value)}
                     aria-invalid={!!errors.orgEmail}
@@ -134,7 +131,7 @@ export function BookDemoModal({ trigger, onSubmit }: BookDemoModalProps) {
                   </FieldLabel>
                   <Input
                     id="requesterName"
-                    placeholder="Jane Doe"
+                    placeholder="Your Name"
                     value={form.requesterName}
                     onChange={(e) => update("requesterName", e.target.value)}
                     aria-invalid={!!errors.requesterName}
@@ -153,7 +150,7 @@ export function BookDemoModal({ trigger, onSubmit }: BookDemoModalProps) {
                   <FieldLabel htmlFor="studentId">Student ID</FieldLabel>
                   <Input
                     id="studentId"
-                    placeholder="e.g. 20231234"
+                    placeholder="##-#-#####"
                     value={form.studentId}
                     onChange={(e) => update("studentId", e.target.value)}
                     aria-invalid={!!errors.studentId}
@@ -170,10 +167,7 @@ export function BookDemoModal({ trigger, onSubmit }: BookDemoModalProps) {
 
                 <Field>
                   <FieldLabel htmlFor="tier">Tier</FieldLabel>
-                  <Select
-                    value={form.tier}
-                    onValueChange={(v: Tier) => update("tier", v)}
-                  >
+                  <Select value={form.tier} onValueChange={handleTierChange}>
                     <SelectTrigger
                       id="tier"
                       className="rounded-xl w-full bg-input border-border focus-visible:ring-ring"

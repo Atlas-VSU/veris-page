@@ -22,8 +22,7 @@ export type SubscriptionFormErrors = Partial<
 export type SubscriptionSubmitStatus = "idle" | "submitting" | "submitted";
 
 export interface BookDemoModalProps {
-  /** Element that opens the modal, e.g. the CTA button. Rendered via DialogTrigger asChild. */
   trigger: ReactNode;
-  /** Called with the form values on successful submit, before the success state is shown. */
+  triggerClassName?: string;
   onSubmit?: (values: SubscriptionFormValues) => void | Promise<void>;
 }
