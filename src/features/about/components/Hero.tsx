@@ -4,7 +4,7 @@ export function Hero() {
   return (
     <section className="min-h-[70vh] lg:min-h-[78vh] border-b border-border flex items-center px-6 md:px-20 pt-2 pb-6 md:pt-4 md:pb-8 overflow-hidden animate-fade-in-up">
       <div className="w-full flex flex-col lg:flex-row items-center gap-8 md:gap-10 lg:gap-10 xl:gap-16">
-        <div className="max-w-3xl">
+        <div className="max-w-3xl text-center lg:text-left">
           <span className="font-sans text-sm font-bold text-primary tracking-[0.25em] uppercase mb-4 md:mb-5 block animate-fade-in-up animation-delay-100">
             Welcome to VERIS
           </span>
