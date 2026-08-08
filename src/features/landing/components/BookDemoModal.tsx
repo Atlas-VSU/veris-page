@@ -33,6 +33,7 @@ import {
   createOpenChangeHandler,
 } from "../utils/modalHandlers";
 import type { BookDemoModalProps } from "../types/subscription-form.types";
+import { getTierLabel } from "../utils/subscriptionUtils";
 
 export function BookDemoModal({
   trigger,
@@ -172,7 +173,9 @@ export function BookDemoModal({
                       id="tier"
                       className="rounded-xl w-full bg-input border-border focus-visible:ring-ring"
                     >
-                      <SelectValue placeholder="Select a tier" />
+                      <SelectValue placeholder="Select a tier">
+                        {getTierLabel(form.tier)}
+                      </SelectValue>
                     </SelectTrigger>
                     <SelectContent className="bg-popover text-popover-foreground border-border">
                       {TIERS.map((t) => (

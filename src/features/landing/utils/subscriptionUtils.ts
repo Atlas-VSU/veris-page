@@ -1,6 +1,8 @@
+import { TIERS } from "../data/tiers";
 import type {
   SubscriptionFormErrors,
   SubscriptionFormValues,
+  Tier,
 } from "../types/subscription-form.types";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -8,6 +10,10 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 export interface ValidationResult {
   valid: boolean;
   errors: SubscriptionFormErrors;
+}
+
+export function getTierLabel(tier: Tier) {
+  return TIERS.find((option) => option.value === tier)?.label ?? "Basic";
 }
 
 export function validateSubscriptionForm(

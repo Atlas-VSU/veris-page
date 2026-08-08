@@ -4,7 +4,10 @@ export { BookDemoModal } from "./components/BookDemoModal";
 export { Testimonials } from "./components/Testimonials";
 export { KeyBenefits } from "./components/KeyBenefits";
 export { useSubscriptionForm } from "./hooks/useSubscriptionForm";
-export { validateSubscriptionForm } from "./utils/subscriptionUtils";
+export {
+  getTierLabel,
+  validateSubscriptionForm,
+} from "./utils/subscriptionUtils";
 export {
   submitSubscriptionRequest,
   SubscriptionServiceError,
