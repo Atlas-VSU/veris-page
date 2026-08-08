@@ -78,27 +78,35 @@ export function Navbar() {
               V
             </AvatarFallback>
           </Avatar>
-          <div className="flex flex-col leading-none">
-            <span className="font-extrabold text-foreground tracking-tight text-lg font-serif">
+          <div className="flex flex-col ">
+            <span className="font-bold text-foreground tracking-tight text-lg font-serif leading-none">
               VERIS
             </span>
-            <span className="text-[10px] font-bold text-muted-foreground tracking-wider uppercase mt-1 bg-muted px-1.5 py-0.5 rounded-md">
+            <span className="mt-1 inline-flex w-fit items-center rounded-full bg-primary/10 px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest text-primary">
               Official Site
             </span>
           </div>
         </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-8 xl:gap-10 text-base font-semibold text-primary">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="relative py-1 text-muted-foreground font-sans hover:text-primary transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-center after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 after:ease-out hover:after:scale-x-100"
-            >
-              {link.name}
-            </Link>
-          ))}
+       {/* Desktop Nav */}
+        <nav className="hidden lg:flex items-center gap-1 xl:gap-2 text-base font-semibold text-primary">
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  "relative px-4 py-2 rounded-full font-sans text-sm transition-all duration-200",
+                  isActive
+                    ? "bg-primary/10 text-primary font-semibold"
+                    : "text-muted-foreground hover:text-primary hover:bg-muted"
+                )}
+              >
+                {link.name}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Action Button: Guest Bug Report */}
@@ -124,17 +132,20 @@ export function Navbar() {
             <DrawerContent className="bg-card border-t border-border px-6 pb-8 pt-2 rounded-t-[2.5rem] shadow-float max-h-[85vh]">
               <div className="mx-auto w-12 h-1.5 rounded-full bg-muted-foreground/20 mb-5" />
               <div className="space-y-6">
-                <DrawerHeader className="text-left border-b border-border pb-4 p-0">
-                  <DrawerTitle className="flex items-center gap-3">
-                    <Avatar size="sm">
+                <DrawerHeader className="text-left border-b border-border pb-5 p-0">
+                  <DrawerTitle className="flex items-center gap-3.5">
+                    <Avatar className="w-10 h-10 shrink-0">
                       <AvatarImage src="/veris-icon.png" alt="VERIS logo" />
-                      <AvatarFallback className="bg-primary text-primary-foreground font-serif font-bold text-[10px]">
+                      <AvatarFallback className="bg-primary text-primary-foreground font-serif font-bold text-sm">
                         V
                       </AvatarFallback>
                     </Avatar>
-                    <div className="flex flex-col leading-none">
-                      <span className="font-bold text-foreground text-sm font-serif">
+                    <div className="flex flex-col gap-1.5">
+                      <span className="font-bold text-foreground text-base font-serif leading-none">
                         VERIS
+                      </span>
+                      <span className="text-[10px] font-bold text-muted-foreground tracking-wider uppercase bg-muted px-2 py-0.5 rounded-full w-fit leading-none">
+                        Official Site
                       </span>
                     </div>
                   </DrawerTitle>
