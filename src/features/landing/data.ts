@@ -102,7 +102,8 @@ export const defaultTestimonials: Testimonial[] = [
     role: "USSC Committee Member",
     service: "USSC Connect",
     message:
-      'In my experience, signing clearances and collecting payments was easy, the lines moved quickly, allowing us to assist many students daily. And accessing pending payments and clearing them in the system was seamless, as it required just a few clicks instead of manually updating multiple spreadsheet cells. And because fines were also logged automatically from faculty attendance checks at events, students rarely questioned the accuracy of how their fines came to be. Overall, it made the entire process much smoother, more reliable, and hassle-free for the council and also the students.',
+      `In my experience, signing clearances and collecting payments was easy, the lines moved quickly, allowing us to assist many students daily. And accessing pending payments and clearing them in the system was seamless, as it required just a few clicks instead of manually updating multiple spreadsheet cells. 
+      And because fines were also logged automatically from faculty attendance checks at events, students rarely questioned the accuracy of how their fines came to be. Overall, it made the entire process much smoother, more reliable, and hassle-free for the council and also the students.`,
     avatarPicture:
       "/testimonial-img/Crystel-Jane-Gadil.jpg",
     blobShape: "blob-shape-3",
