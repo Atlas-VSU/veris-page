@@ -73,9 +73,11 @@ export const defaultTestimonials: Testimonial[] = [
     role: "USSC Treasurer",
     service: "USSC Connect",
     message:
-      `USSC Connect has made our work as student leaders more organized and efficient, particularly in managing payments, records, and other administrative processes. As clearance and record management has been a longstanding concern, the existence of USSC Connect felt like a weight had finally been taken off our shoulders.
-	    As the Council Treasurer, I appreciate having a centralized system that reduces manual work while making services more accessible to students. The integration of USSC Connect with SUREPay, which make online payments available and also releases customized digital receipts, has offered greater convenience for the students we aim to serve. I also appreciate how proactive and responsive the VERIS team has been to our feedback and actual needs on the ground throughout the entire development. 
-	    It has been fulfilling to see the platform develop from an idea into something that can genuinely support student governance. I believe there's still so much potential for expansion of the system. I look forward to seeing USSC Connect and the entire team behind it continue to grow and become an even more integral part of student services at VSU. `,
+      `USSC Connect has made our work as student leaders more organized and efficient. As clearance and record management has been a longstanding concern, the existence of USSC Connect felt like a weight had finally been taken off our shoulders. 
+
+      I appreciate having a system that reduces manual work. The integration of USSC Connect with SUREPay, which make online payments available and also releases customized digital receipts, has offered greater convenience for the students we aim to serve. I also appreciate how proactive and responsive the VERIS team has been to our feedback and actual needs on the ground throughout the entire development. 
+
+      It has been fulfilling to see the platform develop from an idea into something that can genuinely support student governance. I believe there's still so much potential for expansion of the system with the drive and passion the team has for their work. I look forward to seeing USSC Connect and the entire team behind it continue to grow and become an even more integral part of student services at VSU.`,
     avatarPicture:
       "/testimonial-img/Kleenie-Elumene-Yuzon.jpg",
     blobShape: "blob-shape-1",
