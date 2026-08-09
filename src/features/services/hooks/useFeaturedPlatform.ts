@@ -1,25 +1,33 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { createClient } from '@supabase/supabase-js';
-import { mockFeaturedPlatformData } from "../constants/mockData";
+import { supabase } from "@/lib/supabase/config";
+
+// Default fallback data for initial render or if db is empty
+const defaultFeaturedData = {
+  title: "Loading...",
+  description: "",
+  link: "#",
+  photos: [
+    '/screenshots/platform_mock_1.png',
+    '/screenshots/platform_mock_2.png',
+    '/screenshots/platform_mock_3.png'
+  ]
+};
 
 export function useFeaturedPlatform() {
   const [isFeaturedModalOpen, setIsFeaturedModalOpen] = useState(false);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   
-  const [featuredData, setFeaturedData] = useState(mockFeaturedPlatformData);
+  const [featuredData, setFeaturedData] = useState(defaultFeaturedData);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co';
-        const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-key';
-        const supabase = createClient(supabaseUrl, supabaseKey);
-        
         const { data: featureData, error: featureError } = await supabase
-          .from('DataContent')
-          .select('title, link, photo, description')
+          .from('veris_systems')
+          .select('title, link, pictures, description')
+          .eq('is_feature', true)
           .limit(1);
 
         if (featureError) {
@@ -31,20 +39,15 @@ export function useFeaturedPlatform() {
             '/screenshots/platform_mock_2.png',
             '/screenshots/platform_mock_3.png'
           ];
-          if (item.photo) {
-            photos = item.photo.split(',').map((p: string) => p.trim()).filter(Boolean);
+          
+          if (item.pictures && Array.isArray(item.pictures) && item.pictures.length > 0) {
+            photos = item.pictures.filter(Boolean);
           }
-          if (photos.length === 0) {
-            photos = [
-              '/screenshots/platform_mock_1.png',
-              '/screenshots/platform_mock_2.png',
-              '/screenshots/platform_mock_3.png'
-            ];
-          }
+          
           setFeaturedData({
-            title: item.title || mockFeaturedPlatformData.title,
-            description: item.description || mockFeaturedPlatformData.description,
-            link: item.link || mockFeaturedPlatformData.link,
+            title: item.title || "Untitled Platform",
+            description: item.description || "No description provided.",
+            link: item.link || "#",
             photos: photos
           });
         }
