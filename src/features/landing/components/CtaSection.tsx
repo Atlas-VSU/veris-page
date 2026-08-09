@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
 import { ArrowRight } from "lucide-react";
-import type { CtaSectionProps } from "../types";
+import type { CtaSectionProps } from "../types/types";
 
 export function CtaSection({
   showCta = true,

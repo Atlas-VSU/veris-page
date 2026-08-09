@@ -11,9 +11,9 @@ export function BlobCard({
 }: BlobCardProps) {
   return (
     <div className={`relative w-full ${className}`}>
-      {/* Mobile / tablet fallback: plain rounded card, text has room to breathe */}
+      {/* Mobile / tablet / narrow desktop fallback: plain rounded card up to 1155px */}
       <div
-        className={`lg:hidden rounded-2xl px-7 py-8 text-primary-foreground ${bgClassName}`}
+        className={`min-[1156px]:hidden rounded-2xl px-7 py-8 text-primary-foreground ${bgClassName}`}
       >
         <h3 className="font-serif text-2xl font-semibold tracking-tight text-primary-foreground mb-3">
           {title}
@@ -23,8 +23,8 @@ export function BlobCard({
         </p>
       </div>
 
-      {/* Desktop: organic blob shape drawn as SVG behind the text */}
-      <div className="hidden lg:block relative min-h-[280px]">
+      {/* Desktop: organic blob shape drawn as SVG behind the text, from 1156px up */}
+      <div className="hidden min-[1156px]:block relative min-h-[280px]">
         <svg
           viewBox={viewBox}
           preserveAspectRatio="none"

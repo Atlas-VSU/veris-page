@@ -5,7 +5,7 @@ import { TeamMemberCard } from "./TeamMemberCard";
 import { useTeamSection } from "../hooks/useTeamSection";
 
 export function TeamSection() {
-  const { year, setYear, years, loading, leads, developers, qaMembers } =
+  const { year, setYear, years, loading, leads, developers, qaMembers, pm } =
     useTeamSection();
 
   return (
@@ -26,6 +26,24 @@ export function TeamSection() {
         </div>
       ) : (
         <div className="space-y-16">
+          {/* PM */}
+          <div>
+            <h3 className="font-serif text-xl text-primary mb-6 text-center">
+              Project Manager
+            </h3>
+            {pm.length > 0 ? (
+              <div className="flex flex-wrap justify-center gap-6">
+                {pm.map((member) => (
+                  <TeamMemberCard key={member.id} member={member} size="lg" />
+                ))}
+              </div>
+            ) : (
+              <p className="text-center font-sans text-muted-foreground">
+                No leadership on record for {year}.
+              </p>
+            )}
+          </div>
+
           {/* Leads */}
           <div>
             <h3 className="font-serif text-xl text-primary mb-6 text-center">

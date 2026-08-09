@@ -1,67 +1,71 @@
-import type { DevServiceFeatureItem, KeyBenefitItem } from './types/types';
-import type { Testimonial } from './types/types';
-
+import type { DevServiceFeatureItem, KeyBenefitItem } from "../types/types";
+import type { Testimonial } from "../types/types";
 
 // DATA FOR KEY BENEFITS SECTION
 export const DEFAULT_BENEFITS: KeyBenefitItem[] = [
   {
-    id: 'benefit-1',
-    title: 'Friction-Free Onboarding',
-    description: 'Self-registration eliminates long queues and manual encoding bottlenecks during peak enrollment.',
-    badge: 'For Students',
-    highlight: 'Zero manual encoding queues',
-    iconName: 'user-check',
+    id: "benefit-1",
+    title: "Friction-Free Onboarding",
+    description:
+      "Self-registration eliminates long queues and manual encoding bottlenecks during peak enrollment.",
+    badge: "For Students",
+    highlight: "Zero manual encoding queues",
+    iconName: "user-check",
   },
   {
-    id: 'benefit-2',
-    title: 'Real-Time Clearance Status',
-    description: 'Complete dashboard visibility into unpaid fees, fines, and requirements with zero guesswork.',
-    badge: 'Students & Officers',
-    highlight: 'Instant status transparency',
-    iconName: 'shield-check',
+    id: "benefit-2",
+    title: "Real-Time Clearance Status",
+    description:
+      "Complete dashboard visibility into unpaid fees, fines, and requirements with zero guesswork.",
+    badge: "Students & Officers",
+    highlight: "Instant status transparency",
+    iconName: "shield-check",
   },
   {
-    id: 'benefit-3',
-    title: 'Automated Admin Workflows',
-    description: 'Automated fee calculation and payment checks free officers to focus on actual programs and events.',
-    badge: 'For Officers',
-    highlight: 'Saves 10+ hours weekly',
-    iconName: 'zap',
+    id: "benefit-3",
+    title: "Automated Admin Workflows",
+    description:
+      "Automated fee calculation and payment checks free officers to focus on actual programs and events.",
+    badge: "For Officers",
+    highlight: "Saves 10+ hours weekly",
+    iconName: "zap",
   },
   {
-    id: 'benefit-4',
-    title: 'One Unified Campus Experience',
-    description: 'A single, trusted platform students interact with across every campus organization from year 1 to graduation.',
-    badge: 'University-Wide',
-    highlight: '4-year process continuity',
-    iconName: 'sparkles',
+    id: "benefit-4",
+    title: "One Unified Campus Experience",
+    description:
+      "A single, trusted platform students interact with across every campus organization from year 1 to graduation.",
+    badge: "University-Wide",
+    highlight: "4-year process continuity",
+    iconName: "sparkles",
   },
 ];
 
 export const DEFAULT_TRUST_FEATURES: DevServiceFeatureItem[] = [
   {
-    id: 'trust-1',
-    title: 'Dedicated Team',
-    description: 'Built by students who understand actual student workflows.',
-    iconName: 'code',
+    id: "trust-1",
+    title: "Dedicated Team",
+    description: "Built by students who understand actual student workflows.",
+    iconName: "code",
   },
   {
-    id: 'trust-2',
-    title: 'Continuous Upgrades',
-    description: 'Includes annual fixes, updates, and backend scaling.',
-    iconName: 'refresh',
+    id: "trust-2",
+    title: "Continuous Upgrades",
+    description: "Includes annual fixes, updates, and backend scaling.",
+    iconName: "refresh",
   },
   {
-    id: 'trust-3',
-    title: 'Responsive Context Support',
-    description: 'Quick issue resolution directly from the core developers.',
-    iconName: 'headphones',
+    id: "trust-3",
+    title: "Responsive Context Support",
+    description: "Quick issue resolution directly from the core developers.",
+    iconName: "headphones",
   },
   {
-    id: 'trust-4',
-    title: 'Institutional Continuity',
-    description: 'Maintained under Project Atlas to persist beyond single semesters.',
-    iconName: 'building',
+    id: "trust-4",
+    title: "Institutional Continuity",
+    description:
+      "Maintained under Project Atlas to persist beyond single semesters.",
+    iconName: "building",
   },
 ];
 
