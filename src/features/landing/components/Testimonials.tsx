@@ -96,11 +96,37 @@ function TestimonialMessage({
 }) {
   const [expanded, setExpanded] = useState(false);
 
+  const paragraphs = message
+    .split(/\n\s*\n|\n/)
+    .map((p) => p.trim())
+    .filter(Boolean);
+
+  const visibleParagraphs = expanded ? paragraphs : paragraphs.slice(0, 1);
+
   return (
     <div>
-      <p className={`${textClass} whitespace-pre-line ${expanded ? "" : clampClass}`}>
-        "{message}"
-      </p>
+      <div className={textClass}>
+        {visibleParagraphs.map((para, i) => {
+          const isFirst = i === 0;
+          const isLastVisible = i === visibleParagraphs.length - 1;
+          const showClosingQuote = expanded && isLastVisible;
+
+          return (
+            <p
+              key={i}
+              className={`${i > 0 ? "mt-3" : ""} ${
+                !expanded ? clampClass : ""
+              }`}
+              style={{ textIndent: "1.5em" }}
+            >
+              {isFirst && "\u201C"}
+              {para}
+              {showClosingQuote && "\u201D"}
+            </p>
+          );
+        })}
+      </div>
+
       <button
         type="button"
         onClick={() => setExpanded((prev) => !prev)}
@@ -177,7 +203,7 @@ export function Testimonials({
                   <TestimonialMessage
                     message={featured.message}
                     clampClass="line-clamp-6"
-                    textClass="font-serif text-xl md:text-[1.35rem] italic text-foreground leading-relaxed"
+                    textClass="font-serif text-base md:text-xl lg:text-[1.35rem] italic text-foreground leading-relaxed"
                     toggleClass="text-primary hover:text-primary/70"
                   />
                 </div>
@@ -228,7 +254,7 @@ export function Testimonials({
                   <TestimonialMessage
                     message={t.message}
                     clampClass="line-clamp-5"
-                    textClass="font-sans text-base md:text-lg text-muted-foreground leading-relaxed"
+                    textClass="font-sans text-base md:text-lg text-foreground leading-relaxed"
                     toggleClass="text-secondary hover:text-secondary/70"
                   />
                 </div>
