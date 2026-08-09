@@ -6,7 +6,6 @@ import type {
 export const TIERS: TierOption[] = [
   { value: "basic", label: "Basic" },
   { value: "plus", label: "Plus" },
-  { value: "premium", label: "Premium" },
 ];
 
 export const EMPTY_SUBSCRIPTION_FORM: SubscriptionFormValues = {
