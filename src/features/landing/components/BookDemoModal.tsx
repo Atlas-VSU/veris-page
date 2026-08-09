@@ -107,11 +107,11 @@ export function BookDemoModal({
                 </Field>
 
                 <Field data-invalid={!!errors.orgEmail}>
-                  <FieldLabel htmlFor="orgEmail">Organization email</FieldLabel>
+                  <FieldLabel htmlFor="orgEmail">Organization/Personal email</FieldLabel>
                   <Input
                     id="orgEmail"
                     type="email"
-                    placeholder="org-email@vsu.edu.ph"
+                    placeholder="guess@example.com"
                     value={form.orgEmail}
                     onChange={(e) => update("orgEmail", e.target.value)}
                     aria-invalid={!!errors.orgEmail}
