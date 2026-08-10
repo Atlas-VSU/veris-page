@@ -114,9 +114,8 @@ function TestimonialMessage({
           return (
             <p
               key={i}
-              className={`${i > 0 ? "mt-3" : ""} ${
-                !expanded ? clampClass : ""
-              }`}
+              className={`${i > 0 ? "mt-3" : ""} ${!expanded ? clampClass : ""
+                }`}
               style={{ textIndent: "1.5em" }}
             >
               {isFirst && "\u201C"}
@@ -134,9 +133,8 @@ function TestimonialMessage({
       >
         {expanded ? "Show less" : "Read more"}
         <ChevronDown
-          className={`w-3.5 h-3.5 transition-transform duration-200 ${
-            expanded ? "rotate-180" : ""
-          }`}
+          className={`w-3.5 h-3.5 transition-transform duration-200 ${expanded ? "rotate-180" : ""
+            }`}
         />
       </button>
     </div>
@@ -226,7 +224,7 @@ export function Testimonials({
                 <div className="mt-4">
                   <TestimonialMessage
                     message={firstRest.message}
-                    clampClass="line-clamp-6" 
+                    clampClass="line-clamp-6"
                     textClass="font-sans text-base md:text-lg text-foreground leading-relaxed"
                     toggleClass="text-secondary hover:text-secondary/70"
                   />

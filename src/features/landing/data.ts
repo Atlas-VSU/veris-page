@@ -78,8 +78,7 @@ export const defaultTestimonials: Testimonial[] = [
       I appreciate having a system that reduces manual work. The integration of USSC Connect with SUREPay, which make online payments available and also releases customized digital receipts, has offered greater convenience for the students we aim to serve. I also appreciate how proactive and responsive the VERIS team has been to our feedback and actual needs on the ground throughout the entire development. 
 
       It has been fulfilling to see the platform develop from an idea into something that can genuinely support student governance. I believe there's still so much potential for expansion of the system with the drive and passion the team has for their work. I look forward to seeing USSC Connect and the entire team behind it continue to grow and become an even more integral part of student services at VSU.`,
-    avatarPicture:
-      "/testimonial-img/Kleenie-Elumene-Yuzon.jpg",
+    avatarPicture: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/testimonials/Kleenie-Elumene-Yuzon.jpg`,
     blobShape: "blob-shape-1",
     accent: "primary",
     featured: true,
@@ -91,8 +90,7 @@ export const defaultTestimonials: Testimonial[] = [
     service: "USSC Connect",
     message: `Thank you for bringing to life the dreams we once had for the council. You have helped us make the system more organized and systematic—from long queues to a smoother and more efficient process.
       I am truly grateful for the God-given talent you all have and for the way you have used it in service of the Viscan community. Thank you for the time, effort, and heart you have given to the council. Your contribution has made a difference, and I hope you know how much your service is appreciated.`,
-    avatarPicture:
-      "/testimonial-img/Kyle-Ambid.jpeg",
+    avatarPicture: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/testimonials/Kyle-Ambid.jpeg`,
     blobShape: "blob-shape-2",
     accent: "primary",
   },
@@ -104,8 +102,7 @@ export const defaultTestimonials: Testimonial[] = [
     message:
       `In my experience, signing clearances and collecting payments was easy, the lines moved quickly, allowing us to assist many students daily. And accessing pending payments and clearing them in the system was seamless, as it required just a few clicks instead of manually updating multiple spreadsheet cells. 
       And because fines were also logged automatically from faculty attendance checks at events, students rarely questioned the accuracy of how their fines came to be. Overall, it made the entire process much smoother, more reliable, and hassle-free for the council and also the students.`,
-    avatarPicture:
-      "/testimonial-img/Crystel-Jane-Gadil.jpg",
+    avatarPicture: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/testimonials/Crystel-Jane-Gadil.jpg`,
     blobShape: "blob-shape-3",
     accent: "secondary",
   },
@@ -115,8 +112,7 @@ export const defaultTestimonials: Testimonial[] = [
     role: "USSC Auditor",
     service: "USSC Connect",
     message: `USSC Connect reflects VSU’s commitment to innovation by making student services more accessible, efficient, and transparent. As a student-centered initiative, it simplifies processes—from recording attendance to managing transactions—while making it easier for both students and student officers to access, manage, and deliver services. More than a digital system, it brings innovation closer to every Viscan.`,
-    avatarPicture:
-      "/testimonial-img/Reniel-Emberso.jpeg",
+    avatarPicture: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/testimonials/Reniel-Emberso.jpeg`,
     blobShape: "blob-shape-1",
     accent: "secondary",
   }
