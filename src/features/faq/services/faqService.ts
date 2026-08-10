@@ -1,45 +1,30 @@
-import { supabase } from "@/lib/supabase/config";
+export type FAQItem = { 
+  question: string; 
+  answer: string; 
+  category: string; 
+};
 
-export type FAQItem = { q: string; a: string };
-
-function isValidFaqArray(value: unknown): value is FAQItem[] {
-  return (
-    Array.isArray(value) &&
-    value.every(
-      (item) =>
-        typeof item === "object" &&
-        item !== null &&
-        typeof (item as FAQItem).q === "string" &&
-        typeof (item as FAQItem).a === "string",
-    )
-  );
-}
-
+/**
+ * BACKEND DEV INSTRUCTIONS:
+ * 
+ * 1. A new dedicated table for FAQs has been/will be created in Supabase.
+ * 2. The table should have columns matching the `FAQItem` type above:
+ *    - `question` (text)
+ *    - `answer` (text)
+ *    - `category` (text)
+ * 3. Update this function to fetch directly from the new table instead of `site_content`.
+ * 
+ * Example implementation:
+ * const { data, error } = await supabase.from("faqs").select("*");
+ * if (error) {
+ *   console.error("Failed to fetch FAQs:", error);
+ *   return null;
+ * }
+ * return data as FAQItem[];
+ */
 export async function getFaqItems(): Promise<FAQItem[] | null> {
-  const { data, error } = await supabase
-    .from("site_content")
-    .select("value")
-    .eq("key", "faq_items")
-    .single();
-
-  if (error || !data) {
-    console.error("Failed to fetch FAQ content:", error);
-    return null;
-  }
-
-  let parsed: unknown;
-
-  try {
-    parsed = JSON.parse(data.value);
-  } catch {
-    console.error("Malformed JSON for site_content key: faq_items");
-    return null;
-  }
-
-  if (!isValidFaqArray(parsed)) {
-    console.error("faq_items JSON is valid but has the wrong shape:", parsed);
-    return null;
-  }
-
-  return parsed;
+  // TODO (Backend): Implement fetching from the dedicated 'faqs' table.
+  // For now, returning null to force the UI to use the fallback mock data.
+  
+  return null;
 }
