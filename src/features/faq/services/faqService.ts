@@ -1,3 +1,5 @@
+import { supabase } from "@/lib/supabase/config";
+
 export type FAQItem = {
   question: string;
   answer: string;
@@ -5,8 +7,14 @@ export type FAQItem = {
 };
 
 export async function getFaqItems(): Promise<FAQItem[] | null> {
-  // TODO (Backend): Implement fetching from the dedicated 'faqs' table.
-  // For now, returning null to force the UI to use the fallback mock data.
+  const { data, error } = await supabase
+    .from('faq')
+    .select('question, answer, category');
 
-  return null;
+  if (error) {
+    console.error("Error fetching FAQs from Supabase:", error);
+    return null;
+  }
+
+  return data as FAQItem[];
 }
